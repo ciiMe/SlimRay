@@ -195,12 +195,26 @@ namespace SR.Base.Types
                 byte[] b = md5p.ComputeHash(Encoding.Default.GetBytes(str));
 
                 foreach (byte i in b)
-                { 
+                {
                     re += i.ToString("x").PadLeft(2, '0');
                 }
             }
 
             return re.ToUpper();
+        }
+
+        /// <summary>
+        /// 只比较字符，忽略空格、大小写的比较。在这情况下：" a b cdef"=="abc de f"是成立的
+        /// </summary>
+        /// <param name="s1"></param>
+        /// <param name="s2"></param>
+        /// <returns></returns>
+        public static bool CharCompare(string s1, string s2)
+        {
+            return
+            (s1 != null && s2 != null)
+            &&
+            s1.Replace(" ", "").ToUpper() == s2.Replace(" ", "").ToUpper();
         }
     }
 }
