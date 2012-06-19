@@ -39,6 +39,14 @@ namespace SR.Data.DB.DBFacory
             }
         }
 
+        public ADBFactoryCreator(bool isAutoRegCreator = true)
+        {
+            if (isAutoRegCreator)
+            {
+                RegCreator();
+            }
+        }
+
         public abstract IDBFactory CreateNewFactory();
 
         public void RegCreator()
