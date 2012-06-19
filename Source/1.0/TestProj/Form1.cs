@@ -82,12 +82,14 @@ namespace TestProj
             ci.UserName = "sa";
             ci.Password = "123";
 
-            DBFacoryPool.Instance.AddByConnectionInfo(ci);
+
+            new SR.Data.DB.DBFacory.MSSQL2000.DBFactoryCreator_MSSQL2000().RegCreator();
+            DBFacoryPool.Instance.AddConnectionInfo(ci);
 
             //conn in plan
             SQLTextPlan plan = new SQLTextPlan();
-            //plan.ConnectionInfo = ci;
-            plan.SQLText.Append(this.textBox1.Text );
+            plan.ConnectionInfo = ci;
+            plan.SQLText.Append("select * from Budget_RQ..s_Power ");
 
 
             DBHelper helper = new DBHelper();
@@ -98,6 +100,33 @@ namespace TestProj
         private void Form1_Enter(object sender, EventArgs e)
         {
             mskForm.Activate();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //MySQL_ConnectionInfo ci = new MySQL_ConnectionInfo();
+
+            //ci.HostAddress = "localhost";
+            //ci.DataBase = "testdb";
+            //ci.UserName = "root";
+            //ci.Password = "xaini1";
+
+            //SQLTextPlan plan = new SQLTextPlan();
+            //plan.SQLText.Append("select * from d_Studnt;");
+
+            //SR.Data.DB.MySQLExtend.Reg.doReg();
+            //DBFacoryPool.Instance.AddConnectionInfo(ci);
+
+
+            //DBHelper helper = new DBHelper();
+
+            //this.dataGridView2.DataSource = helper.GetDataTable(plan);        
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            button2.PerformClick();
+            button1.PerformClick();
         }
     }
 }
