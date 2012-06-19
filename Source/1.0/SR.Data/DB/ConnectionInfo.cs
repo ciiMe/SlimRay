@@ -42,6 +42,12 @@ namespace SR.Data.DB
             set { _Password = value; }
         }
 
+        public ADBConnectionInfo()
+        {
+            _Key = "";
+            _Password = "";
+        }
+
         public abstract string ConnectionString { get; }
     }
     public abstract class AUserPasswordConnectionInfo : ADBConnectionInfo
@@ -52,6 +58,11 @@ namespace SR.Data.DB
         {
             get { return _UserName; }
             set { _UserName = value; }
+        }
+
+        public AUserPasswordConnectionInfo()
+        {
+            _UserName = "";
         }
     }
 
@@ -71,6 +82,12 @@ namespace SR.Data.DB
         {
             get { return _HostAddress; }
             set { _HostAddress = value; }
+        }
+
+        public AServerDBConnection()
+        {
+            _Port = 0;
+            _HostAddress = "";
         }
     }
 
@@ -114,6 +131,11 @@ namespace SR.Data.DB
             get { return _FileName; }
             set { _FileName = value; }
         }
+
+        public AFileDBConnectionInfo()
+        {
+            _FileName = "";
+        }
     }
 
     /// <summary>
@@ -152,6 +174,7 @@ namespace SR.Data.DB
         public Oracle_ConnectionInfo()
         {
             _ConnectionType = ValidDBConnectionType.Oracle;
+            _DataSource = "";
         }
 
         public override string ConnectionString
