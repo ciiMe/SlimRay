@@ -85,4 +85,12 @@ namespace SR.Base.Interface
     {
         string Password { get; set; }
     }
+
+    /// <summary>
+    /// 表示有关键字的对象，可以通过关键字检索之。
+    /// </summary>
+    public interface IKey
+    {
+        string Key { get; set; }
+    }
 }
