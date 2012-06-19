@@ -2,13 +2,13 @@
 using System.Data.Common;
 using System.Data.SqlClient;
 
-namespace SR.Data.DB.DBFacory.Items
+namespace SR.Data.DB.DBFacory.MSSQL2000
 {
-    public class MSSQL2000DBFactoryItem : ADBFacoryItem
+    public class DBFactory_MSSQL2000 : ADBFacory
     {
-        public MSSQL2000DBFactoryItem()
+        public DBFactory_MSSQL2000()
         {
-            _ConnectionInfo = new MSSQL2000_ConnectionInfo();
+            _ConnectionType = ValidDBConnectionType.MSSQLServer2000;
         }
 
         public override DbConnection NewDBConnection(IConnectionInfo ci)
@@ -22,17 +22,17 @@ namespace SR.Data.DB.DBFacory.Items
             return conn;
         }
 
-        public override DbDataAdapter NewDBDataAdapter(IConnectionInfo ci)
+        public override DbDataAdapter NewDBDataAdapter()
         {
             return new SqlDataAdapter();
         }
 
-        public override DbCommand NewDBCommand(IConnectionInfo ci)
+        public override DbCommand NewDBCommand()
         {
             return new SqlCommand();
         }
 
-        public override DbParameter NewDBParameter(IConnectionInfo ci)
+        public override DbParameter NewDBParameter()
         {
             return new SqlParameter();
         }

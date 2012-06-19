@@ -8,7 +8,7 @@ using SR.Base.Interface;
 
 namespace SR.Data.DB
 {
-    public interface IConnectionInfo : IIndex
+    public interface IConnectionInfo : IIndex,IKey
     {
         ValidDBConnectionType ConnectionType { get; }
 
@@ -17,13 +17,21 @@ namespace SR.Data.DB
         string ConnectionString { get; }
     }
 
-    public abstract class ADBConnectionInfo : A_Index, IConnectionInfo
+    public abstract class ADBConnectionInfo : A_Index,IKey, IConnectionInfo
     {
         protected ValidDBConnectionType _ConnectionType;
 
         public ValidDBConnectionType ConnectionType
         {
             get { return _ConnectionType; }
+        }
+
+        protected string _Key;
+
+        public string Key
+        {
+            get { return _Key; }
+            set { _Key = value; }
         }
 
         protected string _Password;
@@ -51,7 +59,7 @@ namespace SR.Data.DB
     {
         protected int _Port;
 
-        public  int Port
+        public int Port
         {
             get { return _Port; }
             set { _Port = value; }
@@ -120,7 +128,7 @@ namespace SR.Data.DB
 
         public override string ConnectionString
         {
-            get 
+            get
             {
                 return string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Jet OLEDB:Database Password={1}",
                     _FileName, _Password);
@@ -148,12 +156,44 @@ namespace SR.Data.DB
 
         public override string ConnectionString
         {
-            get 
+            get
             {
                 return string.Format("Data Source={0};User Id={1};Password={2};",
                     _DataSource,
                     _UserName,
                     _Password);
+            }
+        }
+    }
+
+    public class MySQL_ConnectionInfo : AServerDBConnection
+    {
+        private string _DataBase;
+
+        public string DataBase
+        {
+            get { return _DataBase; }
+            set { _DataBase = value; }
+        }
+
+        public MySQL_ConnectionInfo()
+        {
+            _ConnectionType = ValidDBConnectionType.MySQL;
+
+            _Port = 3306;
+        }
+        
+        public override string ConnectionString
+        {
+            get
+            {
+                return string.Format("Server={0};Port={1};Database={2};Uid={3};Pwd={4};",
+                    _HostAddress,
+                    _Port,
+                    _DataBase,
+                    _UserName,
+                    _Password
+                    );
             }
         }
     }

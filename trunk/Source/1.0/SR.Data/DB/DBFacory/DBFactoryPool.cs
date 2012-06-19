@@ -7,6 +7,15 @@ using System.Data.Common;
 /*
  * the factory pool
  * 
+ * 每一个连接信息都被保存，以支持生产各种类型的数据库操作部件
+ * 
+ * 每一个类型的数据库工厂只保持一个实例
+ * 
+ * 对于调用者，连接信息是透明的，只需要使用相应连接信息的配置进行数据库操作，不必关心内部如何维护
+ * 
+ * 
+ * 如果这个连接字符串没有，那么调用ItemMap生产一个。
+ * 
  * item:
  *      is designed as ST mode,without destory now..
  *      auto created when request db command by the ConnectionInfo
@@ -16,33 +25,80 @@ using System.Data.Common;
 namespace SR.Data.DB.DBFacory
 {
     [Serializable]
-    public class DBFacoryPool : IDBFactoryItem
+    public class DBFacoryPool
     {
         /// <summary>
         /// 委托，操作FactoryItem来生成相应的对象。
+        /// 将操作放到外部，查询和校验放在一起。以完成同一对象不同功能的基础代码的聚合。
         /// </summary>
         /// <param name="item"></param>
         /// <param name="ci"></param>
         /// <returns></returns>
-        private delegate object DoNew(IDBFactoryItem item, IConnectionInfo ci);
-        
+        private delegate object DoNew(IDBFactory item, IConnectionInfo ci);
+
         /// <summary>
         /// 池中的对象列表
         /// </summary>
-        private List<IDBFactoryItem> _Items;
+        private List<IDBFactory> _FactoryItems;
+
+        /// <summary>
+        /// 保存的连接信息列表
+        /// </summary>
+        private List<IConnectionInfo> _ConnectionInfoItems;
+
+        private int __DefaultConnectionInfoIndex;
+
+        /// <summary>
+        /// 管理默认连接限定其值在：-1或者正常范围。
+        /// </summary>
+        private int _DefaultConnectionInfoIndex
+        {
+            get
+            {
+                if (_ConnectionInfoItems.Count == 0)
+                {
+                    __DefaultConnectionInfoIndex = -1;
+                }
+                else if (__DefaultConnectionInfoIndex < 0 || __DefaultConnectionInfoIndex >= _ConnectionInfoItems.Count)
+                {
+                    __DefaultConnectionInfoIndex = 0;
+                }
+
+                return __DefaultConnectionInfoIndex;
+            }
+        }
+
+        private IConnectionInfo DefaultConnectionInfo
+        {
+            get
+            {
+                if (_DefaultConnectionInfoIndex < 0)
+                {
+                    return null;
+                }
+
+                return _ConnectionInfoItems[__DefaultConnectionInfoIndex];
+            }
+            set
+            {
+                __DefaultConnectionInfoIndex = _GetConnectionInfoIndex(value);
+            }
+        }
 
         public DBFacoryPool()
         {
-            _Items = new List<IDBFactoryItem>();
+            _FactoryItems = new List<IDBFactory>();
+
+            _ConnectionInfoItems = new List<IConnectionInfo>();
+
+            __DefaultConnectionInfoIndex = -1;
         }
 
-        private bool _Exists(IConnectionInfo ci)
+        private bool _IsConnInfoExists(IConnectionInfo ci)
         {
-            string s = ci.ConnectionString.ToUpper();
-
-            foreach (IDBFactoryItem item in _Items)
+            foreach (IConnectionInfo connInfo in _ConnectionInfoItems)
             {
-                if (item.ConnectionInfo.ConnectionString.ToUpper() == s)
+                if (SR.Base.Types.Strings.CharCompare(connInfo.ConnectionString, ci.ConnectionString))
                 {
                     return true;
                 }
@@ -51,29 +107,98 @@ namespace SR.Data.DB.DBFacory
             return false;
         }
 
-        /// <summary>
-        /// 将该类型的连接放入池中。默认检查存在性，不会将连接字符串相同的对象重复放入。
-        /// </summary>
-        /// <param name="ci">连接信息</param>
-        /// <returns></returns>
-        public bool AddByConnectionInfo(IConnectionInfo ci)
+        private bool _IsFactoryExists(IConnectionInfo ci)
         {
-            if (_Exists(ci))
+            foreach (IDBFactory item in _FactoryItems)
             {
-                return true;
+                if (item.ConnectionType == ci.ConnectionType)
+                {
+                    return true;
+                }
             }
 
-            //create by factory
-            IDBFactoryItem i = DBFactoryItemMap.NewInstance(ci);
+            return false;
+        }
+
+        private bool _AddNewFactory(IConnectionInfo ci)
+        {
+            IDBFactory i = DBFactoryCreatorPool.Instance.CreateNewFactory(ci.ConnectionType);
 
             if (null == i)
             {
                 return false;
             }
 
-            _Items.Add(i);
+            _FactoryItems.Add(i);
 
             return true;
+        }
+
+        /// <summary>
+        /// 将该连接信息配置加入配置列表。会检查存在性，不会将连接字符串相同的连接信息重复放入。
+        /// </summary>
+        /// <param name="ci">连接信息</param>
+        /// <returns></returns>
+        public bool AddConnectionInfo(IConnectionInfo ci)
+        {
+            if (_IsConnInfoExists(ci))
+            {
+                return true;
+            }
+
+            if (!_AddNewFactory(ci))
+            {
+                return false;
+            }
+
+            _ConnectionInfoItems.Add(ci);
+
+            return true;
+        }
+
+        /// <summary>
+        /// 查询同ConnectionType的连接信息的总数
+        /// </summary>
+        /// <param name="ci"></param>
+        /// <returns></returns>
+        private int _GetConnectionTypeCount(ValidDBConnectionType ct)
+        {
+            int i = 0;
+
+            foreach (IDBFactory item in _FactoryItems)
+            {
+                if (item.ConnectionType == ct)
+                {
+                    i++;
+                }
+            }
+
+            return i;
+        }
+
+        private int _GetFactoryIndex(ValidDBConnectionType ct)
+        {
+            for (int i = 0; i < _FactoryItems.Count; i++)
+            {
+                if (_FactoryItems[i].ConnectionType == ct)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        private int _GetConnectionInfoIndex(IConnectionInfo ci)
+        {
+            for (int i = 0; i < _ConnectionInfoItems.Count; i++)
+            {
+                if (SR.Base.Types.Strings.CharCompare(ci.ConnectionString, _ConnectionInfoItems[i].ConnectionString))
+                {
+                    return i;
+                }
+            }
+            return -1;
         }
 
         private static DBFacoryPool _Instance;
@@ -90,9 +215,30 @@ namespace SR.Data.DB.DBFacory
             }
         }
 
-        public void RemoveAt(int index)
+        public void RemoveConnectionInfoAt(int index)
         {
-            _Items.RemoveAt(index);
+            if (index < 0 || index >= _ConnectionInfoItems.Count)
+            {
+                return;
+            }
+
+            int td = _GetConnectionTypeCount(_ConnectionInfoItems[index].ConnectionType);
+
+            if (td == 0)
+            {
+                return;
+            }
+            else if (td == 1)
+            {
+                int i = _GetFactoryIndex(_ConnectionInfoItems[index].ConnectionType);
+
+                _FactoryItems.RemoveAt(i);
+                _ConnectionInfoItems.RemoveAt(index);
+            }
+            else
+            {
+                _ConnectionInfoItems.RemoveAt(index);
+            }
         }
 
         /// <summary>
@@ -101,32 +247,32 @@ namespace SR.Data.DB.DBFacory
         /// </summary>
         /// <param name="ci"></param>
         /// <returns></returns>
-        public int GetItemIndex(IConnectionInfo ci)
+        public int GetFactoryItemIndex(IConnectionInfo ci)
         {
             // if ci is null,return 0 as a default ItemIndex
             if (null == ci)
             {
-                if (_Items.Count == 0)
+                if (_FactoryItems.Count == 0)
                 {
                     return -1;
                 }
 
-                return 0;
+                return _DefaultConnectionInfoIndex;
             }
 
             //not null: get from Pool items
-            for (int i = 0; i < _Items.Count; i++)
+            for (int i = 0; i < _FactoryItems.Count; i++)
             {
-                if (_Items[i].IsMyType(ci))
+                if (_FactoryItems[i].IsMyType(ci))
                 {
                     return i;
                 }
             }
 
             //if not find ,create it.
-            if (AddByConnectionInfo(ci))
+            if (AddConnectionInfo(ci))
             {
-                return _Items.Count - 1;
+                return _FactoryItems.Count - 1;
             }
 
             return -1;
@@ -136,36 +282,46 @@ namespace SR.Data.DB.DBFacory
 
         #region __do new...
 
-        private object _DoNewConn(IDBFactoryItem i, IConnectionInfo ci)
+        private object _DoNewConn(IDBFactory i, IConnectionInfo ci)
         {
             return i.NewDBConnection(ci);
         }
 
-        private object _DoNewAdpt(IDBFactoryItem i, IConnectionInfo ci)
+        private object _DoNewAdpt(IDBFactory i, IConnectionInfo ci)
         {
-            return i.NewDBDataAdapter(ci);
+            return i.NewDBDataAdapter();
         }
 
-        private object _DoNewPar(IDBFactoryItem i, IConnectionInfo ci)
+        private object _DoNewPar(IDBFactory i, IConnectionInfo ci)
         {
-            return i.NewDBParameter(ci);
+            return i.NewDBParameter();
         }
 
-        private object _DoNewCmd(IDBFactoryItem i, IConnectionInfo ci)
+        private object _DoNewCmd(IDBFactory i, IConnectionInfo ci)
         {
-            return i.NewDBCommand(ci);
+            return i.NewDBCommand();
         }
 
-        private object _CallDoNew(IConnectionInfo ci, DoNew d)
+        private object _DoNew_CallFacotyInPool(IConnectionInfo ci, DoNew d)
         {
-            int i = GetItemIndex(ci);
+            if (ci == null)
+            {
+                if (_DefaultConnectionInfoIndex < 0)
+                {
+                    return null;
+                }
+
+                return d(_FactoryItems[_GetFactoryIndex(_ConnectionInfoItems[__DefaultConnectionInfoIndex].ConnectionType)], _ConnectionInfoItems[__DefaultConnectionInfoIndex]);
+            }
+
+            int i = GetFactoryItemIndex(ci);
 
             if (i < 0)
             {
                 return null;
             }
-
-            return d(_Items[i], _Items[i].ConnectionInfo);
+            
+            return d(_FactoryItems[i], ci);
         }
 
         #endregion
@@ -176,7 +332,7 @@ namespace SR.Data.DB.DBFacory
         /// <returns></returns>
         public DbConnection NewDBConnection(IConnectionInfo ci)
         {
-            return _CallDoNew(ci, _DoNewConn) as DbConnection;
+            return _DoNew_CallFacotyInPool(ci, _DoNewConn) as DbConnection;
         }
 
         /// <summary>
@@ -185,7 +341,7 @@ namespace SR.Data.DB.DBFacory
         /// <returns></returns>
         public DbDataAdapter NewDBDataAdapter(IConnectionInfo ci)
         {
-            return _CallDoNew(ci, _DoNewAdpt) as DbDataAdapter;
+            return _DoNew_CallFacotyInPool(ci, _DoNewAdpt) as DbDataAdapter;
         }
 
         /// <summary>
@@ -195,7 +351,7 @@ namespace SR.Data.DB.DBFacory
         /// <returns></returns>
         public DbParameter NewDBParameter(IConnectionInfo ci)
         {
-            return _CallDoNew(ci, _DoNewPar) as DbParameter;
+            return _DoNew_CallFacotyInPool(ci, _DoNewPar) as DbParameter;
         }
 
         /// <summary>
@@ -226,15 +382,15 @@ namespace SR.Data.DB.DBFacory
         /// <returns></returns>
         public DbParameter NewDBParameter(string name, object val)
         {
-            if (_Items.Count == 0)
+            if (_FactoryItems.Count == 0)
             {
                 return null;
             }
 
-            return NewDBParameter(_Items[0].ConnectionInfo, name, val);
+            return NewDBParameter(_ConnectionInfoItems[0], name, val);
         }
 
-        public IConnectionInfo ConnectionInfo
+        public ValidDBConnectionType ConnectionType
         {
             get { throw new NotImplementedException(); }
         }
@@ -245,7 +401,7 @@ namespace SR.Data.DB.DBFacory
         /// <returns></returns>
         public DbCommand NewDBCommand(IConnectionInfo ci)
         {
-            return _CallDoNew(ci, _DoNewCmd) as DbCommand;
+            return _DoNew_CallFacotyInPool(ci, _DoNewCmd) as DbCommand;
         }
 
         public bool IsMyType(IConnectionInfo ci)
