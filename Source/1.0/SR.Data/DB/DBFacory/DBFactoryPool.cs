@@ -302,6 +302,11 @@ namespace SR.Data.DB.DBFacory
             return i.NewDBCommand();
         }
 
+        /*
+         * 如果没有指定连接信息，那么按照默认的连接信息。
+         * 
+         * 如果指定了连接信息，那么调用此类型的工厂生产一份套件来操作数据库。
+         */
         private object _DoNew_CallFacotyInPool(IConnectionInfo ci, DoNew d)
         {
             if (ci == null)
@@ -309,6 +314,11 @@ namespace SR.Data.DB.DBFacory
                 if (_DefaultConnectionInfoIndex < 0)
                 {
                     return null;
+                }
+
+                if (_FactoryItems.Count == 1)
+                {
+                    return d(_FactoryItems[0], _ConnectionInfoItems[__DefaultConnectionInfoIndex]);
                 }
 
                 return d(_FactoryItems[_GetFactoryIndex(_ConnectionInfoItems[__DefaultConnectionInfoIndex].ConnectionType)], _ConnectionInfoItems[__DefaultConnectionInfoIndex]);
