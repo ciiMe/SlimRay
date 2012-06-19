@@ -7,7 +7,7 @@ namespace SR.Data.DB.DBFacory.MSSQL2000
 {
     public class DBFactoryCreator_MSSQL2000 : ADBFactoryCreator
     {
-        public DBFactoryCreator_MSSQL2000()
+        public DBFactoryCreator_MSSQL2000(bool isRegToSystem = true):base(isRegToSystem)
         {
             _ConnectionType = ValidDBConnectionType.MSSQLServer2000;
         }

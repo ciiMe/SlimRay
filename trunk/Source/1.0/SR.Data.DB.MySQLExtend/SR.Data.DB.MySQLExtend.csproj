@@ -5,74 +5,50 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{ECFDA573-88F9-4D8B-BED3-45CAA3B00721}</ProjectGuid>
+    <ProjectGuid>{DD13EDE5-17C4-4208-B201-FA14B0615FF4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SR.Data</RootNamespace>
-    <AssemblyName>SR.Data</AssemblyName>
+    <RootNamespace>SR.Data.DB.MySQLExtend</RootNamespace>
+    <AssemblyName>SR.Data.DB.MySQLExtend</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\Debug\1.0\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>none</DebugType>
+    <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\Release\1.0\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.5.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.OracleClient" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DB\DBFacory\DBFactoryCreator.cs" />
-    <Compile Include="DB\DBFacory\DBFactoryCreatorPool.cs" />
-    <Compile Include="DB\DBFacory\MSSQL2000\DBFactoryCreator_MSSQL2000.cs" />
-    <Compile Include="DB\Helper\ADBHelper.cs" />
-    <Compile Include="DB\BasicInterfaces.cs" />
-    <Compile Include="DB\ConnectionInfo.cs" />
-    <Compile Include="DB\DBConst\DBHelperConst.cs" />
-    <Compile Include="DB\DBFacory\ADBFacory.cs" />
-    <Compile Include="DB\DBFacory\IDBFactory.cs" />
-    <Compile Include="DB\DBFacory\MSSQL2000\DBFactory_MSSQL2000.cs" />
-    <Compile Include="DB\DBFacory\DBFactoryPool.cs" />
-    <Compile Include="DB\Helper\DBHelper.cs" />
-    <Compile Include="DB\ISQLPlan.cs" />
-    <Compile Include="DB\SORM\ICondtion.cs" />
-    <Compile Include="DB\SORM\IUserData.cs" />
-    <Compile Include="DB\SORM\IUserField.cs" />
-    <Compile Include="DB\SORM\DataType.cs" />
-    <Compile Include="DB\SQLPlan.cs" />
-    <Compile Include="DB\SORM\PlanDefine.cs" />
-    <Compile Include="DB\Tools\XML_DT.cs" />
-    <Compile Include="DB\ExecutePlanException.cs" />
-    <Compile Include="DB\Helper\IDBHelper.cs" />
-    <Compile Include="DB\Helper\STDBHelper.cs" />
-    <Compile Include="DB\ValidDBConnection.cs" />
-    <Compile Include="IExecutePlan.cs" />
+    <Compile Include="DBFactoryCreator_MySQL.cs" />
+    <Compile Include="DBFacory_MySQL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\SR.Base\SR.Base.csproj">
       <Project>{0A786E5A-F331-4714-B02B-E4DE66F5A86E}</Project>
       <Name>SR.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SR.Data\SR.Data.csproj">
+      <Project>{ECFDA573-88F9-4D8B-BED3-45CAA3B00721}</Project>
+      <Name>SR.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

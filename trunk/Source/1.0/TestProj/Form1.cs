@@ -83,7 +83,7 @@ namespace TestProj
             ci.Password = "123";
 
 
-            new SR.Data.DB.DBFacory.MSSQL2000.DBFactoryCreator_MSSQL2000().RegCreator();
+            new SR.Data.DB.DBFacory.MSSQL2000.DBFactoryCreator_MSSQL2000();
             DBFacoryPool.Instance.AddConnectionInfo(ci);
 
             //conn in plan
