@@ -17,4 +17,9 @@ App_Demo::App_Demo()
         a.Load();
         a.Update();
     }
+
+    if(0)
+    {
+        a.End();
+    }
 }
