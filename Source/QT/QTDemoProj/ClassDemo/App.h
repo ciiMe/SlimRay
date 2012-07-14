@@ -2,7 +2,7 @@
 #define APP_H
 
 namespace HHT
-{
+    {
     namespace APP
     {
         class IAPP
@@ -12,9 +12,15 @@ namespace HHT
                 void End();
         };
 
+        /*
+        App Manager..
+        */
         class IAPPManager
         {
             public:
+                /*
+                Load an App..
+                */
                 void Load();
         };
     }
