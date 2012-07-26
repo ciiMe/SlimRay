@@ -252,12 +252,7 @@ namespace SR.Data.DB.DBFacory
             // if ci is null,return 0 as a default ItemIndex
             if (null == ci)
             {
-                if (_FactoryItems.Count == 0)
-                {
-                    return -1;
-                }
-
-                return _DefaultConnectionInfoIndex;
+                return _FactoryItems.Count == 0 ? -1 : _DefaultConnectionInfoIndex;
             }
 
             //not null: get from Pool items
@@ -270,12 +265,7 @@ namespace SR.Data.DB.DBFacory
             }
 
             //if not find ,create it.
-            if (AddConnectionInfo(ci))
-            {
-                return _FactoryItems.Count - 1;
-            }
-
-            return -1;
+            return AddConnectionInfo(ci) ? _FactoryItems.Count - 1 : -1;
         }
 
         #region interface method
@@ -316,22 +306,14 @@ namespace SR.Data.DB.DBFacory
                     return null;
                 }
 
-                if (_FactoryItems.Count == 1)
-                {
-                    return d(_FactoryItems[0], _ConnectionInfoItems[__DefaultConnectionInfoIndex]);
-                }
-
-                return d(_FactoryItems[_GetFactoryIndex(_ConnectionInfoItems[__DefaultConnectionInfoIndex].ConnectionType)], _ConnectionInfoItems[__DefaultConnectionInfoIndex]);
+                return _FactoryItems.Count == 1 ?
+                    d(_FactoryItems[0], _ConnectionInfoItems[__DefaultConnectionInfoIndex]) :
+                    d(_FactoryItems[_GetFactoryIndex(_ConnectionInfoItems[__DefaultConnectionInfoIndex].ConnectionType)], _ConnectionInfoItems[__DefaultConnectionInfoIndex]);
             }
-
-            int i = GetFactoryItemIndex(ci);
-
-            if (i < 0)
+            else
             {
-                return null;
+                return GetFactoryItemIndex(ci) >= 0 ? d(_FactoryItems[i], ci) : null;
             }
-            
-            return d(_FactoryItems[i], ci);
         }
 
         #endregion
