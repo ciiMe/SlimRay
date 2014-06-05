@@ -312,7 +312,7 @@ namespace SR.Data.DB.DBFacory
             }
             else
             {
-                return GetFactoryItemIndex(ci) >= 0 ? d(_FactoryItems[i], ci) : null;
+                return GetFactoryItemIndex(ci) >= 0 ? d(_FactoryItems[0], ci) : null;
             }
         }
 
