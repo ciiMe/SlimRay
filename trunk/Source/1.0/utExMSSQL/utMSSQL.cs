@@ -12,7 +12,7 @@ using SR.Data.DB.External.MSSQL.MSSQL2000;
 namespace utExMSSQL
 {
     [TestClass]
-    public class UnitTest1
+    public class utMSSQL
     {
         [TestMethod]
         public void tMSSQL2000()

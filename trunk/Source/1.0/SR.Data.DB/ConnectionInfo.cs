@@ -8,7 +8,7 @@ using SR.Data;
 
 namespace SR.Data.DB
 {
-    public interface IConnectionInfo : IIndex, IKey
+    public interface IConnectionInfo 
     {
         ValidDBConnectionType ConnectionType { get; }
 
@@ -19,22 +19,8 @@ namespace SR.Data.DB
 
     public abstract class ADBConnectionInfo : IConnectionInfo
     {
-        protected int _index;
-
-        protected string _Key;
         protected string _Password;
         protected ValidDBConnectionType _ConnectionType;
-
-        public int Index
-        {
-            get { return _index; }
-        }
-
-        public string Key
-        {
-            get { return _Key; }
-            set { _Key = value; }
-        }
 
         public string Password
         {
@@ -49,7 +35,6 @@ namespace SR.Data.DB
 
         public ADBConnectionInfo()
         {
-            _Key = "";
             _Password = "";
         }
 
