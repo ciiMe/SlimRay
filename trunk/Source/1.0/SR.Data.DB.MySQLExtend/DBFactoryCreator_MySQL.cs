@@ -1,7 +1,8 @@
 ﻿
+using SR.Data.DB;
 using SR.Data.DB.DBFacory;
 
-namespace SR.Data.DB.MySQLExtend
+namespace SR.Data.DB.External.MySQL.MySQL
 {
     public class DBFactoryCreator_MySQL : ADBFactoryCreator
     {

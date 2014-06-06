@@ -1,10 +1,11 @@
 ﻿
 using System.Data.Common;
 
+using SR.Data.DB;
 using SR.Data.DB.DBFacory;
 using MySql.Data.MySqlClient;
 
-namespace SR.Data.DB.MySQLExtend
+namespace SR.Data.DB.External.MySQL.MySQL
 {
         public class DBFacory_MySQL : ADBFacory
         {

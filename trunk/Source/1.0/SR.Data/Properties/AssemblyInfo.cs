@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("SR.Data")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("GC..")]
+[assembly: AssemblyCompany("SlimRay")]
 [assembly: AssemblyProduct("SR.Data")]
-[assembly: AssemblyCopyright("Copyright GC..©  2012")]
+[assembly: AssemblyCopyright("Copyright © SlimRay 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
