@@ -33,19 +33,6 @@ namespace SR.Data.DB.Helper
     /// </summary>
     public abstract class ADBHelper : IDBHelper
     {
-        private int _index;
-        private string _name;
-
-        public int Index
-        {
-            get { return _index; }
-        }
-
-        public string Name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
         protected void _FillSQLTextAndParametersIntoDBCommand(DbCommand cmd, ISQLPlan plan)
         {
             cmd.Parameters.Clear();

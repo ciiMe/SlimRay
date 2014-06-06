@@ -3,7 +3,7 @@ using System.Data;
 
 namespace SR.Data.DB.Helper
 {
-    public interface IDBHelper : IIndex, IName
+    public interface IDBHelper 
     {
         object GetResult(ISQLPlan plan);
 
