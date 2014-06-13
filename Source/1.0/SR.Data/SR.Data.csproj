@@ -41,9 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="DataProvider.cs" />
+    <Compile Include="DataSet.cs" />
     <Compile Include="DataTypeKeys.cs" />
-    <Compile Include="DataTypes\SRInt.cs" />
-    <Compile Include="DataTypes\SRString.cs" />
+    <Compile Include="DataTypes\SystemDataType.cs" />
+    <Compile Include="Data.cs" />
     <Compile Include="IDataType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

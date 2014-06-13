@@ -14,6 +14,7 @@ namespace SR.Data
         /// Key is the unique code of this data type,
         /// </summary>
         int Key { get; }
+        int Level { get; }
         string Name { get; }
         string Description { get; }
     }
