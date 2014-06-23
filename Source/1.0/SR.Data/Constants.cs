@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SR.Data
+namespace SR.Data.Constants
 {
-    namespace Constants
+    public static class DataTypes
     {
-        public static class DataTypes
-        { 
-            public const int DATA_TYPE_LEVEL_SYSTEM = 0;
-        }
+        public const int DATA_TYPE_LEVEL_SYSTEM = 0;
     }
 }

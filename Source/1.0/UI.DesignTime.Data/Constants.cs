@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UI.DesignTime.Data
+namespace SR.UI.DesignTime.Data
 {
     /// <summary>
     /// Define the levels for design time data.
@@ -23,6 +23,7 @@ namespace UI.DesignTime.Data
     /// </summary>
     public enum DataKeys
     {
-        User
+        User,
+        UserStatus
     }
 }

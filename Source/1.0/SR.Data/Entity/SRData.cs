@@ -3,51 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SR.Data
+namespace SR.Data.Entity
 {
-    public interface IData
-    {
-        int Key { get; set; }
-        string Name { get; set; }
-        string Description { get; set; }
-
-        int Level { get; set; }
-
-        List<IField> Fields { get; }
-
-        void AddField(IField field);
-        void RemoveFiled(int key);
-    }
-
-    public interface IField
-    {
-        /// <summary>
-        /// The data that this filed belongs to.
-        /// </summary>
-        IData Data { get; set; }
-
-        IDataType Type { get; set; }
-
-        int Key { get; set; }
-        string Name { get; set; }
-        string Description { get; set; }
-    }
-
-    [Serializable]
     public class SRData : IData
     {
-        private int _key;
-        private string _name;
-        private string _description;
+        protected int _key;
+        protected string _name;
+        protected string _description;
 
-        private int _level;
+        protected int _level;
 
         /*
          * this is a copy of _fields,
          * this copy is created to isolate the real data,
          */
-        private readonly List<IField> _fieldsCache;
-        private List<IField> _fields;
+        protected readonly List<IField> _fieldsCache;
+        protected List<IField> _fields;
 
         public SRData(int key, string name)
         {
@@ -100,12 +71,12 @@ namespace SR.Data
             get { return _fieldsCache; }
         }
 
-        private bool isFieldExists(IField field)
+        protected bool isFieldExists(IField field)
         {
             return getFieldIndex(field.Key) >= 0;
         }
 
-        private int getFieldIndex(int key)
+        protected int getFieldIndex(int key)
         {
             for (int i = 0; i < _fields.Count; i++)
             {
@@ -149,67 +120,6 @@ namespace SR.Data
                 _fieldsCache.Clear();
                 _fieldsCache.AddRange(_fields);
             }
-        }
-    }
-
-    [Serializable]
-    public class SRField : IField
-    {
-        private int _key;
-        private string _name;
-        private IDataType _type;
-
-        private string _description;
-        private IData _data;
-
-        public SRField(int key, string name, IDataType type)
-        {
-            _key = key;
-            _name = name;
-            _type = type;
-
-            _description = "";
-            _data = null;
-        }
-
-        public SRField(int key, string name, IDataType type, string description)
-        {
-            _key = key;
-            _name = name;
-            _type = type;
-
-            _description = description;
-            _data = null;
-        }
-
-        public int Key
-        {
-            get { return _key; }
-            set { _key = value; }
-        }
-
-        public string Name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
-
-        public IDataType Type
-        {
-            get { return _type; }
-            set { _type = value; }
-        }
-
-        public string Description
-        {
-            get { return _description; }
-            set { _description = value; }
-        }
-
-        public IData Data
-        {
-            get { return _data; }
-            set { _data = value; }
         }
     }
 }

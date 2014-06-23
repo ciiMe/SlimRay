@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Data;
+
 using SR.Data;
 
 namespace SR.Data.Manager
@@ -15,9 +17,7 @@ namespace SR.Data.Manager
      */
     public interface IDataManager
     {
-        bool ValueCompare(IField field, DataCompareType ct,DataCompareMethod cm, string compareValue);
-        bool IsType(string data, IDataType type);
-
-        //IData Load(...from where??)
+        DataTable GetDataTable(IData data, IExpression expression);
+        DataRow GetDataRow(IData data, IExpression expression);
     }
 }
