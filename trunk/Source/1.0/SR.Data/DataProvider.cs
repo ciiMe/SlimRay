@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using SR.Data.DataTypes;
+using SR.Data.Entity;
 
 namespace SR.Data
 {
     public class DataProvider
     {
         private static DataProvider _instance;
+        private Entity.DataTypes _dataTypeEntities;
 
         public static DataProvider Instance
         {
@@ -19,7 +20,17 @@ namespace SR.Data
             }
         }
 
+        public DataTypes DataTypeEntities
+        {
+            get { return _dataTypeEntities; }
+        }
+
         private Dictionary<int, IDataType> _allDataTypes = new Dictionary<int, IDataType>();
+
+        public DataProvider()
+        {
+            _dataTypeEntities = new DataTypes();
+        }
 
         public bool Register(IDataType datatype)
         {
@@ -75,7 +86,7 @@ namespace SR.Data
             return re;
         }
 
-        public IDataType GetDataType(int key)
+        internal IDataType GetDataType(int key)
         {
             return _allDataTypes.ContainsKey(key) ? _allDataTypes[key] : null;
         }
@@ -83,13 +94,13 @@ namespace SR.Data
 
     internal class SystemDataProvideHelper
     {
-        public void SystemDataTypesRegister()
+        internal void SystemDataTypesRegister()
         {
             DataProvider.Instance.Register(new SRInt());
             DataProvider.Instance.Register(new SRString());
         }
 
-        public void SystemDataTypesUnregister()
+        internal void SystemDataTypesUnregister()
         {
             DataProvider.Instance.Unregister(Constants.DataTypes.DATA_TYPE_LEVEL_SYSTEM);
         }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SR.Data.DataTypes
+namespace SR.Data
 {
     internal abstract class SystemDataType : IDataType
     {

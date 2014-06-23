@@ -79,7 +79,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SR.Data.Manager", "SR.Data.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SR", "SR\SR.csproj", "{0BA9CEA4-C4C2-4D88-912D-29968165DF6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.DesignTime.Data", "UI.DesignTime.Data\UI.DesignTime.Data.csproj", "{3DF67C33-273A-4C5B-951D-85D8AE59CC29}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SR.UI.DesignTime.Data", "UI.DesignTime.Data\SR.UI.DesignTime.Data.csproj", "{3DF67C33-273A-4C5B-951D-85D8AE59CC29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

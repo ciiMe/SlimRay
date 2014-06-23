@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SR.Data
+namespace SR.Data.Manager.Relation
 {
-    class DataSet
+    public enum Relations
     {
+        Detail
     }
 }

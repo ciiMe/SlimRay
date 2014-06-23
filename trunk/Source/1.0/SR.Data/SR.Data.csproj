@@ -43,10 +43,16 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="DataProvider.cs" />
-    <Compile Include="DataSet.cs" />
+    <Compile Include="DataRelation.cs" />
+    <Compile Include="ICompareableItem.cs" />
+    <Compile Include="IField.cs" />
+    <Compile Include="Entity\SRDataSet.cs" />
     <Compile Include="DataTypeKeys.cs" />
-    <Compile Include="DataTypes\SystemDataType.cs" />
-    <Compile Include="Data.cs" />
+    <Compile Include="SystemDataType.cs" />
+    <Compile Include="IData.cs" />
+    <Compile Include="Entity\DataTypes.cs" />
+    <Compile Include="Entity\SRData.cs" />
+    <Compile Include="Entity\SRField.cs" />
     <Compile Include="IDataType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
