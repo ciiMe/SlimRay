@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace SR.UI.Designtime.Components
+namespace SR.Data.Binding
 {
-    public class Class1
+    class BindingSource
     {
     }
 }
