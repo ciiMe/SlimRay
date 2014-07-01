@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Binding\BindingAdapter.cs" />
+    <Compile Include="Binding\BindingSource.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="DataRelation.cs" />
