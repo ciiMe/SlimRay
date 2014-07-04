@@ -42,7 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Binding\BindingAdapter.cs" />
-    <Compile Include="Binding\BindingSource.cs" />
+    <Compile Include="Binding\IDataBinding.cs" />
+    <Compile Include="Binding\IComponentBinding.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="DataRelation.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="IField.cs" />
     <Compile Include="Entity\SRDataSet.cs" />
     <Compile Include="DataTypeKeys.cs" />
+    <Compile Include="ProcResult.cs" />
     <Compile Include="SystemDataType.cs" />
     <Compile Include="IData.cs" />
     <Compile Include="Entity\DataTypes.cs" />

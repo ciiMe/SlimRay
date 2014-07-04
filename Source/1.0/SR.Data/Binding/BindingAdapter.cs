@@ -7,5 +7,9 @@ namespace SR.Data.Binding
 {
     public interface BindingAdapter
     {
+        string FormatString { get; set; }
+
+        string GetFieldValue();
+
     }
 }
