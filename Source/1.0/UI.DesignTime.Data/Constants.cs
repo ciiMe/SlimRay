@@ -26,4 +26,10 @@ namespace SR.UI.DesignTime.Data
         User,
         UserStatus
     }
+
+    public enum UserStatus
+    {
+        Valid,
+        Invalid
+    }
 }

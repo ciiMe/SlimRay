@@ -80,8 +80,6 @@ namespace SR.Data.DB.Helper
             }
         }
 
-        #region IDBHelper 成员  -abstract,
-
         public abstract object GetResult(ISQLPlan plan);
 
         public abstract DataRow GetDataRow(ISQLPlan plan);
@@ -91,7 +89,5 @@ namespace SR.Data.DB.Helper
         public abstract DataSet GetDataSet(ISQLPlan plan);
 
         public abstract int Execute(ISQLPlan plan);
-
-        #endregion
     }
 }

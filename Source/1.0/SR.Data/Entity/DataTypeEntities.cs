@@ -5,12 +5,12 @@ using System.Text;
 
 namespace SR.Data.Entity
 {
-    public class DataTypes
+    public class DataTypeEntities
     {
         public readonly IDataType SRInt;
         public readonly IDataType SRString;
 
-        public DataTypes()
+        public DataTypeEntities()
         {
             SRInt = DataProvider.Instance.GetDataType((int)DataTypeKeys.SRInt);
             SRString = DataProvider.Instance.GetDataType((int)DataTypeKeys.SRString);

@@ -24,7 +24,6 @@ using System.Data.Common;
 
 namespace SR.Data.DB.DBFacory
 {
-    [Serializable]
     public class DBFacoryPool
     {
         /// <summary>
@@ -410,6 +409,5 @@ namespace SR.Data.DB.DBFacory
         }
 
         #endregion
-
     }
 }

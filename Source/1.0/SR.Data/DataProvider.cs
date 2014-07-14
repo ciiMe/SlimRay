@@ -10,7 +10,7 @@ namespace SR.Data
     public class DataProvider
     {
         private static DataProvider _instance;
-        private Entity.DataTypes _dataTypeEntities;
+        private Entity.DataTypeEntities _dataTypeEntities;
 
         public static DataProvider Instance
         {
@@ -20,7 +20,7 @@ namespace SR.Data
             }
         }
 
-        public DataTypes DataTypeEntities
+        public DataTypeEntities DataTypeEntities
         {
             get { return _dataTypeEntities; }
         }
@@ -29,7 +29,7 @@ namespace SR.Data
 
         public DataProvider()
         {
-            _dataTypeEntities = new DataTypes();
+            _dataTypeEntities = new DataTypeEntities();
         }
 
         public bool Register(IDataType datatype)

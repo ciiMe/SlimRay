@@ -10,7 +10,10 @@
 namespace SR.Data.DB
 {
     /// <summary>
-    /// 表示数据请求和执行计划
+    /// 表示数据请求和执行计划。
+    /// This interface is not using right now,
+    /// we only support SQLPlan in this version.
+    /// we may do updateing works in feature version to support other plans.
     /// </summary>
     public interface IExecutePlan
     {

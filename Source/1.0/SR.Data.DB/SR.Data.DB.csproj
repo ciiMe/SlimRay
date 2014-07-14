@@ -47,6 +47,7 @@
     <Compile Include="DBFacory\DBFactoryPool.cs" />
     <Compile Include="DBFacory\IDBFactory.cs" />
     <Compile Include="ExecutePlanException.cs" />
+    <Compile Include="ExecutePlanFactory.cs" />
     <Compile Include="Helper\ADBHelper.cs" />
     <Compile Include="Helper\DBHelper.cs" />
     <Compile Include="Helper\IDBHelper.cs" />
@@ -64,10 +65,6 @@
     <ProjectReference Include="..\SR.Data.DB.Common\SR.Data.DB.Common.csproj">
       <Project>{fa3b7231-ec20-416e-bf8a-424579711140}</Project>
       <Name>SR.Data.DB.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SR.Data\SR.Data.csproj">
-      <Project>{ecfda573-88f9-4d8b-bed3-45caa3b00721}</Project>
-      <Name>SR.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\SR.Utils\SR.Utils.csproj">
       <Project>{106254f2-67da-46f4-882d-47353c4a7123}</Project>
