@@ -7,7 +7,6 @@ using SR.Data.DB.DBFacory;
 
 namespace SR.Data.DB
 {
-
     /// <summary>
     /// 表示普通sql文本的执行计划
     /// </summary>

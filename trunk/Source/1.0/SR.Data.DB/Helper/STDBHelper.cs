@@ -73,6 +73,5 @@ namespace SR.Data.DB.Helper
         {
             return __CallPreparedAdapter_Select(plan, __GetDataSetAU) as DataSet;
         }
-
     }
 }

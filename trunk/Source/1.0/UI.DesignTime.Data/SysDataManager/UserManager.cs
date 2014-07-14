@@ -21,8 +21,20 @@ namespace SR.UI.DesignTime.Data.SysDataManager
         {
             errMsg = "";
 
-            DataTable dt = _manager.GetDataTable(SysData.Users,
+            var de = _manager.GetEntity(SysData.Users,
                 SysData.Users.LoginName.Expression.Equal(userName));
+
+            if (de.ValueInt32(SysData.Users.Status) != (int)UserStatus.Valid)
+            {
+                errMsg = "User state is not valid.";
+                return false;
+            }
+
+            if (de.ValueString(SysData.Users.LoginPassword) != password)
+            {
+                errMsg = "Password is wrong.";
+                return false;
+            }
 
             return true;
         }

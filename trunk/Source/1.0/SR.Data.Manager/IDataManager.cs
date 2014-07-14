@@ -19,5 +19,7 @@ namespace SR.Data.Manager
     {
         DataTable GetDataTable(IData data, IExpression expression);
         DataRow GetDataRow(IData data, IExpression expression);
+
+        IDataEntity GetEntity(IData data, IExpression expression);
     }
 }

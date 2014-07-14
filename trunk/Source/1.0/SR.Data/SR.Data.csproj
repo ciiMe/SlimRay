@@ -47,6 +47,8 @@
     <Compile Include="Constants.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="DataRelation.cs" />
+    <Compile Include="DataEntity.cs" />
+    <Compile Include="Entity\SRDataEntity.cs" />
     <Compile Include="ICompareableItem.cs" />
     <Compile Include="IField.cs" />
     <Compile Include="Entity\SRDataSet.cs" />
@@ -54,7 +56,7 @@
     <Compile Include="ProcResult.cs" />
     <Compile Include="SystemDataType.cs" />
     <Compile Include="IData.cs" />
-    <Compile Include="Entity\DataTypes.cs" />
+    <Compile Include="Entity\DataTypeEntities.cs" />
     <Compile Include="Entity\SRData.cs" />
     <Compile Include="Entity\SRField.cs" />
     <Compile Include="IDataType.cs" />
