@@ -21,9 +21,10 @@ namespace SR.UI.DesignTime.Data.SysDataManager
         {
             errMsg = "";
 
-            var de = _manager.GetEntity(SysData.Users,
-                SysData.Users.LoginName.Expression.Equal(userName));
+            var expr = SysData.Users.LoginName.Equal(userName) ;
 
+            var de = _manager.GetEntity(SysData.Users, expr);
+            
             if (de.ValueInt32(SysData.Users.Status) != (int)UserStatus.Valid)
             {
                 errMsg = "User state is not valid.";

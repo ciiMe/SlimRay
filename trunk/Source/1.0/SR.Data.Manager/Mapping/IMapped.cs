@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SR.Data.Manager.Relation
+namespace SR.Data.Manager.Mapping
 {
-    public enum Relations
+    public interface IMapped
     {
-        Detail
+        string BindingName { get; set; }
     }
 }

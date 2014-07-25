@@ -42,7 +42,7 @@ namespace SR.Data.DB.Helper
                 cmd.Parameters.Add(DBFacoryPool.Instance.NewDBParameter(plan.ConnectionInfo, i.Key, i.Value));
             }
 
-            cmd.CommandText = plan.GetSQLText();
+            cmd.CommandText = plan.CommandText;
         }
 
         protected DbConnection _GetPreparedConn(ISQLPlan plan)

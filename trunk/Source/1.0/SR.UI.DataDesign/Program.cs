@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using SR.UI.DesignTime.Data;
+
 namespace SR.UI.DataDesign
 {
     static class Program
@@ -16,6 +18,9 @@ namespace SR.UI.DataDesign
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            SysData.Init();
+
             Application.Run(new Form1());
         }
     }

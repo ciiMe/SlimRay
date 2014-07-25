@@ -13,17 +13,17 @@ namespace SR.UI.DesignTime.Data.SysDataEntities
         public IField ID, StatusName;
 
         public EntityUserStatus()
-            : base((int)DataKeys.UserStatus, (int)DataLevel.System, "UserStatus", "")
+            : base("UserStatus")
         {
             initFields();
         }
 
         private void initFields()
         {
-            ID = new SRField(0, "ID", DataProvider.Instance.DataTypeEntities.SRInt);
+            ID = new SRField("ID", FieldDataType.Int32);
             AddField(ID);
 
-            StatusName = new SRField(0, "Name", DataProvider.Instance.DataTypeEntities.SRString);
+            StatusName = new SRField("Name", FieldDataType.String);
             AddField(StatusName);
         }
     }

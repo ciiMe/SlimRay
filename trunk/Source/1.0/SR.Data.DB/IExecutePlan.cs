@@ -15,11 +15,13 @@ namespace SR.Data.DB
     /// we only support SQLPlan in this version.
     /// we may do updateing works in feature version to support other plans.
     /// </summary>
-    public interface IExecutePlan
+    public interface IExecutePlan : IParameterCollection
     {
         /// <summary>
         /// 超时时间
         /// </summary>
         int CommandTimeOut { get; set; }
+
+        string CommandText { get; set; }
     }
 }

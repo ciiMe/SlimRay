@@ -6,40 +6,46 @@ using System.Text;
 using System.Data;
 
 using SR.Data.DB;
+using SR.Data.Manager.Mapping;
+using SR.Data.Manager.Operators;
 
 namespace SR.Data.Manager
 {
     public class DataManager : IDataManager
     {
-        public DataTable GetDataTable(IData data, IExpression expression)
+        public DataManager()
         {
-            ISQLPlan plan = ExecutePlanBuilder.BuildSQLPlan(data, expression);
-
-            DB.Helper.DBHelper helper = new DB.Helper.DBHelper();
-
-            return helper.GetDataTable(plan);
+            ExecutePlanBuildServer.Register(new SQLPlanBuilder());
+            OperatorServer.Register(new ParserMSSQL());
         }
 
-        public DataRow GetDataRow(IData data, IExpression expression)
+        public DataTable GetDataTable(IData data, Expression expression)
         {
-            ISQLPlan plan = ExecutePlanBuilder.BuildSQLPlan(data, expression);
+            IExecutePlan plan = ExecutePlanBuildServer.ActiveService.Build(data, expression);
 
             DB.Helper.DBHelper helper = new DB.Helper.DBHelper();
 
-            return helper.GetDataRow(plan);
+            return helper.GetDataTable((ISQLPlan)plan);
         }
 
-        public IDataEntity GetEntity(IData data, IExpression expression)
+        public DataRow GetDataRow(IData data, Expression expression)
         {
-            ISQLPlan plan = ExecutePlanBuilder.BuildSQLPlan(data, expression);
+            IExecutePlan plan = ExecutePlanBuildServer.ActiveService.Build(data, expression);
 
             DB.Helper.DBHelper helper = new DB.Helper.DBHelper();
 
-            DataTable dt = helper.GetDataTable(plan);
+            return helper.GetDataRow((ISQLPlan)plan);
+        }
 
-            IDataEntity en = new Entity.DataEntity(dt);
+        public IDataEntity GetEntity(IData data, Expression expression)
+        {
+            IExecutePlan plan = ExecutePlanBuildServer.ActiveService.Build(data, expression);
 
-            return en;
+            DB.Helper.DBHelper helper = new DB.Helper.DBHelper();
+
+            DataTable dt = helper.GetDataTable((ISQLPlan)plan);
+
+            return dt.Rows.Count == 0 ? new Entity.DataEntity(null) : new Entity.DataEntity(dt.Rows[0]);
         }
     }
 }

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SR.Data.Entity
+namespace SR.Data.Manager.Operators
 {
-    public class SRDataSet
+    public class OperatorServer : ServicePool<IOperatorParser>
     {
     }
 }

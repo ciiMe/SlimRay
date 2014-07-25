@@ -15,7 +15,7 @@ namespace SR.Data.Manager
     public class ConfigurationItem : SRField
     {
         public ConfigurationItem(string name, string description)
-            : base(Contants.DataKeys.DATAKEY_SYSTEM, name, DataProvider.Instance.DataTypeEntities.SRString, description)
+            : base(name, FieldDataType.String, description)
         {
 
         }

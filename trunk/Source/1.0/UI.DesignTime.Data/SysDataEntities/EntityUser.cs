@@ -13,26 +13,26 @@ namespace SR.UI.DesignTime.Data.SysDataEntities
         public IField ID, UserName, LoginName, LoginPassword, Status;
 
         public EntityUser()
-            : base((int)DataKeys.User, (int)DataLevel.System, "User", "Users that can access the system.")
+            : base("User", "Users that can access the system.")
         {
             initFields();
         }
 
         private void initFields()
         {
-            ID = new SRField(0, "ID", DataProvider.Instance.DataTypeEntities.SRInt);
+            ID = new SRField("ID", FieldDataType.UnInt32);
             AddField(ID);
 
-            UserName = new SRField(0, "Name", DataProvider.Instance.DataTypeEntities.SRString);
+            UserName = new SRField("Name", FieldDataType.String);
             AddField(UserName);
 
-            LoginName = new SRField(0, "LoginName", DataProvider.Instance.DataTypeEntities.SRString);
+            LoginName = new SRField("LoginName", FieldDataType.String);
             AddField(LoginName);
 
-            LoginPassword = new SRField(0, "LoginPassword", DataProvider.Instance.DataTypeEntities.SRString);
+            LoginPassword = new SRField("LoginPassword", FieldDataType.String);
             AddField(LoginPassword);
 
-            Status = new SRField(0, "StatusID", DataProvider.Instance.DataTypeEntities.SRInt);
+            Status = new SRField("StatusID", FieldDataType.Emun);
             AddField(Status);
         }
     }

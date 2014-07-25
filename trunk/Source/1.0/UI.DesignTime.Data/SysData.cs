@@ -13,6 +13,7 @@ namespace SR.UI.DesignTime.Data
         public static SysDataEntities.EntityUser Users;
         public static SysDataEntities.EntityUserStatus UserStatus;
 
+        // todo:should be loaded from configruation file.
         public static void Init()
         {
             Users = new SysDataEntities.EntityUser();

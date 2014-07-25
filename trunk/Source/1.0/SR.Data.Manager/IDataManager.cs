@@ -17,9 +17,9 @@ namespace SR.Data.Manager
      */
     public interface IDataManager
     {
-        DataTable GetDataTable(IData data, IExpression expression);
-        DataRow GetDataRow(IData data, IExpression expression);
+        DataTable GetDataTable(IData data, Expression expression);
+        DataRow GetDataRow(IData data, Expression expression);
 
-        IDataEntity GetEntity(IData data, IExpression expression);
+        IDataEntity GetEntity(IData data, Expression expression);
     }
 }
