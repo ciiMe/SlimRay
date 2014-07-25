@@ -44,23 +44,28 @@
     <Compile Include="Binding\BindingAdapter.cs" />
     <Compile Include="Binding\IDataBinding.cs" />
     <Compile Include="Binding\IComponentBinding.cs" />
-    <Compile Include="Constants.cs" />
-    <Compile Include="DataProvider.cs" />
     <Compile Include="DataRelation.cs" />
     <Compile Include="DataEntity.cs" />
+    <Compile Include="Entity\AComparableField.cs" />
+    <Compile Include="Entity\ABasicField.cs" />
+    <Compile Include="Entity\ConstantField.cs" />
     <Compile Include="Entity\SRDataEntity.cs" />
-    <Compile Include="ICompareableItem.cs" />
+    <Compile Include="IBasicField.cs" />
+    <Compile Include="IComparableItem.cs" />
+    <Compile Include="Expression.cs" />
     <Compile Include="IField.cs" />
-    <Compile Include="Entity\SRDataSet.cs" />
-    <Compile Include="DataTypeKeys.cs" />
-    <Compile Include="ProcResult.cs" />
-    <Compile Include="SystemDataType.cs" />
+    <Compile Include="Binding\ProcResult.cs" />
     <Compile Include="IData.cs" />
-    <Compile Include="Entity\DataTypeEntities.cs" />
     <Compile Include="Entity\SRData.cs" />
     <Compile Include="Entity\SRField.cs" />
-    <Compile Include="IDataType.cs" />
+    <Compile Include="FieldDataType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SR\SR.csproj">
+      <Project>{0ba9cea4-c4c2-4d88-912d-29968165df6b}</Project>
+      <Name>SR</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

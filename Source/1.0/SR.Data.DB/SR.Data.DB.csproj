@@ -39,7 +39,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasicInterfaces.cs" />
     <Compile Include="ConnectionInfo.cs" />
     <Compile Include="DBFacory\ADBFacory.cs" />
     <Compile Include="DBFacory\DBFactoryCreator.cs" />
@@ -52,6 +51,7 @@
     <Compile Include="Helper\DBHelper.cs" />
     <Compile Include="Helper\IDBHelper.cs" />
     <Compile Include="Helper\STDBHelper.cs" />
+    <Compile Include="IParameterCollection.cs" />
     <Compile Include="ISQLPlan.cs" />
     <Compile Include="SQLPlan.cs" />
     <Compile Include="ValidDBConnection.cs" />

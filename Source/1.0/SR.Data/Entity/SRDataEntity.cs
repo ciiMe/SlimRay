@@ -12,7 +12,7 @@ namespace SR.Data.Entity
         private DataTable _data;
 
         public SRDataEntity()
-            : base(Constants.DataTypes.DATA_KEY_NULL, Constants.DataTypes.DATA_NAME_NULL)
+            : base("")
         {
             _data = new DataTable();
         }

@@ -7,15 +7,12 @@ namespace SR.Data
 {
     public interface IData
     {
-        int Key { get; set; }
         string Name { get; set; }
         string Description { get; set; }
 
-        int Level { get; set; }
-
-        List<IField> Fields { get; }
+        IField[] Fields { get; }
 
         void AddField(IField field);
-        void RemoveFiled(int key);
+        void RemoveFiled(int index);
     }
 }

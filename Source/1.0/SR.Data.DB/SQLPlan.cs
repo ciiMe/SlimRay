@@ -14,7 +14,6 @@ namespace SR.Data.DB
     {
         private StringBuilder _SQLText;
 
-        private ExecuteCommandType _CommandType;
         private List<KeyValuePair<string, object>> _Parameters;
         private bool _NullConvert;
 
@@ -24,16 +23,14 @@ namespace SR.Data.DB
 
         private IConnectionInfo _ConnectionInfo;
 
-        public StringBuilder SQLText
+        public string CommandText
         {
-            get { return _SQLText; }
-            set { _SQLText = value; }
-        }
-
-        public ExecuteCommandType CommandType
-        {
-            get { return _CommandType; }
-            set { _CommandType = value; }
+            get { return _SQLText.ToString(); }
+            set
+            {
+                _SQLText.Clear();
+                _SQLText.Append(value);
+            }
         }
 
         public List<KeyValuePair<string, object>> Parameters
@@ -105,50 +102,23 @@ namespace SR.Data.DB
             return true;
         }
 
-        public bool AddParameter(string name, int val)
+        public void AddParameter(string name, int val)
         {
             if (_NullConvert && val == Contants.DataValue.NULLINT)
             {
-                return _AddParameter(name, DBNull.Value);
+                _AddParameter(name, DBNull.Value);
             }
 
-            return _AddParameter(name, val);
+            _AddParameter(name, val);
         }
-        public bool AddParameter(string name, string val)
+        public void AddParameter(string name, string val)
         {
             if (_NullConvert && val == Contants.DataValue.NULLSTRING)
             {
-                return _AddParameter(name, DBNull.Value);
+                _AddParameter(name, DBNull.Value);
             }
 
-            return _AddParameter(name, val);
-        }
-        public bool AddParameter(string name, double val)
-        {
-            if (_NullConvert && val == Contants.DataValue.NULLDOUBLE)
-            {
-                return _AddParameter(name, DBNull.Value);
-            }
-
-            return _AddParameter(name, val);
-        }
-        public bool AddParameter(string name, DateTime val)
-        {
-            if (_NullConvert && val == Contants.DataValue.NULLDATETIME)
-            {
-                return _AddParameter(name, DBNull.Value);
-            }
-
-            return _AddParameter(name, val);
-        }
-        public bool AddParameter(string name, bool val)
-        {
-            if (_NullConvert && val == Contants.DataValue.NULLBOOL)
-            {
-                return _AddParameter(name, DBNull.Value);
-            }
-
-            return _AddParameter(name, val);
+            _AddParameter(name, val);
         }
 
         /// <summary>
@@ -185,22 +155,12 @@ namespace SR.Data.DB
         {
             _SQLText = new StringBuilder();
 
-            _CommandType = ExecuteCommandType.CommandText;
             _Parameters = new List<KeyValuePair<string, object>>();
             _NullConvert = false;
 
             _CommandTimeOut = Contants.DBCommand.CommandTimeOut;
 
             _CreateTransaction = false;
-        }
-
-        /// <summary>
-        /// 返回ExecutePlan中的SQL文本的内容
-        /// </summary>
-        /// <returns></returns>
-        public string GetSQLText()
-        {
-            return _SQLText.ToString();
         }
 
         /// <summary>

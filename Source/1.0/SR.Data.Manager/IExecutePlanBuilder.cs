@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using SR.Data.DB;
+
 namespace SR.Data.Manager
 {
-    public class Contants
+    public interface IExecutePlanBuilder
     {
-        public class DataKeys
-        {
-            public const int DATAKEY_SYSTEM = 0;
-        }
+        IExecutePlan Build(IData data, Expression expression);
     }
+
 }

@@ -8,7 +8,7 @@ namespace SR.Data.Manager.Instance
 {
     public class TypeCompare
     {
-        public bool IsType(string data, IDataType type)
+        public bool IsType(string data, FieldDataType type)
         {
             return true;
         }

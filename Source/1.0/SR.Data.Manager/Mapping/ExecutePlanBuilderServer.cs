@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SR.Data
+namespace SR.Data.Manager.Mapping
 {
-    public struct ProcessResult
+    public class ExecutePlanBuildServer : ServicePool<IExecutePlanBuilder>
     {
-        public bool Success;
-        public string Message;
     }
 }

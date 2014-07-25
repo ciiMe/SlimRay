@@ -32,7 +32,7 @@ namespace utExMSSQL
             //conn in plan
             SQLTextPlan plan = new SQLTextPlan();
             plan.ConnectionInfo = ci;
-            plan.SQLText.Append("select * from Budget_RQ..s_Power ");
+            plan.CommandText="select * from Budget_RQ..s_Power ";
 
             DBHelper helper = new DBHelper();
 
