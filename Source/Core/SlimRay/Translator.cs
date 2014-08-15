@@ -21,6 +21,25 @@ namespace SlimRay
             _pairs21 = new Dictionary<T2, T1>();
         }
 
+        public void Remove(T1 value)
+        {
+            if (!_pairs12.ContainsKey(value))
+            {
+                return;
+            }
+
+            T2 key2 = _pairs12[value];
+
+            _pairs21.Remove(key2);
+            _pairs12.Remove(value);
+        }
+
+        public void Clear()
+        {
+            _pairs12.Clear();
+            _pairs21.Clear();
+        }
+
         public void Pair(T1 v1, T2 v2)
         {
             _pairs12.Add(v1, v2);
