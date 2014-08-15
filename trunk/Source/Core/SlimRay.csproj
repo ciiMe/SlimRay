@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0BA9CEA4-C4C2-4D88-912D-29968165DF6B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SlimRay</RootNamespace>
+    <AssemblyName>SlimRay</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseObjects.cs" />
+    <Compile Include="Data\Binding\BindingAdapter.cs" />
+    <Compile Include="Data\Binding\IComponentBinding.cs" />
+    <Compile Include="Data\Binding\IDataBinding.cs" />
+    <Compile Include="Data\Binding\ProcResult.cs" />
+    <Compile Include="Data\DataEntity.cs" />
+    <Compile Include="Data\DataRelation.cs" />
+    <Compile Include="Data\Entity\ABasicField.cs" />
+    <Compile Include="Data\Entity\AComparableField.cs" />
+    <Compile Include="Data\Entity\ConstantField.cs" />
+    <Compile Include="Data\Entity\SRData.cs" />
+    <Compile Include="Data\Entity\SRDataEntity.cs" />
+    <Compile Include="Data\Entity\SRField.cs" />
+    <Compile Include="Data\Expression.cs" />
+    <Compile Include="Data\FieldDataType.cs" />
+    <Compile Include="Data\IBasicField.cs" />
+    <Compile Include="Data\IComparableItem.cs" />
+    <Compile Include="Data\IData.cs" />
+    <Compile Include="Data\IField.cs" />
+    <Compile Include="Data\Manager\Configuration.cs" />
+    <Compile Include="Data\Manager\DataManager.cs" />
+    <Compile Include="Data\Manager\Entity\DataEntity.cs" />
+    <Compile Include="Data\Manager\IDataManager.cs" />
+    <Compile Include="Data\Manager\IExecutePlanBuilder.cs" />
+    <Compile Include="Data\Manager\Instance\TypeCompare.cs" />
+    <Compile Include="Data\Manager\Mapping\ExecutePlanBuilderServer.cs" />
+    <Compile Include="Data\Manager\Mapping\IMapped.cs" />
+    <Compile Include="Data\Manager\Mapping\MappedData.cs" />
+    <Compile Include="Data\Manager\Mapping\MappedField.cs" />
+    <Compile Include="Data\Manager\Mapping\SQLPlanBuilder.cs" />
+    <Compile Include="Data\Manager\Operators\IOperatorParser.cs" />
+    <Compile Include="Data\Manager\Operators\OperatorService.cs" />
+    <Compile Include="Data\Manager\Operators\ParserMSSQL.cs" />
+    <Compile Include="Data\Store\DB\ConnectionInfo.cs" />
+    <Compile Include="Data\Store\DB\Contants.cs" />
+    <Compile Include="Data\Store\DB\DBFacory\ADBFacory.cs" />
+    <Compile Include="Data\Store\DB\DBFacory\DBFactoryCreator.cs" />
+    <Compile Include="Data\Store\DB\DBFacory\DBFactoryCreatorPool.cs" />
+    <Compile Include="Data\Store\DB\DBFacory\DBFactoryPool.cs" />
+    <Compile Include="Data\Store\DB\DBFacory\IDBFactory.cs" />
+    <Compile Include="Data\Store\DB\ExecutePlanException.cs" />
+    <Compile Include="Data\Store\DB\ExecutePlanFactory.cs" />
+    <Compile Include="Data\Store\DB\Helper\ADBHelper.cs" />
+    <Compile Include="Data\Store\DB\Helper\DBHelper.cs" />
+    <Compile Include="Data\Store\DB\Helper\IDBHelper.cs" />
+    <Compile Include="Data\Store\DB\Helper\STDBHelper.cs" />
+    <Compile Include="Data\Store\DB\IExecutePlan.cs" />
+    <Compile Include="Data\Store\DB\IParameterCollection.cs" />
+    <Compile Include="Data\Store\DB\ISQLPlan.cs" />
+    <Compile Include="Data\Store\DB\SQLPlan.cs" />
+    <Compile Include="Data\Store\DB\ValidDBConnection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicePool.cs" />
+    <Compile Include="Translator.cs" />
+    <Compile Include="Utils\Coding\MD.cs" />
+    <Compile Include="Utils\Files\FileHelper.cs" />
+    <Compile Include="Utils\List\ListEnumlator.cs" />
+    <Compile Include="Utils\Strings.cs" />
+    <Compile Include="Utils\XML_DT.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\Store\DB\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Coding\" />
+    <Folder Include="Devices\" />
+    <Folder Include="Network\" />
+    <Folder Include="Security\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
