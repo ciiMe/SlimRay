@@ -1,4 +1,4 @@
-﻿namespace SlimRay.UI.DataDesign
+﻿namespace SlimRay.Definition
 {
     partial class Form1
     {

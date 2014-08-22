@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using SlimRay.UI.DesignTime.Data.SysDataManager;
+using SlimRay.Definition.Data.SysDataManager;
 
-namespace SlimRay.UI.DataDesign
+namespace SlimRay.Definition
 {
     public partial class Form1 : Form
     {
@@ -25,13 +25,13 @@ namespace SlimRay.UI.DataDesign
 
             string err;
 
-            if (um.IsPasswordMatch(textBox1.Text, textBox2.Text, out err))
+            if (!um.IsPasswordMatch(textBox1.Text, textBox2.Text, out err))
             {
-                DialogResult = DialogResult.OK;
+                MessageBox.Show(err, "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            MessageBox.Show(err, "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            DataKeeping.StaticItems.CurrentUser = um.Load(textBox1.Text);
+            DialogResult = DialogResult.OK;
         }
     }
 }

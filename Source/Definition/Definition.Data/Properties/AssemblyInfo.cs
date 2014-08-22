@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SR.UI.DesignTime.Data")]
+[assembly: AssemblyTitle("SlimRay.Definition.Data")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SlimRay")]
-[assembly: AssemblyProduct("SR.UI.DesignTime.Data")]
+[assembly: AssemblyProduct("SlimRay.Definition.Data")]
 [assembly: AssemblyCopyright("Copyright © SlimRay 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

@@ -6,7 +6,9 @@ using System.Text;
 using System.Data;
 using SlimRay.Data.Manager;
 
-namespace SlimRay.UI.DesignTime.Data.SysDataManager
+using SlimRay.Definition.Data.SysDataEntities;
+
+namespace SlimRay.Definition.Data.SysDataManager
 {
     public class UserManager
     {
@@ -40,9 +42,10 @@ namespace SlimRay.UI.DesignTime.Data.SysDataManager
             return true;
         }
 
-        public bool UpdateUser()
+        public EntityUser Load(string userName)
         {
-            return true;
+            var expr = SysData.Users.LoginName.Equal(userName);
+            return _manager.GetEntity(SysData.Users, expr) as EntityUser;
         }
     }
 }

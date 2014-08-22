@@ -47,5 +47,10 @@ namespace SlimRay.Data.Manager
 
             return dt.Rows.Count == 0 ? new Entity.DataEntity(null) : new Entity.DataEntity(dt.Rows[0]);
         }
+
+        public bool Update(IDataEntity data)
+        {
+            return true;
+        }
     }
 }

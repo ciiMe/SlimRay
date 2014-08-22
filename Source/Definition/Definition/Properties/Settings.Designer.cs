@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SlimRay.UI.DataDesign.Properties {
+namespace SlimRay.Definition.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

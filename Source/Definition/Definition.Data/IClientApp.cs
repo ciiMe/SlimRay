@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace SlimRay.Definition.Data
 {
-    public enum UserStatus
+    public interface IClientApp
     {
-        Valid,
-        Invalid
+        Dictionary<string, object> Cache { get; set; }
     }
 }
