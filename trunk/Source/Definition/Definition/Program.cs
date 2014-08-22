@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using SlimRay.UI.DesignTime.Data;
+using SlimRay.Definition.Data;
 
-namespace SlimRay.UI.DataDesign
+namespace SlimRay.Definition
 {
     static class Program
     {

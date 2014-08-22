@@ -6,7 +6,7 @@ using System.Text;
 using SlimRay.Data;
 using SlimRay.Data.Entity;
 
-namespace SlimRay.UI.DesignTime.Data.SysDataEntities
+namespace SlimRay.Definition.Data.SysDataEntities
 {
     public class EntityUserStatus : SRData
     {

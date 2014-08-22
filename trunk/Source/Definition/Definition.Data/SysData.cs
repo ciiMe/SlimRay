@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using SlimRay.Data;
 
-namespace SlimRay.UI.DesignTime.Data
+namespace SlimRay.Definition.Data
 {
     public class SysData
     {
