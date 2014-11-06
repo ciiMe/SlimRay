@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
 namespace SlimRay.Data
 {
     public class Expression
     {
-        private IBasicField _field;
+        private ISimpleField _field;
         private ExpressionOperator _operator;
         private Expression _sub;
 
-        public IBasicField Field
+        public ISimpleField Field
         {
             get { return _field; }
             set { _field = value; }
@@ -33,18 +29,18 @@ namespace SlimRay.Data
         {
         }
 
-        public Expression(IField field, ExpressionOperator op, string value)
+        public Expression(ISimpleField field, ExpressionOperator op, string value)
         {
             _field = field;
             _operator = op;
             _sub = new Expression
             {
-                Field = new Entity.ConstantField(value),
+                Field = new SimpleConstField(value),
                 Operator = ExpressionOperator.None
             };
         }
 
-        public Expression(IField field, ExpressionOperator op, IField value)
+        public Expression(ISimpleField field, ExpressionOperator op, ISimpleField value)
         {
             _field = field;
             _operator = op;
@@ -55,7 +51,7 @@ namespace SlimRay.Data
             };
         }
 
-        public Expression(IField field, ExpressionOperator op, Expression sub)
+        public Expression(ISimpleField field, ExpressionOperator op, Expression sub)
         {
             _field = field;
             _operator = op;
@@ -155,34 +151,5 @@ namespace SlimRay.Data
         #endregion
 
         #endregion
-    }
-
-    public enum ExpressionOperator
-    {
-        /// <summary>
-        /// None means no operator in expression,
-        /// it may be a const value,or end of expression.
-        /// </summary>
-        None,
-
-        ValueAdd,
-        ValueSub,
-        ValueMul,
-        ValueDiv,
-        ValueMod,
-        ValuePower,
-
-        ValueEqual,
-        ValueNotEqual,
-        ValueLike,
-
-        ValueBiggerThan,
-        ValueBiggerOrEqual,
-        ValueSmallerThan,
-        ValueSmallerOrEqual,
-
-        LogicAnd,
-        LogicOr,
-        LogicNot
     }
 }

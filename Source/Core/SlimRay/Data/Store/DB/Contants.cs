@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace SlimRay.Data.DB.Common
+namespace SlimRay.Data.Store.DB
 {
     public static class Contants
     {

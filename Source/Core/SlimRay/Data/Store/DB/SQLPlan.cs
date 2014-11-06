@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-using SlimRay.Data.DB.Common;
-using SlimRay.Data.DB.DBFacory;
+using SlimRay.Data.Store.DB.DBFacory;
 
-namespace SlimRay.Data.DB
+namespace SlimRay.Data.Store.DB
 {
     /// <summary>
     /// 表示普通sql文本的执行计划

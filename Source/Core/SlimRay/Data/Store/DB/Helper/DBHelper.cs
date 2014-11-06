@@ -1,7 +1,5 @@
 ﻿
-
-
-namespace SlimRay.Data.DB.Helper
+namespace SlimRay.Data.Store.DB.Helper
 {
     public class DBHelper : STDBHelper
     { }

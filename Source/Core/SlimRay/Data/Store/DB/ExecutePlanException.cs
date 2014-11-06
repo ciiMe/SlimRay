@@ -1,7 +1,6 @@
 ﻿using System;
 
-
-namespace SlimRay.Data.DB
+namespace SlimRay.Data.Store.DB
 {
     public static class ExecutePlanException
     {

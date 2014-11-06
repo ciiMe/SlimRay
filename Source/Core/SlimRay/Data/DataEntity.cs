@@ -1,19 +1,50 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Data;
 
 namespace SlimRay.Data
 {
-    public interface IDataEntity : IData
+    /*
+     * the DataEntity stores all data in DataRow,
+     * Field name of data is Column name in datarow.
+     */
+    public class DataEntity : SimpleData, IDataEntity
     {
-        byte ValueByte(IField field);
-        int ValueInt32(IField field);
-        long ValueInt64(IField field);
+        private DataRow _data;
 
-        char ValueChar(IField field);
-        string ValueString(IField field);
+        public DataEntity(DataRow data)
+            : base("")
+        {
+            _data = data;
+        }
 
-        bool ValueBool(IField field);
+        public byte ValueByte(ISimpleField field)
+        {
+            return Convert.ToByte(_data[field.Name]);
+        }
+
+        public int ValueInt32(ISimpleField field)
+        {
+            return Convert.ToInt32(_data[field.Name]);
+        }
+
+        public long ValueInt64(ISimpleField field)
+        {
+            return Convert.ToInt64(_data[field.Name]);
+        }
+
+        public char ValueChar(ISimpleField field)
+        {
+            return Convert.ToChar(_data[field.Name]);
+        }
+
+        public string ValueString(ISimpleField field)
+        {
+            return Convert.ToString(_data[field.Name]);
+        }
+
+        public bool ValueBool(ISimpleField field)
+        {
+            return Convert.ToBoolean(_data[field.Name]);
+        }
     }
 }

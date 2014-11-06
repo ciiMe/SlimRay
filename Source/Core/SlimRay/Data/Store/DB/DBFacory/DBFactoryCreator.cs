@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SlimRay.Data.DB.DBFacory
+﻿
+namespace SlimRay.Data.Store.DB.DBFacory
 {
     /// <summary>
     /// 工厂Map，根据连接信息创建工厂。
