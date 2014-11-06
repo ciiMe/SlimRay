@@ -7,11 +7,8 @@ namespace SlimRay.Data.Store
     {
         int GetInt(ISimpleData data, Expression expr);
         double GetDouble(ISimpleData data, Expression expr);
-
         string GetString(ISimpleData data, Expression expr);
-
         bool GetBoolean(ISimpleData data, Expression expr);
-
         DateTime GetDateTime(ISimpleData data, Expression expr);
 
         DataTable GetDataTable(ISimpleData data, Expression expression);

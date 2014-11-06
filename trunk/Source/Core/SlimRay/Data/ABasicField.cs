@@ -4,7 +4,7 @@ namespace SlimRay.Data
     public abstract class ABasicField : ISimpleField
     {
         protected ISimpleData _data;
-        protected DataTypes _type;
+        protected DataType _type;
 
         protected string _name;
         protected string _description;
@@ -20,7 +20,7 @@ namespace SlimRay.Data
             set { _data = value; }
         }
 
-        public DataTypes Type
+        public DataType Type
         {
             get { return _type; }
             set { _type = value; }

@@ -8,7 +8,7 @@ namespace SlimRay.Data
         /// </summary>
         ISimpleData Data { get; set; }
 
-        DataTypes Type { get; set; }
+        DataType Type { get; set; }
 
         string Name { get; set; }
         string Description { get; set; }

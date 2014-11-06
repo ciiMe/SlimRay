@@ -3,7 +3,7 @@ namespace SlimRay.Data
 {
     public class SimpleConstField : ABasicField
     {
-        public SimpleConstField(string value, DataTypes type)
+        public SimpleConstField(string value, DataType type)
         {
             _value = value;
             _type = type;
@@ -12,7 +12,7 @@ namespace SlimRay.Data
         public SimpleConstField(string value)
         {
             _value = value;
-            _type = DataTypes.NotSet;
+            _type = DataType.NotSet;
         }
     }
 }
