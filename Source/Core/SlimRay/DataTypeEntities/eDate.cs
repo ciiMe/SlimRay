@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SlimRay.Data.DataTypeEntities
+namespace SlimRay.DataTypeEntities
 {
-    class eInt
+    public class eDate : IDataTypeEntity
     {
     }
 }

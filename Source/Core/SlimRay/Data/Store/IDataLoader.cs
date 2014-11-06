@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SlimRay.Data.DataTypeEntities
+namespace SlimRay.Data.Store
 {
-    class eDate
+    public interface IDataLoader
     {
+        IDataEntity GetEntity();
     }
 }

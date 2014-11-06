@@ -20,5 +20,10 @@ namespace SlimRay.Data.Factories
         {
             return new SimpleData(name);
         }
+
+        public ISimpleField NewSimpleField(string name, DataType type)
+        {
+            return new SimpleField(name, type);
+        }
     }
 }

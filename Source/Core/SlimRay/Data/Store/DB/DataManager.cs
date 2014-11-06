@@ -65,7 +65,14 @@ namespace SlimRay.Data.Store.DB
 
             DataTable dt = helper.GetDataTable((ISQLPlan)plan);
 
-            return dt.Rows.Count == 0 ? new DataEntity(null) : new DataEntity(dt.Rows[0]);
+            if (dt.Rows.Count == 0)
+            {
+                return new DataEntity(null);
+            }
+
+            Store.DataRowLoader rowLoader = new DataRowLoader(data, dt.Rows[0]);
+
+            return rowLoader.GetEntity();
         }
 
         public bool Update(ISimpleData data, FieldValueCollection changedData)

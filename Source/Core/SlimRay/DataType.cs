@@ -1,7 +1,7 @@
 ﻿
-namespace SlimRay.Data
+namespace SlimRay
 {
-    public enum DataTypes
+    public enum DataType
     {
         /// <summary>
         /// Means not set.

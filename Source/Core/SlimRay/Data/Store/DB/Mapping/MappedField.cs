@@ -11,11 +11,11 @@ namespace SlimRay.Data.Store.DB.Mapping
             set { _bindingName = value; }
         }
 
-        public MappedField(string name, DataTypes type)
+        public MappedField(string name, DataType type)
             : base(name, type)
         { }
 
-        public MappedField(string name, DataTypes type, string description)
+        public MappedField(string name, DataType type, string description)
             : base(name, type, description)
         { }
     }

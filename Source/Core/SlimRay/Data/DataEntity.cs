@@ -9,42 +9,44 @@ namespace SlimRay.Data
      */
     public class DataEntity : SimpleData, IDataEntity
     {
-        private DataRow _data;
-
-        public DataEntity(DataRow data)
-            : base("")
+        public DataEntity(ISimpleData data)
+            : base(data.Name, data.Description)
         {
-            _data = data;
+        }
+
+        public void SetValue(ISimpleField filed, string value)
+        {
+            throw new NotImplementedException();
         }
 
         public byte ValueByte(ISimpleField field)
         {
-            return Convert.ToByte(_data[field.Name]);
+            throw new NotImplementedException();
         }
 
         public int ValueInt32(ISimpleField field)
         {
-            return Convert.ToInt32(_data[field.Name]);
+            throw new NotImplementedException();
         }
 
         public long ValueInt64(ISimpleField field)
         {
-            return Convert.ToInt64(_data[field.Name]);
+            throw new NotImplementedException();
         }
 
         public char ValueChar(ISimpleField field)
         {
-            return Convert.ToChar(_data[field.Name]);
+            throw new NotImplementedException();
         }
 
         public string ValueString(ISimpleField field)
         {
-            return Convert.ToString(_data[field.Name]);
+            throw new NotImplementedException();
         }
 
         public bool ValueBool(ISimpleField field)
         {
-            return Convert.ToBoolean(_data[field.Name]);
+            throw new NotImplementedException();
         }
     }
 }

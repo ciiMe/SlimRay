@@ -37,6 +37,7 @@ namespace SlimRay.Data
 
         public ISimpleField[] Fields
         {
+            //todo: shoule be cached.
             get { return _fields.ToArray(); }
         }
 
@@ -60,6 +61,11 @@ namespace SlimRay.Data
             field.Data = this;
 
             _fields.Add(field);
+        }
+
+        public void SetFieldKeyFlag(ISimpleField field, bool isKeyField)
+        {
+            throw new System.NotImplementedException();
         }
 
         public void RemoveFiled(int index)

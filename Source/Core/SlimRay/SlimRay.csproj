@@ -77,12 +77,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseObjects.cs" />
-    <Compile Include="Data\DataTypeEntities\eBinary.cs" />
-    <Compile Include="Data\DataTypeEntities\eBoolean.cs" />
-    <Compile Include="Data\DataTypeEntities\eDate.cs" />
-    <Compile Include="Data\DataTypeEntities\eString.cs" />
-    <Compile Include="Data\DataTypeEntities\eFloat.cs" />
-    <Compile Include="Data\DataTypeEntities\eInt.cs" />
+    <Compile Include="DataTypeEntities\eBinary.cs" />
+    <Compile Include="DataTypeEntities\eBoolean.cs" />
+    <Compile Include="DataTypeEntities\eDate.cs" />
+    <Compile Include="DataTypeEntities\eString.cs" />
+    <Compile Include="DataTypeEntities\eFloat.cs" />
+    <Compile Include="DataTypeEntities\eInt.cs" />
+    <Compile Include="DataTypeEntities\IDataTypeEntity.cs" />
     <Compile Include="Data\Display\BindingAdapter.cs" />
     <Compile Include="Data\Display\IComponentBinding.cs" />
     <Compile Include="Data\Display\IDataBinding.cs" />
@@ -96,12 +97,14 @@
     <Compile Include="Data\SimpleData.cs" />
     <Compile Include="Data\SimpleField.cs" />
     <Compile Include="Data\Expression.cs" />
-    <Compile Include="Data\DataTypes.cs" />
+    <Compile Include="DataType.cs" />
     <Compile Include="Data\ISimpleData.cs" />
     <Compile Include="Data\ISimpleField.cs" />
     <Compile Include="Data\FieldValueCollection.cs" />
+    <Compile Include="Data\Store\DataRowLoader.cs" />
     <Compile Include="Data\Store\DB\DataManager.cs" />
     <Compile Include="Data\DataEntity.cs" />
+    <Compile Include="Data\Store\IDataLoader.cs" />
     <Compile Include="Data\Store\IDataManager.cs" />
     <Compile Include="Data\Store\DB\IExecutePlanBuilder.cs" />
     <Compile Include="Data\Store\DB\Mapping\ExecutePlanBuilderServer.cs" />
@@ -109,12 +112,13 @@
     <Compile Include="Data\Store\DB\Mapping\MappedData.cs" />
     <Compile Include="Data\Store\DB\Mapping\MappedField.cs" />
     <Compile Include="Data\Store\DB\Mapping\SQLPlanBuilder.cs" />
+    <Compile Include="Data\Store\IStore.cs" />
     <Compile Include="Data\Store\Operators\IOperatorParser.cs" />
     <Compile Include="Data\Store\Operators\OperatorService.cs" />
     <Compile Include="Data\Store\Operators\ParserMSSQL.cs" />
-    <Compile Include="Data\Store\DB\DBStore.cs" />
     <Compile Include="Data\Store\PlainText\XML\XMLDataManager.cs" />
-    <Compile Include="Data\Store\Store.cs" />
+    <Compile Include="Data\Store\StorageAddress.cs" />
+    <Compile Include="Data\Store\SimpleStore.cs" />
     <Compile Include="Data\Store\DB\ConnectionInfo.cs" />
     <Compile Include="Data\Store\DB\Contants.cs" />
     <Compile Include="Data\Store\DB\DBFacory\ADBFacory.cs" />
@@ -133,6 +137,7 @@
     <Compile Include="Data\Store\DB\ISQLPlan.cs" />
     <Compile Include="Data\Store\DB\SQLPlan.cs" />
     <Compile Include="Data\Store\DB\ValidDBConnection.cs" />
+    <Compile Include="Data\Store\StoreageType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicePool.cs" />
     <Compile Include="Translator.cs" />
