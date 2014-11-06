@@ -1,6 +1,8 @@
 ﻿using System.Data.Common;
 
-namespace SlimRay.Data.DB.DBFacory
+using SlimRay.Data.DB;
+
+namespace SlimRay.Data.Store.DB.DBFacory
 {
     /// <summary>
     /// 代表Factory池中的对象

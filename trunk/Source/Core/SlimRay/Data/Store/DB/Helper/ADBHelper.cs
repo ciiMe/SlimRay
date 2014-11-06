@@ -8,10 +8,9 @@ using System.Data;
 using System.Data.Common;
 
 using System.Collections.Generic;
+using SlimRay.Data.Store.DB.DBFacory;
 
-using SlimRay.Data.DB.DBFacory;
-
-namespace SlimRay.Data.DB.Helper
+namespace SlimRay.Data.Store.DB.Helper
 {
     /// <summary>
     /// 传递一个连接到db的DbCommand供调用者使用

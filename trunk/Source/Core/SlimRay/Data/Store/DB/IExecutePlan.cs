@@ -7,7 +7,7 @@
  * 
  */
 
-namespace SlimRay.Data.DB
+namespace SlimRay.Data.Store.DB
 {
     /// <summary>
     /// 表示数据请求和执行计划。

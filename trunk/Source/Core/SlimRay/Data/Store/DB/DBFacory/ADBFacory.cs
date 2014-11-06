@@ -1,6 +1,6 @@
 ﻿using System.Data.Common;
 
-namespace SlimRay.Data.DB.DBFacory
+namespace SlimRay.Data.Store.DB.DBFacory
 {
     public abstract class ADBFacory : IDBFactory
     {

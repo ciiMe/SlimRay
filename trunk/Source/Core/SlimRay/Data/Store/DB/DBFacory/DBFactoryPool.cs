@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 using System.Data.Common;
@@ -22,7 +21,7 @@ using System.Data.Common;
  * 
  */
 
-namespace SlimRay.Data.DB.DBFacory
+namespace SlimRay.Data.Store.DB.DBFacory
 {
     public class DBFacoryPool
     {

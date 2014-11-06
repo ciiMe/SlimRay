@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SlimRay.Data.DB
+﻿
+namespace SlimRay.Data.Store.DB
 {
     public class ExecutePlanFactory
     {

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SlimRay.Data.DB.DBFacory
+using SlimRay.Data.DB;
+
+namespace SlimRay.Data.Store.DB.DBFacory
 {
     /*
      * 传入连接信息，生成FacotyItem，可以在这里扩展以支持更多类型的数据库。

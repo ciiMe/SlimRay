@@ -4,7 +4,7 @@
  * 
  */
 
-namespace SlimRay.Data.DB
+namespace SlimRay.Data.Store.DB
 {
     public interface IConnectionInfo 
     {

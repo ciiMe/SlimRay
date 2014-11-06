@@ -1,7 +1,6 @@
-﻿
-using System.Data;
+﻿using System.Data;
 
-namespace SlimRay.Data.DB.Helper
+namespace SlimRay.Data.Store.DB.Helper
 {
     public interface IDBHelper 
     {

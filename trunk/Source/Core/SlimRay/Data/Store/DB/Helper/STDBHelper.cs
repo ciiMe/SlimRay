@@ -2,7 +2,7 @@
 using System.Data;
 using System.Data.Common;
 
-namespace SlimRay.Data.DB.Helper
+namespace SlimRay.Data.Store.DB.Helper
 {
     public abstract class STDBHelper : ADBHelper
     {
