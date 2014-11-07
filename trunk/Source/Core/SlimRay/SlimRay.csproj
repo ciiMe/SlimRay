@@ -93,10 +93,9 @@
     <Compile Include="Data\IDataEntity.cs" />
     <Compile Include="Data\FieldLinkRelation.cs" />
     <Compile Include="Data\ABasicField.cs" />
-    <Compile Include="Data\SimpleConstField.cs" />
     <Compile Include="Data\SimpleData.cs" />
     <Compile Include="Data\SimpleField.cs" />
-    <Compile Include="Data\Expression.cs" />
+    <Compile Include="Data\FieldExpression.cs" />
     <Compile Include="DataType.cs" />
     <Compile Include="Data\ISimpleData.cs" />
     <Compile Include="Data\ISimpleField.cs" />

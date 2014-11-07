@@ -9,8 +9,6 @@ namespace SlimRay.Data
         protected string _name;
         protected string _description;
 
-        protected string _value;
-
         protected ISimpleData _linkedData;
         protected FieldLinkRelation _linkRelation;
 
@@ -38,16 +36,11 @@ namespace SlimRay.Data
             set { _description = value; }
         }
 
-        public string Value
-        {
-            get { return _value; }
-            set { _value = value; }
-        }
-
         public void Link(ISimpleData data, FieldLinkRelation relation)
         {
             _linkedData = data;
             _linkRelation = relation;
         }
+
     }
 }

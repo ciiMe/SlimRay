@@ -29,6 +29,12 @@ namespace UserInterfaceTest
             ISimpleField f4 = SimpleDataFactory.Instance.NewSimpleField(field4, SlimRay.DataType.Date);
             ISimpleField f5 = SimpleDataFactory.Instance.NewSimpleField(field5, SlimRay.DataType.Boolean);
 
+            data.AddField(f1);
+            data.AddField(f2);
+            data.AddField(f3);
+            data.AddField(f4);
+            data.AddField(f5);
+
             return data;        
         }
 

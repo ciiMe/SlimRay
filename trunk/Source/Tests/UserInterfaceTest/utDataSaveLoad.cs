@@ -67,19 +67,24 @@ namespace UserInterfaceTest
         [TestMethod]
         public void LoadDataByExpression()
         {
-            string dataName = "Data Name";
-            string id = "ID:2014110605";
+            /*
+            string field1 = "ID";
+            string field2 = "Name";
+            string field3 = "Age";
+            string field4 = "BirthDay";
+            string field5 = "isLikeMusic";
+             */
+
+            string maxAge = "20";
+            string isLikeMusic = "Yes";
 
             ISimpleData data = _provider.PreparedSimpleData();
+            ISimpleField fieldAge = data.Fields[2];
+            ISimpleField fieldLikeMusic = data.Fields[4];
 
-            Assert.Fail("expression cannot link with data.");
-            Expression expression = new Expression();
-
-            expression.Field = data.Fields[0];
-            expression.Operator = ExpressionOperator.ValueEqual;
-            Assert.Fail("expression can not set value.");
-            expression.Sub = null;
-
+            Expression expression = new Expression(fieldAge, ExpressionOperator.ValueSmallerOrEqual, maxAge);
+            expression = expression & new Expression(fieldLikeMusic, ExpressionOperator.ValueEqual, isLikeMusic);
+            
             IDataEntity entiry = SimpleStore.Instance.LoadRecord(expression);
         }
     }

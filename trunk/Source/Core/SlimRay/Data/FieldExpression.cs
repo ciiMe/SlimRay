@@ -5,7 +5,8 @@ namespace SlimRay.Data
     {
         private ISimpleField _field;
         private ExpressionOperator _operator;
-        private Expression _sub;
+
+        private Expression _value;
 
         public ISimpleField Field
         {
@@ -19,43 +20,27 @@ namespace SlimRay.Data
             set { _operator = value; }
         }
 
-        public Expression Sub
+        public Expression Value
         {
-            get { return _sub; }
-            set { _sub = value; }
+            get { return _value; }
+            set { _value = value; }
         }
 
-        public Expression()
+        public Expression(string value)
+        {
+
+        }
+
+        public Expression(ISimpleField field, ExpressionOperator op, string val)
         {
         }
 
-        public Expression(ISimpleField field, ExpressionOperator op, string value)
+        public Expression(ISimpleField field1, ExpressionOperator op, ISimpleField field2)
         {
-            _field = field;
-            _operator = op;
-            _sub = new Expression
-            {
-                Field = new SimpleConstField(value),
-                Operator = ExpressionOperator.None
-            };
-        }
-
-        public Expression(ISimpleField field, ExpressionOperator op, ISimpleField value)
-        {
-            _field = field;
-            _operator = op;
-            _sub = new Expression
-            {
-                Field = value,
-                Operator = ExpressionOperator.None
-            };
         }
 
         public Expression(ISimpleField field, ExpressionOperator op, Expression sub)
         {
-            _field = field;
-            _operator = op;
-            _sub = sub;
         }
 
         public Expression(Expression e1, ExpressionOperator op, Expression e2)
