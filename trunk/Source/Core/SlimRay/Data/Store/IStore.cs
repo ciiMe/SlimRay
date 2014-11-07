@@ -24,5 +24,6 @@ namespace SlimRay.Data.Store
         //void RemoveRecord(IDataEntity entity);
 
         IDataEntity LoadRecord(string dataName, string key);
+        IDataEntity LoadRecord(Expression expression);
     }
 }

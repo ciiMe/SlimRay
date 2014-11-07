@@ -13,7 +13,6 @@ namespace SlimRay.Data
         ISimpleField[] Fields { get; }
 
         void AddField(ISimpleField field);
-        void SetFieldKeyFlag(ISimpleField field, bool isKeyField);
         void RemoveFiled(int index);
     }
 }

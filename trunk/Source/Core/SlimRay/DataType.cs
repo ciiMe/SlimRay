@@ -20,7 +20,7 @@ namespace SlimRay
         Char,
         String,
 
-        Bool,
+        Boolean,
 
         Date,
         Time,

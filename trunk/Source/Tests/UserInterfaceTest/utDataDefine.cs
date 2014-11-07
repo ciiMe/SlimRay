@@ -7,6 +7,13 @@ using SlimRay.Data.Store;
 
 namespace UserInterfaceTest
 {
+    /*
+     * this class tests:
+     * 1. how the data is defined,
+     * 2. how the fields are bind to the data,
+     * 3. how the field value is set.
+     * 4. how the field value is get
+     */
     [TestClass]
     public class utDataDefine
     {
@@ -38,21 +45,11 @@ namespace UserInterfaceTest
 
             return data;
         }
-
-        [TestMethod]
-        public ISimpleData SetKeyField()
-        {
-            ISimpleData data = AddFieldForSimpleData();
-
-            data.SetFieldKeyFlag(data.Fields[0], true);
-
-            return data;
-        }
-
+        
         [TestMethod]
         public IDataEntity UpdateFieldValue()
         {
-            ISimpleData data = SetKeyField();
+            ISimpleData data = AddFieldForSimpleData();
 
             DataEntity entity = new DataEntity(data);
 
@@ -65,44 +62,5 @@ namespace UserInterfaceTest
             return entity;
         }
 
-        [TestMethod]
-        public void InsertDataToXML()
-        {
-            IDataEntity entity = UpdateFieldValue();
-
-            StorageAddress address = new StorageAddress()
-            {
-                Type = StorageType.XML,
-                Address = "d:\\temp\\MyData.xml"
-            };
-
-            SimpleStore.Instance.AssignStorageType(entity, address);
-
-            SimpleStore.Instance.InsertNewRecord(entity);
-        }
-
-        [TestMethod]
-        public void InsertDataToMSSQL()
-        {
-            IDataEntity entity = UpdateFieldValue();
-
-            StorageAddress address = new StorageAddress()
-            {
-                Type = StorageType.MSSQLServer,
-                Address = "192.168.1.1,sa,sa"
-            };
-
-            SimpleStore.Instance.AssignStorageType(entity, address);
-
-            SimpleStore.Instance.InsertNewRecord(entity);
-        }
-
-        [TestMethod]
-        public void LoadData()
-        {
-            string dataName = "Data Name";
-            string id = "ID:2014110605";
-            ISimpleData data = SimpleStore.Instance.LoadRecord(dataName, id);
-        }
     }
 }
