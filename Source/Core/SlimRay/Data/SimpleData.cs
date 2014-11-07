@@ -63,11 +63,6 @@ namespace SlimRay.Data
             _fields.Add(field);
         }
 
-        public void SetFieldKeyFlag(ISimpleField field, bool isKeyField)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void RemoveFiled(int index)
         {
             if (index >= 0 && index < _fields.Count)

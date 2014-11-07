@@ -31,5 +31,10 @@ namespace SlimRay.Data.Store
         {
             throw new System.NotImplementedException();
         }
+
+        public IDataEntity LoadRecord(Expression expression)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
