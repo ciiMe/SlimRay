@@ -13,8 +13,6 @@ namespace SlimRay.Data
         string Name { get; set; }
         string Description { get; set; }
 
-        string Value { get; set; }
-
         void Link(ISimpleData data, FieldLinkRelation relation);
     }
 }
