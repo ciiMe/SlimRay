@@ -7,8 +7,8 @@ namespace SlimRay.Data.Display
     /// </summary>
     public interface IDataBinding
     {
-        ISimpleData Data { get; set; }
-        ISimpleField Field { get; set; }
+        IData Data { get; set; }
+        IField Field { get; set; }
 
         string GetValue(string format);
 

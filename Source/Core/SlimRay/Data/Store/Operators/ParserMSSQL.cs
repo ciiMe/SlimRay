@@ -1,4 +1,5 @@
-﻿
+﻿using SlimRay.Utils;
+
 namespace SlimRay.Data.Store.Operators
 {
     public class ParserMSSQL : IOperatorParser

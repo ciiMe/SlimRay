@@ -5,17 +5,17 @@ namespace SlimRay.Data.Store
 {
     public interface IDataManager
     {
-        int GetInt(ISimpleData data, Expression expr);
-        double GetDouble(ISimpleData data, Expression expr);
-        string GetString(ISimpleData data, Expression expr);
-        bool GetBoolean(ISimpleData data, Expression expr);
-        DateTime GetDateTime(ISimpleData data, Expression expr);
+        int GetInt(IData data, Expression expr);
+        double GetDouble(IData data, Expression expr);
+        string GetString(IData data, Expression expr);
+        bool GetBoolean(IData data, Expression expr);
+        DateTime GetDateTime(IData data, Expression expr);
 
-        DataTable GetDataTable(ISimpleData data, Expression expression);
-        DataRow GetDataRow(ISimpleData data, Expression expression);
+        DataTable GetDataTable(IData data, Expression expression);
+        DataRow GetDataRow(IData data, Expression expression);
 
-        IDataEntity GetEntity(ISimpleData data, Expression expression);
+        IDataEntity GetEntity(IData data, Expression expression);
 
-        bool Update(ISimpleData data, FieldValueCollection changedData);
+        bool Update(IData data, FieldValueCollection changedData);
     }
 }

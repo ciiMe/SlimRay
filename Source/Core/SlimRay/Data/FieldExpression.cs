@@ -3,12 +3,12 @@ namespace SlimRay.Data
 {
     public class Expression
     {
-        private ISimpleField _field;
+        private IField _field;
         private ExpressionOperator _operator;
 
         private Expression _value;
 
-        public ISimpleField Field
+        public IField Field
         {
             get { return _field; }
             set { _field = value; }
@@ -31,15 +31,15 @@ namespace SlimRay.Data
 
         }
 
-        public Expression(ISimpleField field, ExpressionOperator op, string val)
+        public Expression(IField field, ExpressionOperator op, string val)
         {
         }
 
-        public Expression(ISimpleField field1, ExpressionOperator op, ISimpleField field2)
+        public Expression(IField field1, ExpressionOperator op, IField field2)
         {
         }
 
-        public Expression(ISimpleField field, ExpressionOperator op, Expression sub)
+        public Expression(IField field, ExpressionOperator op, Expression sub)
         {
         }
 
