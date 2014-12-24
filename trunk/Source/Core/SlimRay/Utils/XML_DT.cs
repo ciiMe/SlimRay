@@ -2,7 +2,7 @@
 using System.Text;
 using System.Data;
 
-namespace SlimRay.Data.DB.Tools
+namespace SlimRay.Utils
 {
     public static class XML_DT
     {

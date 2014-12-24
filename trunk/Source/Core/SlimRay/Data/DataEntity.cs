@@ -7,44 +7,44 @@ namespace SlimRay.Data
      * the DataEntity stores all data in DataRow,
      * Field name of data is Column name in datarow.
      */
-    public class DataEntity : SimpleData, IDataEntity
+    public class DataEntity : Data, IDataEntity
     {
-        public DataEntity(ISimpleData data)
+        public DataEntity(IData data)
             : base(data.Name, data.Description)
         {
         }
 
-        public void SetValue(ISimpleField filed, string value)
+        public void SetValue(IField filed, string value)
         {
             throw new NotImplementedException();
         }
 
-        public byte ValueByte(ISimpleField field)
+        public byte ValueByte(IField field)
         {
             throw new NotImplementedException();
         }
 
-        public int ValueInt32(ISimpleField field)
+        public int ValueInt32(IField field)
         {
             throw new NotImplementedException();
         }
 
-        public long ValueInt64(ISimpleField field)
+        public long ValueInt64(IField field)
         {
             throw new NotImplementedException();
         }
 
-        public char ValueChar(ISimpleField field)
+        public char ValueChar(IField field)
         {
             throw new NotImplementedException();
         }
 
-        public string ValueString(ISimpleField field)
+        public string ValueString(IField field)
         {
             throw new NotImplementedException();
         }
 
-        public bool ValueBool(ISimpleField field)
+        public bool ValueBool(IField field)
         {
             throw new NotImplementedException();
         }

@@ -9,7 +9,7 @@ namespace SlimRay.Data.Store
 {
     public class DataRowLoader : IDataLoader
     {
-        public DataRowLoader(ISimpleData data, DataRow row)
+        public DataRowLoader(IData data, DataRow row)
         {
 
         }

@@ -17,7 +17,7 @@ namespace SlimRay.Data.Store
         /// <summary>
         /// set storage type for specific data.
         /// </summary>
-        void AssignStorageType(ISimpleData data, StorageAddress address);
+        void AssignStorageType(IData data, StorageAddress address);
 
         void InsertNewRecord(IDataEntity entity);
         //void UpdateRecord(IDataEntity entity);

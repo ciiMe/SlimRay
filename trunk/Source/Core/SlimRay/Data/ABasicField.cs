@@ -1,24 +1,24 @@
 ﻿
 namespace SlimRay.Data
 {
-    public abstract class ABasicField : ISimpleField
+    public abstract class ABasicField : IField
     {
-        protected ISimpleData _data;
-        protected DataType _type;
+        protected IData _data;
+        protected FieldType _type;
 
         protected string _name;
         protected string _description;
 
-        protected ISimpleData _linkedData;
+        protected IData _linkedData;
         protected FieldLinkRelation _linkRelation;
 
-        public ISimpleData Data
+        public IData Data
         {
             get { return _data; }
             set { _data = value; }
         }
 
-        public DataType Type
+        public FieldType Type
         {
             get { return _type; }
             set { _type = value; }
@@ -36,7 +36,7 @@ namespace SlimRay.Data
             set { _description = value; }
         }
 
-        public void Link(ISimpleData data, FieldLinkRelation relation)
+        public void Link(IData data, FieldLinkRelation relation)
         {
             _linkedData = data;
             _linkRelation = relation;

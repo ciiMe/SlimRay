@@ -16,14 +16,14 @@ namespace SlimRay.Data.Factories
             }
         }
 
-        public ISimpleData NewSimpleData(string name)
+        public IData NewSimpleData(string name)
         {
-            return new SimpleData(name);
+            return new Data(name);
         }
 
-        public ISimpleField NewSimpleField(string name, DataType type)
+        public IField NewSimpleField(string name, FieldType type)
         {
-            return new SimpleField(name, type);
+            return new Field(name, type);
         }
     }
 }

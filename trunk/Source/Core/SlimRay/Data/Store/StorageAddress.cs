@@ -2,11 +2,11 @@
 
 namespace SlimRay.Data.Store
 {
-    public sealed class StorageAddress
+    public class StorageAddress
     {
-        private StorageType _type;
-        private string _address;
-        private List<KeyValuePair<string, string>> _parameters;
+        protected StorageType _type;
+        protected string _address;
+        protected List<KeyValuePair<string, string>> _parameters;
 
         public StorageType Type
         {

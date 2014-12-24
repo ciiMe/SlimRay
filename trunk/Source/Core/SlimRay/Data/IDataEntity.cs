@@ -1,17 +1,17 @@
 ﻿
 namespace SlimRay.Data
 {
-    public interface IDataEntity : ISimpleData
+    public interface IDataEntity : IData
     {
-        void SetValue(ISimpleField filed, string value);
+        void SetValue(IField filed, string value);
 
-        byte ValueByte(ISimpleField field);
-        int ValueInt32(ISimpleField field);
-        long ValueInt64(ISimpleField field);
+        byte ValueByte(IField field);
+        int ValueInt32(IField field);
+        long ValueInt64(IField field);
 
-        char ValueChar(ISimpleField field);
-        string ValueString(ISimpleField field);
+        char ValueChar(IField field);
+        string ValueString(IField field);
 
-        bool ValueBool(ISimpleField field);
+        bool ValueBool(IField field);
     }
 }
