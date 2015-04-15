@@ -3,8 +3,8 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using SlimRay.Data;
-using SlimRay.Data.ExpressionManager;
+using SlimRay.UserData;
+using SlimRay.UserData.ExpressionManager;
 
 namespace FunctionTest.Data
 {

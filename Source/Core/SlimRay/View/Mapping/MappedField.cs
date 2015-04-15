@@ -1,5 +1,5 @@
 ﻿
-namespace SlimRay.Data.View.Mapping
+namespace SlimRay.UserData.View.Mapping
 {
     public class MappedField : Field, IMapped
     {
@@ -10,13 +10,5 @@ namespace SlimRay.Data.View.Mapping
             get { return _bindingName; }
             set { _bindingName = value; }
         }
-
-        public MappedField(string name, FieldType type)
-            : base(name, type)
-        { }
-
-        public MappedField(string name, FieldType type, string description)
-            : base(name, type, description)
-        { }
     }
 }

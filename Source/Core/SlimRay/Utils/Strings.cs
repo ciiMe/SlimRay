@@ -169,5 +169,116 @@ namespace SlimRay.Utils
             &&
             s1.Replace(" ", "").ToUpper() == s2.Replace(" ", "").ToUpper();
         }
+
+        public class StringHelper
+        {
+            public static string[] SplitToArray(string data)
+            {
+                return SplitToArray(data, ',');
+            }
+
+            public static string[] SplitToArray(string data, char spltor)
+            {
+                if (data == null || data == "")
+                {
+                    return new string[] { };
+                }
+
+                return data.IndexOf(spltor) > 0 ? data.Split(spltor) : new string[] { data };
+            }
+
+            public static string ArrayToString(string[] data)
+            {
+                if (data == null)
+                {
+                    return "";
+                }
+
+                string result = "";
+
+                for (int i = 0; i < data.Length; i++)
+                {
+                    if (i == 0)
+                    {
+                        result += data[i];
+                    }
+                    else
+                    {
+                        result += ("," + data[i]);
+                    }
+                }
+
+                return result;
+            }
+
+            public static string Left(string data, string splitor)
+            {
+                if (data == null)
+                {
+                    return "";
+                }
+
+                int i = data.IndexOf(splitor);
+
+                return i >= 0 ? data.Substring(0, i) : data;
+            }
+
+            public static string RemoveStart(string data, string start)
+            {
+                if (start == null || start == "" || data == null || start.Length > data.Length)
+                {
+                    return data;
+                }
+
+                return data.Substring(0, start.Length).ToUpper() == start.ToUpper() ? data.Substring(start.Length) : data;
+            }
+
+            public static string RemoveEnd(string data, string end)
+            {
+                if (end == null || end == "" || data == null || end.Length > data.Length)
+                {
+                    return data;
+                }
+
+                return data.Substring(data.Length - end.Length).ToUpper() == end.ToUpper() ? data.Substring(0, data.Length - end.Length) : data;
+            }
+
+            public static bool IsStartWith(string data, string start)
+            {
+                if (string.IsNullOrEmpty(data) || string.IsNullOrEmpty(start) || start.Length > data.Length)
+                {
+                    return false;
+                }
+
+                return data.Substring(0, start.Length).ToUpper() == start.ToUpper();
+            }
+
+            public static bool BoolFromYN(string data)
+            {
+                return data == "Y" || data == "y";
+            }
+
+            public static string FormatDate(string date, string format)
+            {
+                try
+                {
+                    return string.IsNullOrEmpty(date) ? "" : Convert.ToDateTime(date).ToString(format);
+                }
+                catch
+                {
+                    return date;
+                }
+            }
+
+            public static string ToCATSDate(string date)
+            {
+                return FormatDate(date, "yyyy-MM-dd");
+            }
+
+            public static string ToMercuryDate(string date)
+            {
+                return FormatDate(date, "dd-MMM-yy");
+            }
+        }
     }
 }

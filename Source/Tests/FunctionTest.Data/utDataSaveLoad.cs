@@ -3,8 +3,8 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using SlimRay.Data;
-using SlimRay.Data.Store;
+using SlimRay.UserData;
+using SlimRay.UserData.Store;
 
 namespace FunctionTest.Data
 {
@@ -42,7 +42,7 @@ namespace FunctionTest.Data
         {
             IDataEntity entity = _provider.PreparedDataEntiry();
 
-            StorageAddress addr = new SlimRay.Data.Store.StorageAddresses.MSSQLServer()
+            StorageAddress addr = new SlimRay.UserData.Store.StorageAddresses.MSSQLServer()
             {
                 Address = "192.168.1.1",
                 UserName = "sa",

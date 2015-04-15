@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using SlimRay.Data;
-using SlimRay.Data.Factories;
+using SlimRay.UserData;
+using SlimRay.UserData.Factories;
 
 namespace FunctionTest.Data
 {
