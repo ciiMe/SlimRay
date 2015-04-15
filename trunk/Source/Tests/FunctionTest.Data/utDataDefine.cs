@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using SlimRay.Data;
-using SlimRay.Data.Factories;
-using SlimRay.Data.Store;
+using SlimRay.UserData;
+using SlimRay.UserData.Factories;
+using SlimRay.UserData.Store;
 
 namespace FunctionTest.Data
 {

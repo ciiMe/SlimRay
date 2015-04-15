@@ -1,5 +1,5 @@
 ﻿
-namespace SlimRay.Data.View.Mapping
+namespace SlimRay.UserData.View.Mapping
 {
     public interface IMapped
     {
