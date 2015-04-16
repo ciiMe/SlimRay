@@ -100,6 +100,7 @@
     <Compile Include="DB\Factory\IExecutorCreator.cs" />
     <Compile Include="DB\Helpers\MSSQL\MSSQLExecutorCreator.cs" />
     <Compile Include="DB\Helpers\MSSQL\MSSQLHelper.cs" />
+    <Compile Include="View\BindingConfig.cs" />
     <Compile Include="View\Mapping\IMapped.cs" />
     <Compile Include="View\Mapping\MappedData.cs" />
     <Compile Include="View\Mapping\MappedField.cs" />
