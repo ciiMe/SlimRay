@@ -1,0 +1,6 @@
+﻿component will call DataAdapter under View to load data, and show data in UI.
+this adapter is the only access point that connect to data.
+there is display setting in data, so data adapter can format it easily.
+
+data adapter will provide many update(...) method for UI, UI components should call it properly as the data field type defined.
+there will be a warnning dialog shows when you call wrong update(...) method,
