@@ -69,21 +69,18 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Action.cs" />
     <Compile Include="Store\DataEntity.cs" />
     <Compile Include="Store\Expression.cs" />
     <Compile Include="Store\IDataEntity.cs" />
     <Compile Include="UserData\ILinkedField.cs" />
-    <Compile Include="View\Display\BindingAdapter.cs" />
-    <Compile Include="View\Display\IComponentBinding.cs" />
-    <Compile Include="View\Display\IDataBinding.cs" />
-    <Compile Include="View\Display\ProcResult.cs" />
+    <Compile Include="View\Components\IBindingComponent.cs" />
+    <Compile Include="View\DataAdapter\IDataAdapter.cs" />
     <Compile Include="Store\ExpressionOperator.cs" />
     <Compile Include="UserData\FieldLinkRelation.cs" />
     <Compile Include="UserData\Data.cs" />
@@ -101,9 +98,6 @@
     <Compile Include="DB\Helpers\MSSQL\MSSQLExecutorCreator.cs" />
     <Compile Include="DB\Helpers\MSSQL\MSSQLHelper.cs" />
     <Compile Include="View\BindingConfig.cs" />
-    <Compile Include="View\Mapping\IMapped.cs" />
-    <Compile Include="View\Mapping\MappedData.cs" />
-    <Compile Include="View\Mapping\MappedField.cs" />
     <Compile Include="Store\IStore.cs" />
     <Compile Include="Store\Operators\IOperatorParser.cs" />
     <Compile Include="Store\Operators\OperatorService.cs" />
@@ -133,6 +127,9 @@
     <Folder Include="Network\" />
     <Folder Include="Security\" />
     <Folder Include="Store\Manager\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="View\Components\todo.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
