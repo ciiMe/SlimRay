@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\IStore.cs" />
     <Compile Include="DataAccess\Store.cs" />
     <Compile Include="DataDefinition\ILog.cs" />
     <Compile Include="DataDefinition\ISystemData.cs" />
