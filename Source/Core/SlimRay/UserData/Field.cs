@@ -20,5 +20,29 @@ namespace SlimRay.UserData
             Description = description;
             Type = type;
         }
+
+        public FieldDisplayType DisplayType
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+                throw new System.NotImplementedException();
+            }
+        }
+
+        public DataValueFormat DisplayFormat
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+                throw new System.NotImplementedException();
+            }
+        }
     }
 }
