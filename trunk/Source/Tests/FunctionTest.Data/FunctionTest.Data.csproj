@@ -50,11 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ExpressionUsage.cs" />
-    <Compile Include="utDataSaveLoad.cs" />
-    <Compile Include="utDataDefine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="utDataSaveLoadProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\SlimRay\SlimRay.csproj">

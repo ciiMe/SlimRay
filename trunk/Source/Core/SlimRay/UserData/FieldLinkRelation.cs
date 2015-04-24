@@ -7,13 +7,21 @@ namespace SlimRay.UserData
     public enum FieldLinkRelation
     {
         /// <summary>
-        /// The data is detail records of field.
+        /// The data that this field belongs to is detail records of field.
+        /// a data of single record can link to its detail records.
         /// </summary>
-        Detail,
+        DetailData,
 
         /// <summary>
-        /// the data is external information of field.
+        /// the data that this field belongs to is another part of the whole data.
+        /// any part of data can link to another.
         /// </summary>
-        External
+        AnotherPartofData,
+
+        /// <summary>
+        /// the data that this field belongs to is a field of another data.
+        /// a data should link to its list-type-field data.
+        /// </summary>
+        FieldofList
     }
 }
