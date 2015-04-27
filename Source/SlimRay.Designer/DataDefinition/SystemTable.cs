@@ -75,7 +75,7 @@ namespace SlimRay.Designer.DataDefinition
             get { throw new NotImplementedException(); }
         }
 
-        public ILinkedField[] LinkedFields
+        public LinkedField[] LinkedFields
         {
             get { throw new NotImplementedException(); }
         }

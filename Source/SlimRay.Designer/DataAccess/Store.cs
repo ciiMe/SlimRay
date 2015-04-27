@@ -7,7 +7,14 @@ namespace SlimRay.Designer.DataAccess
 {
     public class Store : IStore
     {
+        private static Store _instance = new Store();
+
         private List<IData> _systemData;
+
+        public static Store Instance
+        {
+            get { return _instance; }
+        }
 
         public Store()
         {
@@ -25,14 +32,33 @@ namespace SlimRay.Designer.DataAccess
             return _systemData.ToArray();
         }
 
-        public IData load(int id)
+        public IData Load(int id)
         {
-            throw new NotImplementedException();
+            foreach (var data in _systemData)
+            {
+                if (data.ID == id)
+                {
+                    return data;
+                }
+            }
+
+            return null;
+
         }
 
-        public IData load(string name)
+        public IData Load(string name)
         {
-            throw new NotImplementedException();
+            name = name.ToLower().Trim();
+
+            foreach (var data in _systemData)
+            {
+                if (data.Name.ToLower() == name)
+                {
+                    return data;
+                }
+            }
+
+            return null;
         }
 
         public bool Update(IData data)

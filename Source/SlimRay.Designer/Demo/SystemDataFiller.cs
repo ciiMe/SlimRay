@@ -43,6 +43,7 @@ namespace SlimRay.Designer.Demo
             data.AddField(new Field("LoginPassword", FieldType.String));
             data.AddField(new Field("Description", FieldType.String));
             data.AddField(new Field("Type", FieldType.UnInt32));
+            data.AddField(new Field("Status", FieldType.Int32));
             dList.Add(data);
 
             data = new Data("UserGroup", "Links between user and group.");
@@ -50,16 +51,21 @@ namespace SlimRay.Designer.Demo
             data.AddField(new Field("GroupID", FieldType.Int64));
             dList.Add(data);
 
+            data = new Data("User Status", "Status of user.");
+            data.AddField(new Field("ID", FieldType.Int32));
+            data.AddField(new Field("Name", FieldType.String));
+            dList.Add(data);
+
             //User group setting should be able to load all detail data of user and group.
             dList[4].Link(dList[2].Fields[0], FieldLinkRelation.AnotherPartofData);
             dList[4].Link(dList[3].Fields[0], FieldLinkRelation.AnotherPartofData);
-                        
+            dList[4].Link(dList[5].Fields[0], FieldLinkRelation.DataSource);
+
             return dList;
         }
 
         private void fillFields_Data(IData data)
         {
-
             int index = 0;
             foreach (IField field in data.Fields)
             {
