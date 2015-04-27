@@ -126,7 +126,6 @@
   <ItemGroup>
     <Folder Include="Coding\" />
     <Folder Include="DataSource\" />
-    <Folder Include="DB\Mapping\" />
     <Folder Include="Devices\" />
     <Folder Include="Network\" />
     <Folder Include="Security\" />
