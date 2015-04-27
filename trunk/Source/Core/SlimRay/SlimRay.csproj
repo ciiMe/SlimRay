@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SlimRay</RootNamespace>
     <AssemblyName>SlimRay</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -78,7 +78,8 @@
     <Compile Include="Store\DataEntity.cs" />
     <Compile Include="Store\Expression.cs" />
     <Compile Include="Store\IDataEntity.cs" />
-    <Compile Include="UserData\ILinkedField.cs" />
+    <Compile Include="UserData\FieldDisplay.cs" />
+    <Compile Include="UserData\LinkedField.cs" />
     <Compile Include="View\Components\IBindingComponent.cs" />
     <Compile Include="View\DataAdapter\IDataAdapter.cs" />
     <Compile Include="Store\ExpressionOperator.cs" />
@@ -127,6 +128,8 @@
     <Folder Include="Network\" />
     <Folder Include="Security\" />
     <Folder Include="Store\Manager\" />
+    <Folder Include="View\Editor\" />
+    <Folder Include="View\Viewer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="View\Components\todo.txt" />

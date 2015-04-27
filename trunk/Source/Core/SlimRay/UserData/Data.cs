@@ -9,6 +9,7 @@ namespace SlimRay.UserData
         protected string _description;
 
         protected List<IField> _fields;
+        protected List<LinkedField> _linkedFields;
 
         public int ID
         {
@@ -39,6 +40,7 @@ namespace SlimRay.UserData
             _name = name;
             _description = "";
             _fields = new List<IField>();
+            _linkedFields = new List<LinkedField>();
         }
 
         public Data(string name, string description)
@@ -46,6 +48,7 @@ namespace SlimRay.UserData
             _name = name;
             _description = description;
             _fields = new List<IField>();
+            _linkedFields = new List<LinkedField>();
         }
 
         protected bool isFieldExists(IField field)
@@ -79,22 +82,23 @@ namespace SlimRay.UserData
             }
         }
 
-        public ILinkedField[] LinkedFields
+        public LinkedField[] LinkedFields
         {
-            get { throw new System.NotImplementedException(); }
+            get { return _linkedFields.ToArray(); }
         }
 
         public void Link(IField field, FieldLinkRelation relation)
         {
-            throw new System.NotImplementedException();
+            LinkedField lf = new LinkedField
+            {
+                Field = field,
+                Relation = relation
+            };
+
+            _linkedFields.Add(lf);
         }
 
         public void UnLink(string fieldName)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void UnLink(int index)
         {
             throw new System.NotImplementedException();
         }

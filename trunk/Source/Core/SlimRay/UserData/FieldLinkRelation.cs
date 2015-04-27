@@ -22,6 +22,12 @@ namespace SlimRay.UserData
         /// the data that this field belongs to is a field of another data.
         /// a data should link to its list-type-field data.
         /// </summary>
-        FieldofList
+        FieldofList,
+
+        /// <summary>
+        /// the data that this field belongs to is the data source, 
+        /// in editor mode, all data should be choosed from data source.
+        /// </summary>
+        DataSource
     }
 }

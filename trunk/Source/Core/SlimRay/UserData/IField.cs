@@ -1,36 +1,6 @@
 ﻿
 namespace SlimRay.UserData
 {
-    public enum FieldDisplayType
-    {
-        AsText,
-
-        AsDropdownList,
-        AsSelectOnlyDropDownList,
-
-        AsRadio,
-        AsCheckable,
-
-        AsCanlendar
-    }
-
-    public enum DataValueFormatType
-    {
-        Date,
-        Time,
-        DateTime,
-        Money,
-        Numeric,
-        CommonText,
-        Percent
-    }
-
-    public struct DataValueFormat
-    {
-        DataValueFormatType Format { get; set; }
-        string FormatString { get; set; }
-    }
-
     public interface IField
     {
         /// <summary>
@@ -43,7 +13,5 @@ namespace SlimRay.UserData
         string Description { get; set; }
 
         FieldType Type { get; set; }
-        FieldDisplayType DisplayType { get; set; }
-        DataValueFormat DisplayFormat { get; set; }
     }
 }
