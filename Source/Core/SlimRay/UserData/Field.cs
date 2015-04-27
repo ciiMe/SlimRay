@@ -9,8 +9,6 @@ namespace SlimRay.UserData
         private string _name;
         private string _description;
         private FieldType _type;
-        private FieldDisplayType _displayType;
-        private DataValueFormat _displayFormat;
 
         public IData Data
         {

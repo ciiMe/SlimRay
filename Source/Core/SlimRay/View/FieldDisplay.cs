@@ -14,7 +14,9 @@ namespace SlimRay.View
         AsRadio,
         AsCheckable,
 
-        AsCanlendar
+        AsCanlendar,
+
+        AsGrid
     }
 
     /// <summary>
