@@ -78,8 +78,8 @@
     <Compile Include="Store\DataEntity.cs" />
     <Compile Include="Store\Expression.cs" />
     <Compile Include="Store\IDataEntity.cs" />
-    <Compile Include="UserData\FieldDisplay.cs" />
     <Compile Include="UserData\LinkedField.cs" />
+    <Compile Include="View\AViewer.cs" />
     <Compile Include="View\Components\IBindingComponent.cs" />
     <Compile Include="View\DataAdapter\IDataAdapter.cs" />
     <Compile Include="Store\ExpressionOperator.cs" />
@@ -119,6 +119,9 @@
     <Compile Include="Utils\List\ListEnumlator.cs" />
     <Compile Include="Utils\Strings.cs" />
     <Compile Include="Utils\XML_DT.cs" />
+    <Compile Include="View\FieldDisplay.cs" />
+    <Compile Include="View\IViewer.cs" />
+    <Compile Include="View\Viewer\GridViewer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Coding\" />
@@ -129,7 +132,6 @@
     <Folder Include="Security\" />
     <Folder Include="Store\Manager\" />
     <Folder Include="View\Editor\" />
-    <Folder Include="View\Viewer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="View\Components\todo.txt" />
