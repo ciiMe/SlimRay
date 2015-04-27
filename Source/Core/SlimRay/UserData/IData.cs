@@ -24,13 +24,12 @@ namespace SlimRay.UserData
         string Description { get; set; }
 
         IField[] Fields { get; }
-        ILinkedField[] LinkedFields { get; }
+        LinkedField[] LinkedFields { get; }
 
         void AddField(IField field);
         void RemoveFiled(int index);
 
         void Link(IField field, FieldLinkRelation relation);
         void UnLink(string fieldName);
-        void UnLink(int index);
     }
 }

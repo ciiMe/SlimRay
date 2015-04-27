@@ -3,46 +3,56 @@ namespace SlimRay.UserData
 {
     public class Field : IField
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public FieldType Type { get; set; }
-        public IData Data { get; set; }
+        private IData _data;
+
+        private int _id;
+        private string _name;
+        private string _description;
+        private FieldType _type;
+        private FieldDisplayType _displayType;
+        private DataValueFormat _displayFormat;
+
+        public IData Data
+        {
+            get { return _data; }
+            set { _data = value; }
+        }
+
+        public int ID
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
+
+        public string Description
+        {
+            get { return _description; }
+            set { _description = value; }
+        }
+
+        public FieldType Type
+        {
+            get { return _type; }
+            set { _type = value; }
+        }
 
         public Field(string name, FieldType type)
         {
-            Name = name;
-            Type = type;
+            _name = name;
+            _type = type;
         }
+
         public Field(string name, string description, FieldType type)
         {
-            Name = name;
-            Description = description;
-            Type = type;
-        }
-
-        public FieldDisplayType DisplayType
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-                throw new System.NotImplementedException();
-            }
-        }
-
-        public DataValueFormat DisplayFormat
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-                throw new System.NotImplementedException();
-            }
+            _name = name;
+            _description = description;
+            _type = type;
         }
     }
 }
