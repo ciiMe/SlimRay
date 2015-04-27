@@ -7,5 +7,10 @@ namespace SlimRay.View.Viewer
 {
     public class GridViewer : AViewer
     {
+        public GridViewer()
+            : base(FieldDisplayMethod.AsGrid)
+        {
+
+        }
     }
 }
