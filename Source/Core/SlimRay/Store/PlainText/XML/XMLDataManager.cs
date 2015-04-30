@@ -5,47 +5,47 @@ namespace SlimRay.Store.PlainText.XML
 {
     class XMLDataManager : IDataManager
     {
-        public int GetInt(IData data, Expression expr)
+        public int GetInt(IUserData data, Expression expr)
         {
             throw new NotImplementedException();
         }
 
-        public double GetDouble(IData data, Expression expr)
+        public double GetDouble(IUserData data, Expression expr)
         {
             throw new NotImplementedException();
         }
 
-        public string GetString(IData data, Expression expr)
+        public string GetString(IUserData data, Expression expr)
         {
             throw new NotImplementedException();
         }
 
-        public bool GetBoolean(IData data, Expression expr)
+        public bool GetBoolean(IUserData data, Expression expr)
         {
             throw new NotImplementedException();
         }
 
-        public DateTime GetDateTime(IData data, Expression expr)
+        public DateTime GetDateTime(IUserData data, Expression expr)
         {
             throw new NotImplementedException();
         }
 
-        public System.Data.DataTable GetDataTable(IData data, Expression expression)
+        public System.Data.DataTable GetDataTable(IUserData data, Expression expression)
         {
             throw new NotImplementedException();
         }
 
-        public System.Data.DataRow GetDataRow(IData data, Expression expression)
+        public System.Data.DataRow GetDataRow(IUserData data, Expression expression)
         {
             throw new NotImplementedException();
         }
 
-        public IDataEntity GetEntity(IData data, Expression expression)
+        public IDataEntity GetEntity(IUserData data, Expression expression)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(IData data, FieldValueCollection changedData)
+        public bool Update(IUserData data, FieldValueCollection changedData)
         {
             throw new NotImplementedException();
         }

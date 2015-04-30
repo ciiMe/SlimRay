@@ -6,7 +6,7 @@ namespace SlimRay.Store
 {
     public class DataRowLoader : IDataLoader
     {
-        public DataRowLoader(IData data, DataRow row)
+        public DataRowLoader(IUserData data, DataRow row)
         {
 
         }

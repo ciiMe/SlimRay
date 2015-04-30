@@ -5,19 +5,19 @@ namespace SlimRay.Store
 {
     public class FieldValueCollection
     {
-        private Dictionary<IField, string> _fieldValues;
+        private Dictionary<IUserField, string> _fieldValues;
 
         public FieldValueCollection()
         {
-            _fieldValues = new Dictionary<IField, string>();
+            _fieldValues = new Dictionary<IUserField, string>();
         }
 
-        public void Add(IField field, string value)
+        public void Add(IUserField field, string value)
         {
             _fieldValues.Add(field, value);
         }
 
-        public void Remove(IField field)
+        public void Remove(IUserField field)
         {
             _fieldValues.Remove(field);
         }

@@ -5,22 +5,22 @@ namespace SlimRay.Designer.DataDefinition
 {
     public interface IUser
     {
-        IField ID { get; }
+        IUserField ID { get; }
 
-        IField CreateDate { get; }
-        IField CreateUserID { get; }
-        IField CreateUserAccount { get; }
+        IUserField CreateDate { get; }
+        IUserField CreateUserID { get; }
+        IUserField CreateUserAccount { get; }
 
-        IField Status { get; }
+        IUserField Status { get; }
 
-        IField LoginAccount { get; }
-        IField LoginPassword { get; }
+        IUserField LoginAccount { get; }
+        IUserField LoginPassword { get; }
 
-        IField LastLoginDate { get; }
+        IUserField LastLoginDate { get; }
     }
 
     public interface IUserLoginLog : ILog
     {
-        IField LoginIp { get; }
+        IUserField LoginIp { get; }
     }
 }

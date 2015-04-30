@@ -27,7 +27,7 @@ namespace SlimRay.Designer
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            UserData.IData data = this.listBox1.SelectedItem as UserData.IData;
+            UserData.IUserData data = this.listBox1.SelectedItem as UserData.IUserData;
             showDataColumns(data.Name);
         }
     }

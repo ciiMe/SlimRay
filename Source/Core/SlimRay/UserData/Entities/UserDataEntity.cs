@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 
-namespace SlimRay.UserData
+namespace SlimRay.UserData.Entities
 {
-    public class Data : IData
+    public class UserDataEntity : IUserData
     {
         protected int _id;
         protected string _name;
         protected string _description;
 
-        protected List<IField> _fields;
-        protected List<LinkedField> _linkedFields;
+        protected List<IUserField> _fields;
+        protected List<LinkedUserField> _linkedFields;
 
         public int ID
         {
@@ -29,39 +29,39 @@ namespace SlimRay.UserData
             set { _description = value; }
         }
 
-        public IField[] Fields
+        public IUserField[] Fields
         {
             //todo: shoule be cached.
             get { return _fields.ToArray(); }
         }
 
-        public Data(string name)
+        public UserDataEntity(string name)
         {
             _name = name;
             _description = "";
-            _fields = new List<IField>();
-            _linkedFields = new List<LinkedField>();
+            _fields = new List<IUserField>();
+            _linkedFields = new List<LinkedUserField>();
         }
 
-        public Data(string name, string description)
+        public UserDataEntity(string name, string description)
         {
             _name = name;
             _description = description;
-            _fields = new List<IField>();
-            _linkedFields = new List<LinkedField>();
+            _fields = new List<IUserField>();
+            _linkedFields = new List<LinkedUserField>();
         }
 
-        protected bool isFieldExists(IField field)
+        protected bool isFieldExists(IUserField field)
         {
             return getFieldIndex(field) >= 0;
         }
 
-        protected int getFieldIndex(IField field)
+        protected int getFieldIndex(IUserField field)
         {
             return _fields.IndexOf(field);
         }
 
-        public void AddField(IField field)
+        public void AddField(IUserField field)
         {
             if (isFieldExists(field))
             {
@@ -82,14 +82,14 @@ namespace SlimRay.UserData
             }
         }
 
-        public LinkedField[] LinkedFields
+        public LinkedUserField[] LinkedFields
         {
             get { return _linkedFields.ToArray(); }
         }
 
-        public void Link(IField field, FieldLinkRelation relation)
+        public void Link(IUserField field, UserFieldLinkRelation relation)
         {
-            LinkedField lf = new LinkedField
+            LinkedUserField lf = new LinkedUserField
             {
                 Field = field,
                 Relation = relation

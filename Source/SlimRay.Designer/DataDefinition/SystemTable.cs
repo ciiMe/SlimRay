@@ -6,30 +6,30 @@ namespace SlimRay.Designer.DataDefinition
 {
     public class SystemData : ISystemData
     {
-        private IField _id;
-        public IField _name;
-        public IField _description;
+        private IUserField _id;
+        public IUserField _name;
+        public IUserField _description;
 
-        public IField _createDate;
-        public IField _createUserID;
-        public IField _createUserAccount;
+        public IUserField _createDate;
+        public IUserField _createUserID;
+        public IUserField _createUserAccount;
 
         public SystemData()
         {
 
         }
 
-        public IField CreateDate
+        public IUserField CreateDate
         {
             get { throw new NotImplementedException(); }
         }
 
-        public IField CreateUserID
+        public IUserField CreateUserID
         {
             get { throw new NotImplementedException(); }
         }
 
-        public IField CreateUserAccount
+        public IUserField CreateUserAccount
         {
             get { throw new NotImplementedException(); }
         }
@@ -70,17 +70,17 @@ namespace SlimRay.Designer.DataDefinition
             }
         }
 
-        public IField[] Fields
+        public IUserField[] Fields
         {
             get { throw new NotImplementedException(); }
         }
 
-        public LinkedField[] LinkedFields
+        public LinkedUserField[] LinkedFields
         {
             get { throw new NotImplementedException(); }
         }
 
-        public void AddField(IField field)
+        public void AddField(IUserField field)
         {
             throw new NotImplementedException();
         }
@@ -90,7 +90,7 @@ namespace SlimRay.Designer.DataDefinition
             throw new NotImplementedException();
         }
 
-        public void Link(IField field, FieldLinkRelation relation)
+        public void Link(IUserField field, UserFieldLinkRelation relation)
         {
             throw new NotImplementedException();
         }

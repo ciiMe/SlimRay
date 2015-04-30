@@ -1,16 +1,16 @@
 ﻿
-namespace SlimRay.UserData
+namespace SlimRay.UserData.Entities
 {
-    public class Field : IField
+    public class UserFieldEntiry : IUserField
     {
-        private IData _data;
+        private IUserData _data;
 
         private int _id;
         private string _name;
         private string _description;
-        private FieldType _type;
+        private UserFieldType _type;
 
-        public IData Data
+        public IUserData Data
         {
             get { return _data; }
             set { _data = value; }
@@ -34,19 +34,19 @@ namespace SlimRay.UserData
             set { _description = value; }
         }
 
-        public FieldType Type
+        public UserFieldType Type
         {
             get { return _type; }
             set { _type = value; }
         }
 
-        public Field(string name, FieldType type)
+        public UserFieldEntiry(string name, UserFieldType type)
         {
             _name = name;
             _type = type;
         }
 
-        public Field(string name, string description, FieldType type)
+        public UserFieldEntiry(string name, string description, UserFieldType type)
         {
             _name = name;
             _description = description;

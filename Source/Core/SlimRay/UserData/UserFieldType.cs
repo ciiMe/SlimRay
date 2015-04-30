@@ -1,7 +1,7 @@
 ﻿
 namespace SlimRay.UserData
 {
-    public enum FieldType
+    public enum UserFieldType
     {
         Bit,
         Byte,

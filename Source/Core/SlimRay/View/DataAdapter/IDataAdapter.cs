@@ -7,9 +7,9 @@ namespace SlimRay.View.DataAdapter
 {
     public interface IDataAdapter
     {
-        string GetFieldValue(IField field);
-        ActionResult UpdateFieldValue(IField field, string value);
+        string GetFieldValue(IUserField field);
+        ActionResult UpdateFieldValue(IUserField field, string value);
 
-        DataTable GetAll(IData data);
+        DataTable GetAll(IUserData data);
     }
 }

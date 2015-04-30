@@ -4,7 +4,7 @@ namespace SlimRay.UserData
     /// <summary>
     /// The relationship between field and data.
     /// </summary>
-    public enum FieldLinkRelation
+    public enum UserFieldLinkRelation
     {
         /// <summary>
         /// The data that this field belongs to is detail records of field.

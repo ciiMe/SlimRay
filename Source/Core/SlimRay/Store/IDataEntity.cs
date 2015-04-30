@@ -2,17 +2,17 @@
 
 namespace SlimRay.Store
 {
-    public interface IDataEntity : IData
+    public interface IDataEntity : IUserData
     {
-        void SetValue(IField filed, string value);
+        void SetValue(IUserField filed, string value);
 
-        byte ValueByte(IField field);
-        int ValueInt32(IField field);
-        long ValueInt64(IField field);
+        byte ValueByte(IUserField field);
+        int ValueInt32(IUserField field);
+        long ValueInt64(IUserField field);
 
-        char ValueChar(IField field);
-        string ValueString(IField field);
+        char ValueChar(IUserField field);
+        string ValueString(IUserField field);
 
-        bool ValueBool(IField field);
+        bool ValueBool(IUserField field);
     }
 }

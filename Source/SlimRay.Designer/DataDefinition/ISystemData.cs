@@ -3,42 +3,42 @@ using SlimRay.UserData;
 
 namespace SlimRay.Designer.DataDefinition
 {
-    public interface ISystemData : IData
+    public interface ISystemData : IUserData
     {
-        IField CreateDate { get; }
-        IField CreateUserID { get; }
-        IField CreateUserAccount { get; }
+        IUserField CreateDate { get; }
+        IUserField CreateUserID { get; }
+        IUserField CreateUserAccount { get; }
     }
 
-    public interface ISystemDataFIeld : IData
+    public interface ISystemDataFIeld : IUserData
     {
-        IField DataID { get; }
+        IUserField DataID { get; }
 
-        IField Type { get; }
-        IField MaxLength { get; }
-        IField InputTip { get; }
-        IField AllowNull { get; }
+        IUserField Type { get; }
+        IUserField MaxLength { get; }
+        IUserField InputTip { get; }
+        IUserField AllowNull { get; }
     }
 
     public interface ISystemDataLink
     {
-        IField MainDataID { get; }
-        IField MainFieldID { get; }
-        IField Relation { get; }
-        IField LinkedDataID { get; }
-        IField LinkedFieldID { get; }
+        IUserField MainDataID { get; }
+        IUserField MainFieldID { get; }
+        IUserField Relation { get; }
+        IUserField LinkedDataID { get; }
+        IUserField LinkedFieldID { get; }
     }
 
     public interface ISystemDataLog : ILog
     {
-        IField DataContentID { get; }
-        IField RecoverID { get; }
+        IUserField DataContentID { get; }
+        IUserField RecoverID { get; }
     }
 
     public interface ISystemDataRecover
     {
-        IField DataID { get; }
-        IField DataContentID { get; }
-        IField DataContent { get; }
+        IUserField DataID { get; }
+        IUserField DataContentID { get; }
+        IUserField DataContent { get; }
     }
 }
