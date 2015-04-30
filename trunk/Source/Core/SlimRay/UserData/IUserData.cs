@@ -5,7 +5,7 @@ namespace SlimRay.UserData
      * the simple data defines a data-object,
      * but it does not contain any data for the data-object you defined.
      */
-    public interface IData
+    public interface IUserData
     {
         /// <summary>
         /// internal ID for this type of data.
@@ -23,13 +23,13 @@ namespace SlimRay.UserData
         /// </summary>
         string Description { get; set; }
 
-        IField[] Fields { get; }
-        LinkedField[] LinkedFields { get; }
+        IUserField[] Fields { get; }
+        LinkedUserField[] LinkedFields { get; }
 
-        void AddField(IField field);
+        void AddField(IUserField field);
         void RemoveFiled(int index);
 
-        void Link(IField field, FieldLinkRelation relation);
+        void Link(IUserField field, UserFieldLinkRelation relation);
         void UnLink(string fieldName);
     }
 }

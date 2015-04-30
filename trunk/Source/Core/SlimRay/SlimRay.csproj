@@ -78,17 +78,17 @@
     <Compile Include="Store\DataEntity.cs" />
     <Compile Include="Store\Expression.cs" />
     <Compile Include="Store\IDataEntity.cs" />
-    <Compile Include="UserData\LinkedField.cs" />
+    <Compile Include="UserData\LinkedUserField.cs" />
     <Compile Include="View\AViewer.cs" />
     <Compile Include="View\Components\IBindingComponent.cs" />
     <Compile Include="View\DataAdapter\IDataAdapter.cs" />
     <Compile Include="Store\ExpressionOperator.cs" />
-    <Compile Include="UserData\FieldLinkRelation.cs" />
-    <Compile Include="UserData\Data.cs" />
-    <Compile Include="UserData\Field.cs" />
-    <Compile Include="UserData\FieldType.cs" />
-    <Compile Include="UserData\IData.cs" />
-    <Compile Include="UserData\IField.cs" />
+    <Compile Include="UserData\UserFieldLinkRelation.cs" />
+    <Compile Include="UserData\Entities\UserDataEntity.cs" />
+    <Compile Include="UserData\Entities\UserFieldEntiry.cs" />
+    <Compile Include="UserData\UserFieldType.cs" />
+    <Compile Include="UserData\IUserData.cs" />
+    <Compile Include="UserData\IUserField.cs" />
     <Compile Include="Store\FieldValueCollection.cs" />
     <Compile Include="Store\DataRowLoader.cs" />
     <Compile Include="Store\IDataLoader.cs" />
@@ -126,6 +126,7 @@
   <ItemGroup>
     <Folder Include="Coding\" />
     <Folder Include="DataSource\" />
+    <Folder Include="Data\" />
     <Folder Include="Devices\" />
     <Folder Include="Network\" />
     <Folder Include="Security\" />

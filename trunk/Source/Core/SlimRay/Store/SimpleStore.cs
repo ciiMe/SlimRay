@@ -18,7 +18,7 @@ namespace SlimRay.Store
             throw new System.NotImplementedException();
         }
 
-        public void AssignStorageType(IData data, StorageAddress address)
+        public void AssignStorageType(IUserData data, StorageAddress address)
         {
             throw new System.NotImplementedException();
         }

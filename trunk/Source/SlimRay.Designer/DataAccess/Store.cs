@@ -9,7 +9,7 @@ namespace SlimRay.Designer.DataAccess
     {
         private static Store _instance = new Store();
 
-        private List<IData> _systemData;
+        private List<IUserData> _systemData;
 
         public static Store Instance
         {
@@ -27,12 +27,12 @@ namespace SlimRay.Designer.DataAccess
             _systemData = sdf.getAllSystemData();
         }
 
-        public IData[] Load()
+        public IUserData[] Load()
         {
             return _systemData.ToArray();
         }
 
-        public IData Load(int id)
+        public IUserData Load(int id)
         {
             foreach (var data in _systemData)
             {
@@ -46,7 +46,7 @@ namespace SlimRay.Designer.DataAccess
 
         }
 
-        public IData Load(string name)
+        public IUserData Load(string name)
         {
             name = name.ToLower().Trim();
 
@@ -61,12 +61,12 @@ namespace SlimRay.Designer.DataAccess
             return null;
         }
 
-        public bool Update(IData data)
+        public bool Update(IUserData data)
         {
             throw new NotImplementedException();
         }
 
-        public bool Remove(IData data)
+        public bool Remove(IUserData data)
         {
             throw new NotImplementedException();
         }

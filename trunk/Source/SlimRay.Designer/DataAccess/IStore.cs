@@ -9,11 +9,11 @@ namespace SlimRay.Designer.DataAccess
 {
     public interface IStore
     {
-        IData[] Load();
-        IData Load(int id);
-        IData Load(string name);
+        IUserData[] Load();
+        IUserData Load(int id);
+        IUserData Load(string name);
 
-        bool Update(IData data);
-        bool Remove(IData data);
+        bool Update(IUserData data);
+        bool Remove(IUserData data);
     }
 }

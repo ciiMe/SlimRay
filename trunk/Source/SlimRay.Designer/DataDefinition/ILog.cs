@@ -5,12 +5,12 @@ namespace SlimRay.Designer.DataDefinition
 {
     public interface ILog  
     {
-        IField CreateDate { get; }
+        IUserField CreateDate { get; }
 
-        IField UserID { get; }
-        IField UserAccount { get; }
-        IField TargetID { get; }
-        IField TargetName { get; }
-        IField Operation { get; }
+        IUserField UserID { get; }
+        IUserField UserAccount { get; }
+        IUserField TargetID { get; }
+        IUserField TargetName { get; }
+        IUserField Operation { get; }
     }
 }

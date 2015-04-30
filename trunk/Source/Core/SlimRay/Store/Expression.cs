@@ -4,12 +4,12 @@ namespace SlimRay.Store
 {
     public class Expression
     {
-        private IField _field;
+        private IUserField _field;
         private ExpressionOperator _operator;
 
         private Expression _value;
 
-        public IField Field
+        public IUserField Field
         {
             get { return _field; }
             set { _field = value; }
@@ -32,15 +32,15 @@ namespace SlimRay.Store
 
         }
 
-        public Expression(IField field, ExpressionOperator op, string val)
+        public Expression(IUserField field, ExpressionOperator op, string val)
         {
         }
 
-        public Expression(IField field1, ExpressionOperator op, IField field2)
+        public Expression(IUserField field1, ExpressionOperator op, IUserField field2)
         {
         }
 
-        public Expression(IField field, ExpressionOperator op, Expression sub)
+        public Expression(IUserField field, ExpressionOperator op, Expression sub)
         {
         }
 
