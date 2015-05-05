@@ -1,0 +1,2 @@
+﻿the app is a component of application, it can be a class with simple functions.
+we can add more apps to AppPool in future, and app is easy to install and uninstall.
