@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using SlimRay.UserData;
 
 namespace SlimRay.Designer
 {
@@ -14,14 +15,19 @@ namespace SlimRay.Designer
 
         private void loadAllData()
         {
-            var dataList = DataAccess.Store.Instance.Load();
+            var loader = new UserDataLoader();
+
+
+            var dataList = loader.Get();
             this.listBox1.DataSource = dataList;
             this.listBox1.DisplayMember = "Name";
         }
 
         private void showDataColumns(string dataName)
         {
-            var data = DataAccess.Store.Instance.Load(dataName);
+            var loader = new UserDataLoader();
+
+            var data = loader.Get(dataName);
             this.dataGridView1.DataSource = data.Fields;
         }
 
