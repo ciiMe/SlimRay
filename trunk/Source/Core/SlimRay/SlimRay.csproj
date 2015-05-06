@@ -74,22 +74,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App\AppGate.cs" />
+    <Compile Include="App\IAddinApp.cs" />
     <Compile Include="App\IApp.cs" />
+    <Compile Include="App\ISimulatorApp.cs" />
     <Compile Include="Cache\CachedItem.cs" />
     <Compile Include="Cache\MemoryCache.cs" />
     <Compile Include="Common\Action.cs" />
-    <Compile Include="Internal\AppPool.cs" />
+    <Compile Include="App\AppPool.cs" />
     <Compile Include="Cache\ICache.cs" />
     <Compile Include="Cache\STMemoryCache.cs" />
-    <Compile Include="Simulator\Store.cs" />
-    <Compile Include="Simulator\AppUserDataLoader.cs" />
     <Compile Include="Store\DataEntity.cs" />
     <Compile Include="Store\Expression.cs" />
     <Compile Include="Store\IDataEntity.cs" />
     <Compile Include="UserData\AppKeys.cs" />
     <Compile Include="UserData\IUserDataLoader.cs" />
     <Compile Include="UserData\LinkedUserField.cs" />
-    <Compile Include="UserData\UserDataLoader.cs" />
     <Compile Include="View\AViewer.cs" />
     <Compile Include="View\Components\IBindingComponent.cs" />
     <Compile Include="View\DataAdapter\IDataAdapter.cs" />
@@ -135,10 +135,12 @@
     <Compile Include="View\Viewer\GridViewer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="API\" />
     <Folder Include="Coding\" />
     <Folder Include="DataSource\" />
     <Folder Include="Data\" />
     <Folder Include="Devices\" />
+    <Folder Include="Internal\" />
     <Folder Include="Network\" />
     <Folder Include="Security\" />
     <Folder Include="Store\Manager\" />
@@ -147,7 +149,6 @@
   <ItemGroup>
     <Content Include="App\todo.txt" />
     <Content Include="Cache\ReadMe.txt" />
-    <Content Include="Simulator\ReadMe.txt" />
     <Content Include="View\Components\todo.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

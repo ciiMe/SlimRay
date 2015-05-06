@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using SlimRay.UserData;
+using SlimRay.App;
 
 namespace SlimRay.Designer
 {
@@ -15,7 +16,7 @@ namespace SlimRay.Designer
 
         private void loadAllData()
         {
-            var loader = new UserDataLoader();
+            var loader = AppGate.GetUserDataLoader();
 
 
             var dataList = loader.Get();
@@ -25,7 +26,7 @@ namespace SlimRay.Designer
 
         private void showDataColumns(string dataName)
         {
-            var loader = new UserDataLoader();
+            var loader = AppGate.GetUserDataLoader();
 
             var data = loader.Get(dataName);
             this.dataGridView1.DataSource = data.Fields;

@@ -124,6 +124,10 @@
       <Project>{0ba9cea4-c4c2-4d88-912d-29968165df6b}</Project>
       <Name>SlimRay</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SlimRay.Simulator\SlimRay.Simulator.csproj">
+      <Project>{42ba88b4-f42a-40b4-ac22-6da52305fc96}</Project>
+      <Name>SlimRay.Simulator</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
