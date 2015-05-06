@@ -1,10 +1,14 @@
 ﻿using SlimRay.App;
 using SlimRay.Cache;
-using SlimRay.Simulator;
 
-namespace SlimRay.Internal
+namespace SlimRay.App
 {
-    public class AppPool
+    /*
+     * App Pool is only used in internal,
+     * because there will be more and more apps are registered here,
+     * a high level manager should be the only access to this class.
+     */
+    internal class AppPool
     {
         private static AppPool _instance = new AppPool();
 
@@ -26,14 +30,6 @@ namespace SlimRay.Internal
         {
             _validSeconds = 600;
             _apps = new MemoryCache<IApp>();
-
-            registerSystemApps();
-        }
-
-        private void registerSystemApps()
-        {
-            AppUserDataLoader app = new AppUserDataLoader();
-            Register(app);
         }
 
         public IApp Get(string key)
@@ -51,7 +47,7 @@ namespace SlimRay.Internal
             return _apps.Add(app.SerialKey, app);
         }
 
-        public bool UnRegister(string key)
+        public bool Unregister(string key)
         {
             return _apps.Remove(key);
         }
