@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SlimRay.UserData.Container;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,12 @@ namespace SlimRay.View.Components
 {
     public interface IBindingComponent
     {
-        IBindingShape Source { get; set; }
+        /// <summary>
+        /// user data binding config is saved within this field,
+        /// a component should call data loader to load data as binding config sets,
+        /// and show them.
+        /// </summary>
+        IBindingShape BindSetting { get; set; }
 
         /// <summary>
         /// init all items, load data for them,
@@ -16,12 +22,17 @@ namespace SlimRay.View.Components
         void Show();
 
         /// <summary>
-        /// 
+        /// refresh to show the latest data.
+        /// </summary>
+        void Refresh();
+
+        /// <summary>
+        /// stop refreshing, and hide itself.
         /// </summary>
         void Hide();
 
         /// <summary>
-        /// release using data, and destory this component.
+        /// disconnect from using data, and destory this component.
         /// </summary>
         void Close();
     }

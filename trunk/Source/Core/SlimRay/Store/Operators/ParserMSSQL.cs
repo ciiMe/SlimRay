@@ -1,4 +1,5 @@
-﻿using SlimRay.Utils;
+﻿using SlimRay.UserData;
+using SlimRay.Utils;
 
 namespace SlimRay.Store.Operators
 {

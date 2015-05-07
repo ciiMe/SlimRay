@@ -1,7 +1,7 @@
 ﻿using SlimRay.UserData;
 using System.Collections.Generic;
 
-namespace SlimRay.Store
+namespace SlimRay.UserData
 {
     public class FieldValueCollection
     {

@@ -1,4 +1,5 @@
 ﻿using SlimRay.UserData;
+using SlimRay.UserData.Container;
 
 namespace SlimRay.Store
 {
@@ -19,11 +20,11 @@ namespace SlimRay.Store
         /// </summary>
         void AssignStorageType(IUserData data, StorageAddress address);
 
-        void InsertNewRecord(IDataEntity entity);
+        void InsertNewRecord(IDataContainer entity);
         //void UpdateRecord(IDataEntity entity);
         //void RemoveRecord(IDataEntity entity);
 
-        IDataEntity LoadRecord(string dataName, string key);
-        IDataEntity LoadRecord(Expression expression);
+        IDataContainer LoadRecord(string dataName, string key);
+        IDataContainer LoadRecord(Expression expression);
     }
 }

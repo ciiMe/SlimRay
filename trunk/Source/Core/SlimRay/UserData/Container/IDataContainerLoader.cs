@@ -1,10 +1,9 @@
-﻿using SlimRay.UserData;
-using System;
+﻿using System;
 using System.Data;
 
-namespace SlimRay.Store
+namespace SlimRay.UserData.Container
 {
-    public interface IDataManager
+    public interface IDataContainerLoader
     {
         int GetInt(IUserData data, Expression expr);
         double GetDouble(IUserData data, Expression expr);
@@ -15,7 +14,7 @@ namespace SlimRay.Store
         DataTable GetDataTable(IUserData data, Expression expression);
         DataRow GetDataRow(IUserData data, Expression expression);
 
-        IDataEntity GetEntity(IUserData data, Expression expression);
+        IDataContainer GetEntity(IUserData data, Expression expression);
 
         bool Update(IUserData data, FieldValueCollection changedData);
     }

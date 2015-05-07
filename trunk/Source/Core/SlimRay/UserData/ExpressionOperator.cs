@@ -1,5 +1,5 @@
 ﻿
-namespace SlimRay.Store
+namespace SlimRay.UserData
 {
     public enum ExpressionOperator
     {

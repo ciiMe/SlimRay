@@ -74,7 +74,8 @@ namespace SlimRay.View
     }
 
     /// <summary>
-    /// an item in binding shape
+    /// an item in binding shape,
+    /// it binds to a field of data.
     /// </summary>
     public struct BindingItem
     {
