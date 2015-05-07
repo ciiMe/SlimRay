@@ -84,26 +84,24 @@
     <Compile Include="App\AppPool.cs" />
     <Compile Include="Cache\ICache.cs" />
     <Compile Include="Cache\STMemoryCache.cs" />
-    <Compile Include="Store\DataEntity.cs" />
-    <Compile Include="Store\Expression.cs" />
-    <Compile Include="Store\IDataEntity.cs" />
+    <Compile Include="UserData\Expression.cs" />
     <Compile Include="UserData\AppKeys.cs" />
+    <Compile Include="UserData\Container\IDataContainer.cs" />
+    <Compile Include="UserData\Container\IDataContainerLoader.cs" />
     <Compile Include="UserData\IUserDataLoader.cs" />
     <Compile Include="UserData\LinkedUserField.cs" />
     <Compile Include="View\AViewer.cs" />
     <Compile Include="View\Components\IBindingComponent.cs" />
     <Compile Include="View\DataAdapter\IDataAdapter.cs" />
-    <Compile Include="Store\ExpressionOperator.cs" />
+    <Compile Include="UserData\ExpressionOperator.cs" />
     <Compile Include="UserData\UserFieldLinkRelation.cs" />
     <Compile Include="UserData\Entities\UserDataEntity.cs" />
     <Compile Include="UserData\Entities\UserFieldEntiry.cs" />
     <Compile Include="UserData\UserFieldType.cs" />
     <Compile Include="UserData\IUserData.cs" />
     <Compile Include="UserData\IUserField.cs" />
-    <Compile Include="Store\FieldValueCollection.cs" />
-    <Compile Include="Store\DataRowLoader.cs" />
-    <Compile Include="Store\IDataLoader.cs" />
-    <Compile Include="Store\IDataManager.cs" />
+    <Compile Include="UserData\FieldValueCollection.cs" />
+    <Compile Include="Store\IDataEntityLoader.cs" />
     <Compile Include="DB\ExecutorParameters.cs" />
     <Compile Include="DB\Factory\ExecutorFactory.cs" />
     <Compile Include="DB\Factory\IExecutorCreator.cs" />
@@ -114,9 +112,7 @@
     <Compile Include="Store\Operators\IOperatorParser.cs" />
     <Compile Include="Store\Operators\OperatorService.cs" />
     <Compile Include="Store\Operators\ParserMSSQL.cs" />
-    <Compile Include="Store\PlainText\XML\XMLDataManager.cs" />
     <Compile Include="Store\StorageAddress.cs" />
-    <Compile Include="Store\SimpleStore.cs" />
     <Compile Include="DB\IRequest.cs" />
     <Compile Include="DB\IExecutor.cs" />
     <Compile Include="DB\Request.cs" />
@@ -135,7 +131,6 @@
     <Compile Include="View\Viewer\GridViewer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="API\" />
     <Folder Include="Coding\" />
     <Folder Include="DataSource\" />
     <Folder Include="Data\" />

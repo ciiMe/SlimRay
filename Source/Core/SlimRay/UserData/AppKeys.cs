@@ -11,6 +11,11 @@ namespace SlimRay.UserData
         /// <summary>
         /// data loader app in AppPool.
         /// </summary>
-        public const string UserDataLoader = "APPUserDataLoader";
+        public const string UserDataLoader = "AppUserDataLoader";
+
+        /// <summary>
+        /// app that load userdata's data to container.
+        /// </summary>
+        public const string DataContainerLoader = "AppDataContainerLoader";
     }
 }

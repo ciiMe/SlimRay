@@ -1,6 +1,6 @@
 ﻿using SlimRay.UserData;
 
-namespace SlimRay.Store
+namespace SlimRay.UserData
 {
     public class Expression
     {
