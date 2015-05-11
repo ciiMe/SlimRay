@@ -9,6 +9,6 @@ namespace SlimRay.View
     /// </summary>
     public interface IViewer
     {
-        FieldDisplayMethod ViewType { get; set; }
+        UIType ViewType { get; set; }
     }
 }

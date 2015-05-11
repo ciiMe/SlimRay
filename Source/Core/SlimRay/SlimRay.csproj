@@ -75,8 +75,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App\AppGate.cs" />
+    <Compile Include="App\AppKeys.cs" />
     <Compile Include="App\IAddinApp.cs" />
     <Compile Include="App\IApp.cs" />
+    <Compile Include="App\IDataLoaderApp.cs" />
     <Compile Include="App\ISimulatorApp.cs" />
     <Compile Include="Cache\CachedItem.cs" />
     <Compile Include="Cache\MemoryCache.cs" />
@@ -85,18 +87,18 @@
     <Compile Include="Cache\ICache.cs" />
     <Compile Include="Cache\STMemoryCache.cs" />
     <Compile Include="UserData\Expression.cs" />
-    <Compile Include="UserData\AppKeys.cs" />
     <Compile Include="UserData\Container\IDataContainer.cs" />
     <Compile Include="UserData\Container\IDataContainerLoader.cs" />
     <Compile Include="UserData\IUserDataLoader.cs" />
     <Compile Include="UserData\LinkedUserField.cs" />
     <Compile Include="View\AViewer.cs" />
+    <Compile Include="View\BindingShapeEntiry.cs" />
     <Compile Include="View\Components\IBindingComponent.cs" />
     <Compile Include="View\DataAdapter\IDataAdapter.cs" />
     <Compile Include="UserData\ExpressionOperator.cs" />
     <Compile Include="UserData\UserFieldLinkRelation.cs" />
-    <Compile Include="UserData\Entities\UserDataEntity.cs" />
-    <Compile Include="UserData\Entities\UserFieldEntiry.cs" />
+    <Compile Include="UserData\UserDataEntity.cs" />
+    <Compile Include="UserData\UserFieldEntiry.cs" />
     <Compile Include="UserData\UserFieldType.cs" />
     <Compile Include="UserData\IUserData.cs" />
     <Compile Include="UserData\IUserField.cs" />
@@ -126,7 +128,8 @@
     <Compile Include="Utils\List\ListEnumlator.cs" />
     <Compile Include="Utils\Strings.cs" />
     <Compile Include="Utils\XML_DT.cs" />
-    <Compile Include="View\FieldDisplay.cs" />
+    <Compile Include="View\FieldFormatting.cs" />
+    <Compile Include="View\IBindingConfigLoader.cs" />
     <Compile Include="View\IViewer.cs" />
     <Compile Include="View\Viewer\GridViewer.cs" />
   </ItemGroup>
@@ -144,6 +147,7 @@
   <ItemGroup>
     <Content Include="App\todo.txt" />
     <Content Include="Cache\ReadMe.txt" />
+    <Content Include="View\Binding\ReadMe.txt" />
     <Content Include="View\Components\todo.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

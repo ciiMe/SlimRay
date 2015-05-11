@@ -1,5 +1,5 @@
 ﻿
-namespace SlimRay.UserData
+namespace SlimRay.App
 {
     /*
      * a key means a kind of app, the app with same key should provide the same function.
