@@ -3,15 +3,15 @@ namespace SlimRay.View
 {
     public class AViewer : IViewer
     {
-        private FieldDisplayMethod _viewType;
+        private UIType _viewType;
 
-        public FieldDisplayMethod ViewType
+        public UIType ViewType
         {
             get { return _viewType; }
             set { _viewType = value; }
         }
 
-        public AViewer(FieldDisplayMethod method)
+        public AViewer(UIType method)
         {
             _viewType = method;
         }

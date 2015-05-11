@@ -1,11 +1,10 @@
 ﻿
-using SlimRay.UserData.Entities;
+using SlimRay.App;
 
 namespace SlimRay.UserData
 {
-    public interface IUserDataLoader
+    public interface IUserDataLoader : IDataLoaderApp<IUserData>
     {
-        IUserData[] Get();
         IUserData Get(string name);
     }
 }

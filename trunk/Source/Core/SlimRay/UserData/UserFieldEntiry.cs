@@ -1,5 +1,5 @@
 ﻿
-namespace SlimRay.UserData.Entities
+namespace SlimRay.UserData
 {
     public class UserFieldEntiry : IUserField
     {

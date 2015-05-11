@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SlimRay.UserData.Entities
+namespace SlimRay.UserData
 {
     public class UserDataEntity : IUserData
     {

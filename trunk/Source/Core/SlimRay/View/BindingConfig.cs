@@ -29,7 +29,7 @@ namespace SlimRay.View
     }
 
     /// <summary>
-    /// shape of UI component
+    /// shape of UI component, it tells how to draw an UI.
     /// </summary>
     public struct UIShape
     {
@@ -47,20 +47,44 @@ namespace SlimRay.View
     }
 
     /// <summary>
-    /// a shape that bind data,
-    /// show data fields in this shape.
+    /// the common type of a UI.
+    /// </summary>
+    public enum UIType
+    {
+        AsText,
+
+        AsDropdownList,
+        AsSelectOnlyDropDownList,
+
+        AsRadio,
+        AsCheckable,
+
+        AsCanlendar,
+
+        AsGrid
+    }
+
+    /// <summary>
+    /// a shape is a container,
+    /// holds many items within its shape.
+    /// a child item is a component, 
+    /// it binds only one record of data and show it.
     /// </summary>
     public interface IBindingShape
     {
-        double X { get; set; }
-        double Y { get; set; }
+        int DataID { get; set; }
+        int FieldID { get; set; }
+
+        UIType Type { get; set; }
 
         UIShape Shape { get; set; }
 
+        double X { get; set; }
+        double Y { get; set; }
         double height { get; set; }
         double width { get; set; }
 
-        BindingItem[] Items { get; set; }
+        IBindingShape[] Items { get; set; }
     }
 
     /// <summary>
@@ -72,29 +96,4 @@ namespace SlimRay.View
         GridView,
         ListView
     }
-
-    /// <summary>
-    /// an item in binding shape,
-    /// it binds to a field of data.
-    /// </summary>
-    public struct BindingItem
-    {
-        int index { get; set; }
-
-        int DataID { get; set; }
-        int FieldID { get; set; }
-
-        /// <summary>
-        /// shape to show this binding item.
-        /// this config is used only when the binding shape works in DetailItems mode.
-        /// </summary>
-        UIShape Shape { get; set; }
-
-        /// <summary>
-        /// children components in this item.
-        /// </summary>
-        IBindingShape[] Children { get; set; }
-    }
-
-
 }
