@@ -11,7 +11,12 @@ namespace SlimRay.Simulator
         /// </summary>
         public static void Initialize()
         {
-            UserDataLoader app = new UserDataLoader();
+            ISimulatorApp app;
+
+            app = new UserDataLoader();
+            AppGate.RegisterSimulatorApp(app);
+
+            app = new BindingConfigLoader();
             AppGate.RegisterSimulatorApp(app);
         }
     }

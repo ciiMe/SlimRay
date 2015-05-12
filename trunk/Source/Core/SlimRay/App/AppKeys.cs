@@ -17,5 +17,7 @@ namespace SlimRay.App
         /// app that load userdata's data to container.
         /// </summary>
         public const string DataContainerLoader = "AppDataContainerLoader";
+
+        public const string BingdingConfigLoader = "AppBindingConfig";
     }
 }

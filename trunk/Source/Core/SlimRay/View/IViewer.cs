@@ -9,6 +9,6 @@ namespace SlimRay.View
     /// </summary>
     public interface IViewer
     {
-        UIType ViewType { get; set; }
+        UIBehaviorType ViewType { get; set; }
     }
 }

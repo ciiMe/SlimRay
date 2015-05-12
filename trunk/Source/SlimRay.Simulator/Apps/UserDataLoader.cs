@@ -110,9 +110,11 @@ namespace SlimRay.Simulator.Apps
 
         public IUserData Get(string name)
         {
+            name = name.Trim().ToUpper();
+
             foreach (var data in _allUserData)
             {
-                if (data.Name == name)
+                if (data.Name.ToUpper() == name)
                 {
                     return data;
                 }

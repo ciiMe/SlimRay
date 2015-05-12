@@ -78,6 +78,7 @@
     <Compile Include="App\AppKeys.cs" />
     <Compile Include="App\IAddinApp.cs" />
     <Compile Include="App\IApp.cs" />
+    <Compile Include="App\IBindingConfigLoader.cs" />
     <Compile Include="App\IDataLoaderApp.cs" />
     <Compile Include="App\ISimulatorApp.cs" />
     <Compile Include="Cache\CachedItem.cs" />
@@ -129,7 +130,7 @@
     <Compile Include="Utils\Strings.cs" />
     <Compile Include="Utils\XML_DT.cs" />
     <Compile Include="View\FieldFormatting.cs" />
-    <Compile Include="View\IBindingConfigLoader.cs" />
+    <Compile Include="View\IAction.cs" />
     <Compile Include="View\IViewer.cs" />
     <Compile Include="View\Viewer\GridViewer.cs" />
   </ItemGroup>

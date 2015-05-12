@@ -102,5 +102,19 @@ namespace SlimRay.UserData
         {
             throw new System.NotImplementedException();
         }
+
+        public IUserField Field(string name)
+        {
+            name = name.Trim().ToUpper();
+            foreach (IUserField field in _fields)
+            {
+                if (field.Name.ToUpper() == name)
+                {
+                    return field;
+                }
+            }
+
+            return null;
+        }
     }
 }
