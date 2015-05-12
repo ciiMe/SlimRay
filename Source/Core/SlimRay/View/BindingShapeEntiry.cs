@@ -1,114 +1,97 @@
 ﻿
+using SlimRay.UserData;
 namespace SlimRay.View
 {
     public class BindingShapeEntiry : IBindingShape
     {
-        public int DataID
+        private IUserField _field;
+
+        private UIBehaviorType _uiType;
+
+        private string _text;
+        private string _inputTitle;
+        private string _tip;
+
+        private IAction _action;
+
+        private UIShape _shape;
+        private double _x;
+        private double _y;
+        private double _height;
+        private double _width;
+
+        private IBindingShape[] _items;
+
+        public IUserField DataField
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-                throw new System.NotImplementedException();
-            }
+            get { return _field; }
+            set { _field = value; }
         }
 
-        public int FieldID
+        public UIBehaviorType UIType
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-                throw new System.NotImplementedException();
-            }
+            get { return _uiType; }
+            set { _uiType = value; }
         }
 
-        public UIType Type
+        public string Text
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-                throw new System.NotImplementedException();
-            }
+            get { return _text; }
+            set { _text = value; }
+        }
+
+        public string InputTitle
+        {
+            get { return _inputTitle; }
+            set { _inputTitle = value; }
+        }
+
+        public string Tip
+        {
+            get { return _tip; }
+            set { _tip = value; }
+        }
+
+        public IAction Action
+        {
+            get { return _action; }
+            set { _action = value; }
         }
 
         public UIShape Shape
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-                throw new System.NotImplementedException();
-            }
+            get { return _shape; }
+            set { _shape = value; }
         }
 
         public double X
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-                throw new System.NotImplementedException();
-            }
+            get { return _x; }
+            set { _x = value; }
         }
 
         public double Y
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-                throw new System.NotImplementedException();
-            }
+            get { return _y; }
+            set { _y = value; }
         }
 
-        public double height
+        public double Height
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-                throw new System.NotImplementedException();
-            }
+            get { return _height; }
+            set { _height = value; }
         }
 
-        public double width
+        public double Width
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-                throw new System.NotImplementedException();
-            }
+            get { return _width; }
+            set { _width = value; }
         }
 
         public IBindingShape[] Items
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-                throw new System.NotImplementedException();
-            }
+            get { return _items; }
+            set { _items = value; }
         }
     }
 }

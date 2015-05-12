@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using SlimRay.UserData;
+using System.Drawing;
 
 namespace SlimRay.View
 {
@@ -49,9 +50,12 @@ namespace SlimRay.View
     /// <summary>
     /// the common type of a UI.
     /// </summary>
-    public enum UIType
+    public enum UIBehaviorType
     {
-        AsText,
+        AsForm,
+
+        AsReadonlyText,
+        AsEditableText,
 
         AsDropdownList,
         AsSelectOnlyDropDownList,
@@ -61,7 +65,9 @@ namespace SlimRay.View
 
         AsCanlendar,
 
-        AsGrid
+        AsGrid,
+
+        AsButton
     }
 
     /// <summary>
@@ -72,17 +78,42 @@ namespace SlimRay.View
     /// </summary>
     public interface IBindingShape
     {
-        int DataID { get; set; }
-        int FieldID { get; set; }
+        /// <summary>
+        /// the data will be shown on UI.
+        /// </summary>
+        IUserField DataField { get; set; }
 
-        UIType Type { get; set; }
+        /// <summary>
+        /// this setting decides the kind of UI it acts.
+        /// </summary>
+        UIBehaviorType UIType { get; set; }
+
+        /// <summary>
+        /// the text shows on top of the ui,
+        /// a form or a container always need a title.
+        /// </summary>
+        string Text { get; set; }
+
+        /// <summary>
+        /// a input ui should have input title,
+        /// the input title shows in front of input area.
+        /// </summary>
+        string InputTitle { get; set; }
+
+        /// <summary>
+        /// the tip when mouse hover.
+        /// </summary>
+        string Tip { get; set; }
+
+        //todo: action is here, but when should it be called?
+        IAction Action { get; set; }
 
         UIShape Shape { get; set; }
 
         double X { get; set; }
         double Y { get; set; }
-        double height { get; set; }
-        double width { get; set; }
+        double Height { get; set; }
+        double Width { get; set; }
 
         IBindingShape[] Items { get; set; }
     }

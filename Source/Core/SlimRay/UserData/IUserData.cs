@@ -26,6 +26,13 @@ namespace SlimRay.UserData
         IUserField[] Fields { get; }
         LinkedUserField[] LinkedFields { get; }
 
+        /// <summary>
+        /// look up field.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        IUserField Field(string name);
+
         void AddField(IUserField field);
         void RemoveFiled(int index);
 
