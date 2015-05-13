@@ -1,8 +1,4 @@
-﻿using SlimRay.UserData.Container;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using SlimRay.View.Binding;
 
 namespace SlimRay.View.Components
 {

@@ -1,6 +1,8 @@
-﻿
-using SlimRay.UserData;
-namespace SlimRay.View
+﻿using SlimRay.UserData;
+using SlimRay.Action;
+using SlimRay.View.Binding;
+
+namespace SlimRay.View.Binding
 {
     public class BindingShapeEntiry : IBindingShape
     {
