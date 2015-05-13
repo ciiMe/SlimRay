@@ -74,12 +74,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action\ActionEntity.cs" />
+    <Compile Include="Action\ActionError.cs" />
+    <Compile Include="Action\ActionReturnMethod.cs" />
+    <Compile Include="Action\ActionStatus.cs" />
+    <Compile Include="Action\ActionStepEntity.cs" />
+    <Compile Include="Action\IActionStep.cs" />
     <Compile Include="App\AppGate.cs" />
     <Compile Include="App\AppKeys.cs" />
     <Compile Include="App\IAddinApp.cs" />
     <Compile Include="App\IApp.cs" />
-    <Compile Include="App\IBindingConfigLoader.cs" />
-    <Compile Include="App\IDataLoaderApp.cs" />
+    <Compile Include="App\Loaders\IActionLoader.cs" />
+    <Compile Include="App\Loaders\IBindingConfigLoader.cs" />
+    <Compile Include="App\ILoaderApp.cs" />
     <Compile Include="App\ISimulatorApp.cs" />
     <Compile Include="Cache\CachedItem.cs" />
     <Compile Include="Cache\MemoryCache.cs" />
@@ -87,13 +94,19 @@
     <Compile Include="App\AppPool.cs" />
     <Compile Include="Cache\ICache.cs" />
     <Compile Include="Cache\STMemoryCache.cs" />
+    <Compile Include="Error\ErrorEntiry.cs" />
+    <Compile Include="Log\IlogWriter.cs" />
     <Compile Include="UserData\Expression.cs" />
     <Compile Include="UserData\Container\IDataContainer.cs" />
     <Compile Include="UserData\Container\IDataContainerLoader.cs" />
-    <Compile Include="UserData\IUserDataLoader.cs" />
+    <Compile Include="App\Loaders\IUserDataLoader.cs" />
     <Compile Include="UserData\LinkedUserField.cs" />
     <Compile Include="View\AViewer.cs" />
-    <Compile Include="View\BindingShapeEntiry.cs" />
+    <Compile Include="Action\IAction.cs" />
+    <Compile Include="View\Binding\BindingShapeEntiry.cs" />
+    <Compile Include="View\Binding\ContainerType.cs" />
+    <Compile Include="View\Binding\IBindingShape.cs" />
+    <Compile Include="View\Binding\UIBehaviorType.cs" />
     <Compile Include="View\Components\IBindingComponent.cs" />
     <Compile Include="View\DataAdapter\IDataAdapter.cs" />
     <Compile Include="UserData\ExpressionOperator.cs" />
@@ -110,7 +123,6 @@
     <Compile Include="DB\Factory\IExecutorCreator.cs" />
     <Compile Include="DB\Helpers\MSSQL\MSSQLExecutorCreator.cs" />
     <Compile Include="DB\Helpers\MSSQL\MSSQLHelper.cs" />
-    <Compile Include="View\BindingConfig.cs" />
     <Compile Include="Store\IStore.cs" />
     <Compile Include="Store\Operators\IOperatorParser.cs" />
     <Compile Include="Store\Operators\OperatorService.cs" />
@@ -130,8 +142,10 @@
     <Compile Include="Utils\Strings.cs" />
     <Compile Include="Utils\XML_DT.cs" />
     <Compile Include="View\FieldFormatting.cs" />
-    <Compile Include="View\IAction.cs" />
     <Compile Include="View\IViewer.cs" />
+    <Compile Include="View\LineStyle.cs" />
+    <Compile Include="View\ShapeBorder.cs" />
+    <Compile Include="View\UIShape.cs" />
     <Compile Include="View\Viewer\GridViewer.cs" />
   </ItemGroup>
   <ItemGroup>

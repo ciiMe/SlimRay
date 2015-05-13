@@ -1,4 +1,5 @@
-﻿
+﻿using SlimRay.View.Binding;
+
 namespace SlimRay.View
 {
     public class AViewer : IViewer

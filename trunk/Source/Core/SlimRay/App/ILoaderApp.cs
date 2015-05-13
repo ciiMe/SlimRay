@@ -1,7 +1,7 @@
 ﻿
 namespace SlimRay.App
 {
-    public interface IDataLoaderApp<T>
+    public interface ILoaderApp<T>
     {
         T[] Get();
     }

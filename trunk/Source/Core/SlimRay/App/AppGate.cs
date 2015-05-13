@@ -1,4 +1,4 @@
-﻿
+﻿using SlimRay.App.Loaders;
 using SlimRay.UserData;
 
 namespace SlimRay.App

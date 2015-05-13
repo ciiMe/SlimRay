@@ -18,6 +18,14 @@ namespace SlimRay.App
         /// </summary>
         public const string DataContainerLoader = "AppDataContainerLoader";
 
+        /// <summary>
+        /// app that load UI binding data.
+        /// </summary>
         public const string BingdingConfigLoader = "AppBindingConfig";
+
+        /// <summary>
+        /// app that load all actions.
+        /// </summary>
+        public const string ActionLoader = "ActionLoader";
     }
 }
