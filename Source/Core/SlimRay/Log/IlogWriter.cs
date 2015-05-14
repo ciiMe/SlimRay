@@ -1,7 +1,7 @@
 ﻿
 namespace SlimRay.Log
 {
-    public interface IlogWriter
+    public interface ILogWriter
     {
         /// <summary>
         /// write log to default log file.

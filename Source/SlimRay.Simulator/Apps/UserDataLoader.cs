@@ -2,6 +2,7 @@
 using SlimRay.UserData.Entities;
 using System.Collections.Generic;
 using SlimRay.App;
+using SlimRay.App.Loaders;
 
 namespace SlimRay.Simulator.Apps
 {

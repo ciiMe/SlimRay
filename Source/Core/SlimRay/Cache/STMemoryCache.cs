@@ -5,7 +5,7 @@ namespace SlimRay.Cache
 {
     public class STMemoryCache : MemoryCache<object>
     {
-        private static STMemoryCache _instance = new STMemoryCache();
+        private static readonly STMemoryCache _instance = new STMemoryCache();
         public static STMemoryCache Instance
         {
             get

@@ -2,7 +2,7 @@
 
 namespace SlimRay.Cache
 {
-    public interface ICache<ItemType>
+    public interface ICache<TItemType>
     {
         /// <summary>
         /// how many seconds is data valid.
@@ -10,10 +10,10 @@ namespace SlimRay.Cache
         /// </summary>
         int ValidSeconds { get; set; }
 
-        ItemType Get(string key);
+        TItemType Get(string key);
         bool Exists(string key);
 
-        bool Add(string key, ItemType data);
+        bool Add(string key, TItemType data);
         bool Remove(string key);
     }
 }
