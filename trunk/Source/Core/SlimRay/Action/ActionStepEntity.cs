@@ -1,10 +1,13 @@
 ﻿using SlimRay.Error;
+using SlimRay.View.Binding;
 using System;
 
 namespace SlimRay.Action
 {
     public class ActionStepEntity : IActionStep
     {
+        protected IBindingShape _ui;
+
         protected string _name;
         protected string _description;
 
@@ -15,6 +18,12 @@ namespace SlimRay.Action
         protected ActionStepReturnMethod _returnMethod;
 
         protected ErrorEntiry _error;
+
+        public IBindingShape UI
+        {
+            get { return _ui; }
+            set { _ui = value; }
+        }
 
         public string Name
         {

@@ -5,8 +5,8 @@ namespace SlimRay.Cache
 {
     public class MemoryCache<ItemType> : ICache<ItemType>
     {
-        private object _resourceLock;
-        private Dictionary<string, CachedItem> _cachedData;
+        private readonly object _resourceLock;
+        private readonly Dictionary<string, CachedItem> _cachedData;
 
         private int _validSeconds;
 
