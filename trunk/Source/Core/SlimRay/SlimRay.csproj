@@ -103,6 +103,12 @@
     <Compile Include="UserData\LinkedUserField.cs" />
     <Compile Include="View\AViewer.cs" />
     <Compile Include="Action\IAction.cs" />
+    <Compile Include="View\BindingUIActions\CheckingExists.cs" />
+    <Compile Include="View\BindingUIActions\CloseCurrentForm.cs" />
+    <Compile Include="View\BindingUIActions\Confirm.cs" />
+    <Compile Include="View\BindingUIActions\Reload.cs" />
+    <Compile Include="View\BindingUIActions\ShowMessage.cs" />
+    <Compile Include="View\BindingUIActions\Submit.cs" />
     <Compile Include="View\Binding\BindingShapeEntiry.cs" />
     <Compile Include="View\Binding\ContainerType.cs" />
     <Compile Include="View\Binding\IBindingShape.cs" />

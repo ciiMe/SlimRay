@@ -1,6 +1,8 @@
 ﻿using SlimRay.App;
+using SlimRay.App.Loaders;
 using SlimRay.UserData;
 using SlimRay.View;
+using SlimRay.View.Binding;
 using System;
 using System.Collections.Generic;
 
@@ -101,7 +103,14 @@ namespace SlimRay.Simulator.Apps
             {
                 UIType = UIBehaviorType.AsButton,
                 Text = "Submit",
-                Action = null
+                Action = new SlimRay.View.BindingUIActions.Confirm
+                {
+                    NextStepOnSuccess = new SlimRay.View.BindingUIActions.CheckingExists
+                    {
+                        NextStepOnFail = new SlimRay.View.BindingUIActions.ShowMessage(),
+                        NextStepOnSuccess = new SlimRay.View.BindingUIActions.Submit()
+                    }
+                }
             };
             _allBindingConfigData.Add(binding);
 
@@ -109,7 +118,7 @@ namespace SlimRay.Simulator.Apps
             {
                 UIType = UIBehaviorType.AsButton,
                 Text = "Cancel",
-                Action = null
+                Action = new SlimRay.View.BindingUIActions.CloseCurrentForm()
             };
             _allBindingConfigData.Add(binding);
 

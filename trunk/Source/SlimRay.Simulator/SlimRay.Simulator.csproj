@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
+    <Compile Include="Apps\ActionLoader.cs" />
     <Compile Include="Apps\BindingConfigLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Apps\UserDataLoader.cs" />

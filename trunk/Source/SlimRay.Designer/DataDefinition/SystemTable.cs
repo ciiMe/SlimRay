@@ -104,5 +104,10 @@ namespace SlimRay.Designer.DataDefinition
         {
             throw new NotImplementedException();
         }
+
+        public IUserField Field(string name)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
