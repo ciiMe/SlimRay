@@ -9,7 +9,7 @@ namespace SlimRay.View.Components
         /// a component should call data loader to load data as binding config sets,
         /// and show them.
         /// </summary>
-        IBindingShape BindSetting { get; set; }
+        IBoundUI BindSetting { get; set; }
 
         /// <summary>
         /// init all items, load data for them,

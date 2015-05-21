@@ -2,9 +2,9 @@
 namespace SlimRay.View.Binding
 {
     /// <summary>
-    /// the common type of a UI.
+    /// decide the kind/type of a ui.
     /// </summary>
-    public enum UIBehaviorType
+    public enum UICategory
     {
         AsForm,
 

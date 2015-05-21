@@ -21,7 +21,7 @@ namespace SlimRay.App
         /// <summary>
         /// app that load UI binding data.
         /// </summary>
-        public const string BingdingConfigLoader = "AppBindingConfig";
+        public const string BindConfigLoader = "AppBindingConfig";
 
         /// <summary>
         /// app that load all actions.

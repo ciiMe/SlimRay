@@ -4,11 +4,11 @@ using SlimRay.View.Binding;
 
 namespace SlimRay.View.Binding
 {
-    public class BindingShapeEntiry : IBindingShape
+    public class BoundShapeEntiry : IBoundUI
     {
         private IUserField _field;
 
-        private UIBehaviorType _uiType;
+        private UICategory _uiType;
 
         private string _text;
         private string _inputTitle;
@@ -22,7 +22,7 @@ namespace SlimRay.View.Binding
         private double _height;
         private double _width;
 
-        private IBindingShape[] _items;
+        private IBoundUI[] _items;
 
         public IUserField DataField
         {
@@ -30,7 +30,7 @@ namespace SlimRay.View.Binding
             set { _field = value; }
         }
 
-        public UIBehaviorType UIType
+        public UICategory UIType
         {
             get { return _uiType; }
             set { _uiType = value; }
@@ -90,7 +90,7 @@ namespace SlimRay.View.Binding
             set { _width = value; }
         }
 
-        public IBindingShape[] Items
+        public IBoundUI[] Items
         {
             get { return _items; }
             set { _items = value; }

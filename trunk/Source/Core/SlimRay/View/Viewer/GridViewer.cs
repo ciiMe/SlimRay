@@ -5,7 +5,7 @@ namespace SlimRay.View.Viewer
     public class GridViewer : AViewer
     {
         public GridViewer()
-            : base(UIBehaviorType.AsGrid)
+            : base(UICategory.AsGrid)
         {
 
         }

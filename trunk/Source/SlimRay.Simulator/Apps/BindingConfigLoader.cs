@@ -8,10 +8,10 @@ using System.Collections.Generic;
 
 namespace SlimRay.Simulator.Apps
 {
-    class BindingConfigLoader : ISimulatorApp, IBindingConfigLoader
+    class BindingConfigLoader : ISimulatorApp, IBindConfigLoader
     {
         private const string _name = "View data binding config loader.";
-        private List<IBindingShape> _allBindingConfigData;
+        private List<IBoundUI> _allBindingConfigData;
 
         public string Name
         {
@@ -20,15 +20,15 @@ namespace SlimRay.Simulator.Apps
 
         public string SerialKey
         {
-            get { return AppKeys.BingdingConfigLoader; }
+            get { return AppKeys.BindConfigLoader; }
         }
 
         public BindingConfigLoader()
         {
-            _allBindingConfigData = new List<IBindingShape>();
+            _allBindingConfigData = new List<IBoundUI>();
         }
 
-        public IBindingShape[] Get()
+        public IBoundUI[] Get()
         {
             throw new NotImplementedException();
         }
@@ -38,12 +38,12 @@ namespace SlimRay.Simulator.Apps
          */
         private void initUserCreateUISimple()
         {
-            IBindingShape binding;
+            IBoundUI binding;
             IUserData data;
 
             /*
-             * init data binding for user
-             * user data:
+             * this is userdata "User", the data is defined in other module.
+             * here just reference it.
             data = new UserDataEntity("User", "User who can access and read/write data.");
             data.AddField(new UserFieldEntiry("ID", UserFieldType.Int64));
             data.AddField(new UserFieldEntiry("Name", UserFieldType.String));
@@ -56,11 +56,11 @@ namespace SlimRay.Simulator.Apps
 
             data = AppGate.GetUserDataLoader().Get("user");
 
-            binding = new BindingShapeEntiry
+            binding = new BoundShapeEntiry
             {
                 DataField = data.Field("loginName"),
 
-                UIType = UIBehaviorType.AsEditableText,
+                UIType = UICategory.AsEditableText,
                 InputTitle = "Login name:",
                 Tip = "This is the name used to login, only characters and numbers are allowed.",
 
@@ -71,11 +71,11 @@ namespace SlimRay.Simulator.Apps
             };
             _allBindingConfigData.Add(binding);
 
-            binding = new BindingShapeEntiry
+            binding = new BoundShapeEntiry
             {
                 DataField = data.Field("LoginPassword"),
 
-                UIType = UIBehaviorType.AsEditableText,
+                UIType = UICategory.AsEditableText,
                 InputTitle = "Login password:",
                 Tip = "This is the login password, any characters is ok.",
 
@@ -86,9 +86,9 @@ namespace SlimRay.Simulator.Apps
             };
             _allBindingConfigData.Add(binding);
 
-            binding = new BindingShapeEntiry
+            binding = new BoundShapeEntiry
             {
-                UIType = UIBehaviorType.AsEditableText,
+                UIType = UICategory.AsEditableText,
                 InputTitle = "Confirm password:",
                 Tip = "Type your password again to confirm your input.",
 
@@ -99,9 +99,9 @@ namespace SlimRay.Simulator.Apps
             };
             _allBindingConfigData.Add(binding);
 
-            binding = new BindingShapeEntiry
+            binding = new BoundShapeEntiry
             {
-                UIType = UIBehaviorType.AsButton,
+                UIType = UICategory.AsButton,
                 Text = "Submit",
                 Action = new SlimRay.View.BindingUIActions.Confirm
                 {
@@ -114,18 +114,18 @@ namespace SlimRay.Simulator.Apps
             };
             _allBindingConfigData.Add(binding);
 
-            binding = new BindingShapeEntiry
+            binding = new BoundShapeEntiry
             {
-                UIType = UIBehaviorType.AsButton,
+                UIType = UICategory.AsButton,
                 Text = "Cancel",
                 Action = new SlimRay.View.BindingUIActions.CloseCurrentForm()
             };
             _allBindingConfigData.Add(binding);
 
             //create a form
-            binding = new BindingShapeEntiry
+            binding = new BoundShapeEntiry
             {
-                UIType = UIBehaviorType.AsForm,
+                UIType = UICategory.AsForm,
                 Text = "Create new user",
 
                 Width = 400,
@@ -136,7 +136,6 @@ namespace SlimRay.Simulator.Apps
             //set the form as the only ui that contains all others.
             _allBindingConfigData.Clear();
             _allBindingConfigData.Add(binding);
-
         }
     }
 }

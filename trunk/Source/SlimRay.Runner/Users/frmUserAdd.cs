@@ -15,5 +15,14 @@ namespace SlimRay.Runner.Users
         {
             InitializeComponent();
         }
+
+        private object loadBindingUI()
+        {
+            var loader = SlimRay.App.AppGate.GetUIBindingLoader();
+
+            var uiItems = loader.Get();
+
+            return uiItems;
+        }
     }
 }
