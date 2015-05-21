@@ -2,7 +2,7 @@
 
 namespace SlimRay.View.Binding
 {
-    public class IBoundUIBehavior
+    public interface IBoundUIBehavior
     {
         void Bind(IUserData data);
 

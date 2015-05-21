@@ -86,7 +86,7 @@
     <Compile Include="App\IApp.cs" />
     <Compile Include="App\IGate.cs" />
     <Compile Include="App\Loaders\IActionLoader.cs" />
-    <Compile Include="App\Loaders\IBindingConfigLoader.cs" />
+    <Compile Include="App\Loaders\IBindConfigLoader.cs" />
     <Compile Include="App\ILoaderApp.cs" />
     <Compile Include="App\ISimulatorApp.cs" />
     <Compile Include="Cache\CachedItem.cs" />
@@ -110,10 +110,11 @@
     <Compile Include="View\BindingUIActions\Reload.cs" />
     <Compile Include="View\BindingUIActions\ShowMessage.cs" />
     <Compile Include="View\BindingUIActions\Submit.cs" />
-    <Compile Include="View\Binding\BindingShapeEntiry.cs" />
+    <Compile Include="View\Binding\BoundShapeEntiry.cs" />
     <Compile Include="View\Binding\ContainerType.cs" />
-    <Compile Include="View\Binding\IBindingShape.cs" />
-    <Compile Include="View\Binding\UIBehaviorType.cs" />
+    <Compile Include="View\Binding\IBoundUIBehavior.cs" />
+    <Compile Include="View\Binding\IBoundUI.cs" />
+    <Compile Include="View\Binding\UICategory.cs" />
     <Compile Include="View\Components\IBindingComponent.cs" />
     <Compile Include="View\DataAdapter\IDataAdapter.cs" />
     <Compile Include="UserData\ExpressionOperator.cs" />
@@ -149,6 +150,7 @@
     <Compile Include="Utils\Strings.cs" />
     <Compile Include="Utils\XML_DT.cs" />
     <Compile Include="View\FieldFormatting.cs" />
+    <Compile Include="View\IUIBehavior.cs" />
     <Compile Include="View\IViewer.cs" />
     <Compile Include="View\LineStyle.cs" />
     <Compile Include="View\ShapeBorder.cs" />
