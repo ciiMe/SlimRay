@@ -84,6 +84,7 @@
     <Compile Include="App\AppKeys.cs" />
     <Compile Include="App\IAddinApp.cs" />
     <Compile Include="App\IApp.cs" />
+    <Compile Include="App\IGate.cs" />
     <Compile Include="App\Loaders\IActionLoader.cs" />
     <Compile Include="App\Loaders\IBindingConfigLoader.cs" />
     <Compile Include="App\ILoaderApp.cs" />

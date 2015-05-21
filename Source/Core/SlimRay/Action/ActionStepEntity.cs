@@ -6,7 +6,7 @@ namespace SlimRay.Action
 {
     public class ActionStepEntity : IActionStep
     {
-        protected IBindingShape _ui;
+        protected IBoundUI _ui;
 
         protected string _name;
         protected string _description;
@@ -19,7 +19,7 @@ namespace SlimRay.Action
 
         protected ErrorEntiry _error;
 
-        public IBindingShape UI
+        public IBoundUI UI
         {
             get { return _ui; }
             set { _ui = value; }

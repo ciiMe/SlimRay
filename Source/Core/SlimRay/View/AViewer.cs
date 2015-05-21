@@ -4,15 +4,15 @@ namespace SlimRay.View
 {
     public class AViewer : IViewer
     {
-        private UIBehaviorType _viewType;
+        private UICategory _viewType;
 
-        public UIBehaviorType ViewType
+        public UICategory ViewType
         {
             get { return _viewType; }
             set { _viewType = value; }
         }
 
-        public AViewer(UIBehaviorType method)
+        public AViewer(UICategory method)
         {
             _viewType = method;
         }

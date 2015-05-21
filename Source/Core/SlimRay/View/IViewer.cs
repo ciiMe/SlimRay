@@ -10,6 +10,6 @@ namespace SlimRay.View
     /// </summary>
     public interface IViewer
     {
-        UIBehaviorType ViewType { get; set; }
+        UICategory ViewType { get; set; }
     }
 }

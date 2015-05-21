@@ -2,7 +2,7 @@
 
 namespace SlimRay.App.Loaders
 {
-    public interface IBindingConfigLoader : ILoaderApp<IBindingShape>
+    public interface IBindConfigLoader : ILoaderApp<IBoundUI>
     {
     }
 }

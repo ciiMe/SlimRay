@@ -9,7 +9,7 @@ namespace SlimRay.View.Binding
     /// a child item is a component, 
     /// it binds only one record of data and show it.
     /// </summary>
-    public interface IBindingShape
+    public interface IBoundUI
     {
         /// <summary>
         /// the data will be shown on UI.
@@ -19,7 +19,7 @@ namespace SlimRay.View.Binding
         /// <summary>
         /// this setting decides the kind of UI it acts.
         /// </summary>
-        UIBehaviorType UIType { get; set; }
+        UICategory UIType { get; set; }
 
         /// <summary>
         /// the text shows on top of the ui,
@@ -48,6 +48,6 @@ namespace SlimRay.View.Binding
         double Height { get; set; }
         double Width { get; set; }
 
-        IBindingShape[] Items { get; set; }
+        IBoundUI[] Items { get; set; }
     }
 }
