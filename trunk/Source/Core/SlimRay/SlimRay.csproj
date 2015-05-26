@@ -71,6 +71,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -111,12 +112,22 @@
     <Compile Include="View\BindingUIActions\ShowMessage.cs" />
     <Compile Include="View\BindingUIActions\Submit.cs" />
     <Compile Include="View\Binding\BoundShapeEntiry.cs" />
+    <Compile Include="View\Binding\Components\ABaseDisplayUI.cs" />
+    <Compile Include="View\Binding\Components\ABaseEditUI.cs" />
+    <Compile Include="View\Binding\Components\Action\BoundButton.cs" />
+    <Compile Include="View\Binding\Components\Display\BoundCanlendar.cs" />
+    <Compile Include="View\Binding\Components\Display\BoundCheckable.cs" />
+    <Compile Include="View\Binding\Components\Display\BoundRadio.cs" />
+    <Compile Include="View\Binding\Components\Display\BoundSelectOnlyDropDownList.cs" />
+    <Compile Include="View\Binding\Components\Display\BoundDropdownList.cs" />
+    <Compile Include="View\Binding\Components\Display\BoundEditableText.cs" />
+    <Compile Include="View\Binding\Components\Display\BoundReadonlyText.cs" />
     <Compile Include="View\Binding\ContainerType.cs" />
-    <Compile Include="View\Binding\IBoundUIBehavior.cs" />
+    <Compile Include="View\Binding\DataAdapter\DataLoader.cs" />
+    <Compile Include="View\Binding\IDisplayUIBehavior.cs" />
+    <Compile Include="View\Binding\IEditUIBehavior.cs" />
     <Compile Include="View\Binding\IBoundUI.cs" />
     <Compile Include="View\Binding\UICategory.cs" />
-    <Compile Include="View\Components\IBindingComponent.cs" />
-    <Compile Include="View\DataAdapter\IDataAdapter.cs" />
     <Compile Include="UserData\ExpressionOperator.cs" />
     <Compile Include="UserData\UserFieldLinkRelation.cs" />
     <Compile Include="UserData\UserDataEntity.cs" />
@@ -150,11 +161,12 @@
     <Compile Include="Utils\Strings.cs" />
     <Compile Include="Utils\XML_DT.cs" />
     <Compile Include="View\FieldFormatting.cs" />
+    <Compile Include="View\IUI.cs" />
     <Compile Include="View\IUIBehavior.cs" />
     <Compile Include="View\IViewer.cs" />
     <Compile Include="View\LineStyle.cs" />
     <Compile Include="View\ShapeBorder.cs" />
-    <Compile Include="View\UIShape.cs" />
+    <Compile Include="View\UIEntity.cs" />
     <Compile Include="View\Viewer\GridViewer.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -166,13 +178,13 @@
     <Folder Include="Network\" />
     <Folder Include="Security\" />
     <Folder Include="Store\Manager\" />
+    <Folder Include="View\Binding\Components\Edit\" />
     <Folder Include="View\Editor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\todo.txt" />
     <Content Include="Cache\ReadMe.txt" />
     <Content Include="View\Binding\ReadMe.txt" />
-    <Content Include="View\Components\todo.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

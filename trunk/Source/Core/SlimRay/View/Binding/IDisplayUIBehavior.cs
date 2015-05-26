@@ -2,13 +2,11 @@
 
 namespace SlimRay.View.Binding
 {
-    public interface IBoundUIBehavior
+    public interface IDisplayUIBehavior
     {
         void Bind(IUserData data);
 
         void Load();
         void Refresh();
-        void Check();
-        void Commit();
     }
 }
