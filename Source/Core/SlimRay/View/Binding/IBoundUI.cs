@@ -41,7 +41,7 @@ namespace SlimRay.View.Binding
         //todo: action is here, but when and how should it be called?
         IAction Action { get; set; }
 
-        UIShape Shape { get; set; }
+        UIEntity Shape { get; set; }
 
         double X { get; set; }
         double Y { get; set; }

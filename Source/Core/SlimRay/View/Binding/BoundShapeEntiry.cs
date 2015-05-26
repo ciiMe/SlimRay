@@ -16,7 +16,7 @@ namespace SlimRay.View.Binding
 
         private IAction _action;
 
-        private UIShape _shape;
+        private UIEntity _shape;
         private double _x;
         private double _y;
         private double _height;
@@ -60,7 +60,7 @@ namespace SlimRay.View.Binding
             set { _action = value; }
         }
 
-        public UIShape Shape
+        public UIEntity Shape
         {
             get { return _shape; }
             set { _shape = value; }
