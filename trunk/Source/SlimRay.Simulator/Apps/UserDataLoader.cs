@@ -13,16 +13,22 @@ namespace SlimRay.Simulator.Apps
     public class UserDataLoader : ISimulatorApp, IUserDataLoader
     {
         private const string _name = "Virtual Userdata loader.";
+        private const string _description = "Load all Userdata.";
         private string _key = AppKeys.UserDataLoader;
 
-        public string Name
+        public string GetName()
         {
-            get { return _name; }
+            return _name;
         }
 
-        public string SerialKey
+        public string GetDescription()
         {
-            get { return _key; }
+            return _description;
+        }
+
+        public string GetKey()
+        {
+            return _key;
         }
 
         private List<IUserData> _allUserData;

@@ -2,9 +2,11 @@
 namespace SlimRay.App
 {
     /* an addin app is written by other users, 
-     * it also can be used in SlimRay.
+     * the addin stores in \addins\xxx.dll
+     * 
      */
     public interface IAddinApp : IApp
     {
+        void Execute(string parameter);
     }
 }

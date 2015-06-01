@@ -11,16 +11,22 @@ namespace SlimRay.Simulator.Apps
     class BindingConfigLoader : ISimulatorApp, IBindConfigLoader
     {
         private const string _name = "View data binding config loader.";
+        private const string _description = "Load all binding config.";
         private List<IBoundUI> _allBindingConfigData;
 
-        public string Name
+        public string GetName()
         {
-            get { return _name; }
+            return _name;
         }
 
-        public string SerialKey
+        public string GetDescription()
         {
-            get { return AppKeys.BindConfigLoader; }
+            return _description;
+        }
+
+        public string GetKey()
+        {
+            return AppKeys.BindConfigLoader;
         }
 
         public BindingConfigLoader()
