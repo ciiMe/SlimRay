@@ -44,7 +44,7 @@ namespace SlimRay.App
 
         public bool Register(IApp app)
         {
-            return _apps.Add(app.SerialKey, app);
+            return _apps.Add(app.GetKey(), app);
         }
 
         public bool Unregister(string key)

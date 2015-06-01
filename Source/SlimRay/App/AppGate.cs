@@ -26,7 +26,7 @@ namespace SlimRay.App
 
         public static void UnregisterAddinApp(IAddinApp app)
         {
-            AppPool.Instance.Unregister(app.SerialKey);
+            AppPool.Instance.Unregister(app.GetKey());
         }
 
         public static void RegisterSimulatorApp(ISimulatorApp app)
@@ -36,7 +36,7 @@ namespace SlimRay.App
 
         public static void UnregisterSimulaterApp(ISimulatorApp app)
         {
-            AppPool.Instance.Unregister(app.SerialKey);
+            AppPool.Instance.Unregister(app.GetKey());
         }
     }
 }

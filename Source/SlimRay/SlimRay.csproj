@@ -83,9 +83,11 @@
     <Compile Include="Action\ActionStatus.cs" />
     <Compile Include="Action\ActionStepEntity.cs" />
     <Compile Include="Action\IActionStep.cs" />
+    <Compile Include="App\AddinLoader.cs" />
     <Compile Include="App\AppGate.cs" />
     <Compile Include="App\AppKeys.cs" />
     <Compile Include="App\IAddinApp.cs" />
+    <Compile Include="App\IAddinLoader.cs" />
     <Compile Include="App\IApp.cs" />
     <Compile Include="App\IGate.cs" />
     <Compile Include="App\Loaders\IActionLoader.cs" />

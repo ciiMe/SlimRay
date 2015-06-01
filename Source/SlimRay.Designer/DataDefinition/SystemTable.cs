@@ -6,7 +6,6 @@ namespace SlimRay.Designer.DataDefinition
 {
     public class SystemData : ISystemData
     {
-        private IUserField _id;
         public IUserField _name;
         public IUserField _description;
 

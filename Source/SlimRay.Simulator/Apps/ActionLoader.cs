@@ -9,17 +9,23 @@ namespace SlimRay.Simulator.Apps
     public class ActionLoader : ISimulatorApp, IActionLoader
     {
         private const string _name = "Action Loader.";
+        private const string _description = "Load all actions.";
 
         private List<IAction> _actions;
 
-        public string Name
+        public string GetName()
         {
-            get { return _name; }
+            return _name;
         }
 
-        public string SerialKey
+        public string GetDescription()
         {
-            get { return AppKeys.ActionLoader; }
+            return _description;
+        }
+
+        public string GetKey()
+        {
+            return AppKeys.ActionLoader;
         }
 
         public ActionLoader()
