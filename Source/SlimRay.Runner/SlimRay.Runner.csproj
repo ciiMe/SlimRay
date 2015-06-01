@@ -17,19 +17,21 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\Packages\Latest\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\Packages\Latest\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -120,13 +122,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core\SlimRay\SlimRay.csproj">
-      <Project>{0ba9cea4-c4c2-4d88-912d-29968165df6b}</Project>
-      <Name>SlimRay</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SlimRay.Simulator\SlimRay.Simulator.csproj">
       <Project>{42ba88b4-f42a-40b4-ac22-6da52305fc96}</Project>
       <Name>SlimRay.Simulator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SlimRay\SlimRay.csproj">
+      <Project>{0ba9cea4-c4c2-4d88-912d-29968165df6b}</Project>
+      <Name>SlimRay</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
