@@ -1,12 +1,11 @@
 ﻿using SlimRay.App;
 using SlimRay.App.Loaders;
 using SlimRay.UserData;
-using SlimRay.View;
 using SlimRay.View.Binding;
 using System;
 using System.Collections.Generic;
 
-namespace SlimRay.Simulator.Apps
+namespace SlimRay.Addins.Simulator.Apps
 {
     class BindingConfigLoader : ISimulatorApp, IBindConfigLoader
     {

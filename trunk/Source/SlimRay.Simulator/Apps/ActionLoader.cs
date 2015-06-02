@@ -1,10 +1,9 @@
-﻿using System;
-using SlimRay.Action;
+﻿using SlimRay.Action;
 using SlimRay.App.Loaders;
 using SlimRay.App;
 using System.Collections.Generic;
 
-namespace SlimRay.Simulator.Apps
+namespace SlimRay.Addins.Simulator.Apps
 {
     public class ActionLoader : ISimulatorApp, IActionLoader
     {

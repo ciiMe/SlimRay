@@ -1,49 +1,37 @@
 ﻿using SlimRay.UserData;
-using System.Windows.Forms;
 
 namespace SlimRay.View.Binding.Components.Display
 {
     public class BoundReadonlyText : ABaseDisplayUI
     {
-        private Label _canvas;
-        private IUserData _data;
-
-        public BoundReadonlyText()
+        public override void Bind(IUserData data)
         {
-            _canvas = new Label()
-            {
-                Parent = Parent.Canvas
-            };
+            throw new System.NotImplementedException();
         }
 
         public override void Load()
         {
-            _canvas.Text = DataAdapter.DataLoader.LoadUserDataValue(DataField);
+            throw new System.NotImplementedException();
         }
 
         public override void Refresh()
         {
-            _canvas.Text = DataAdapter.DataLoader.LoadUserDataValue(DataField);
+            throw new System.NotImplementedException();
         }
 
         public override void Show()
         {
-            _canvas.Visible = true;
+            throw new System.NotImplementedException();
         }
 
         public override void Hide()
         {
-            _canvas.Visible = false;
+            throw new System.NotImplementedException();
         }
 
         public override void Close()
         {
-            _canvas.Dispose();
-        }
-
-        public override void Bind(IUserData data)
-        {
-            _data = data;
+            throw new System.NotImplementedException();
         }
     }
 }
