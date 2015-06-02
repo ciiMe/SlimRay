@@ -82,6 +82,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppInitializer.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,10 +123,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SlimRay.Simulator\SlimRay.Simulator.csproj">
-      <Project>{42ba88b4-f42a-40b4-ac22-6da52305fc96}</Project>
-      <Name>SlimRay.Simulator</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SlimRay\SlimRay.csproj">
       <Project>{0ba9cea4-c4c2-4d88-912d-29968165df6b}</Project>
       <Name>SlimRay</Name>

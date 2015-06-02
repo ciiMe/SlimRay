@@ -1,49 +1,93 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
-using System.Runtime.InteropServices;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace SlimRay.App
 {
-    internal class AddinLoader : IAddinLoader
+    public class AddinLoader : IAddinLoader
     {
-        public void test()
+        public IAddinApp[] LoadAll()
         {
-            var plugindir = new DirectoryInfo(".\\Addins");
+            List<IAddinApp> addins = new List<IAddinApp>();
 
+            var dir = new DirectoryInfo(".\\Addins");
+            Type tAddin = typeof(IAddinApp);
 
-            foreach (var filesInPlugin in plugindir.GetFiles())
+            foreach (var file in dir.GetFiles())
             {
-                if (filesInPlugin.Extension.ToLower() != ".dll")
+                if (file.Extension.ToLower() != ".dll")
                 {
                     continue;
                 }
 
-                Assembly dllFromPlugin = Assembly.LoadFile(filesInPlugin.FullName);
-                foreach (var dllModule in dllFromPlugin.GetLoadedModules())
+                Assembly dll = Assembly.LoadFile(file.FullName);
+                foreach (var dllModule in dll.GetLoadedModules())
                 {
-                    foreach (var typeDefinedInModule in dllModule.GetTypes())
+                    foreach (var t in dllModule.GetTypes())
                     {
-                        //if (typeDefinedInModule.GetInterfaces().Contains(typeof(gp.IInterface)))
+                        if (t.GetInterfaces().Contains(tAddin))
                         {
-                            if (typeDefinedInModule.IsClass)
+                            var addin = System.Activator.CreateInstance(t) as IAddinApp;
+
+                            if (addin == null)
                             {
-                                //var itemGet = System.Activator.CreateInstance(typeDefinedInModule) as gp.IInterface;
+                                //todo: log load fail..
+                                continue;
                             }
+                            addins.Add(addin);
                         }
                     }
                 }
             }
-        }
 
-        public IAddinApp Load(string filename)
-        {
-            throw new System.NotImplementedException();
+            return addins.ToArray();
         }
 
         public void Unload(IAddinApp app)
         {
             throw new System.NotImplementedException();
+        }
+
+
+        public IAddinApp[] Load(string addinFileName)
+        {
+            FileInfo file = new FileInfo(addinFileName);
+            Type tAddin = typeof(IAddinApp);
+
+            List<IAddinApp> addins = new List<IAddinApp>();
+
+            if (!file.Exists)
+            {
+                return addins.ToArray();
+            }
+
+            if (file.Extension.ToLower() != ".dll")
+            {
+                return addins.ToArray();
+            }
+
+            Assembly dll = Assembly.LoadFile(file.FullName);
+            foreach (var dllModule in dll.GetLoadedModules())
+            {
+                foreach (var t in dllModule.GetTypes())
+                {
+                    if (t.GetInterfaces().Contains(tAddin))
+                    {
+                        var addin = System.Activator.CreateInstance(t) as IAddinApp;
+
+                        if (addin == null)
+                        {
+                            //todo: log load fail..
+                            continue;
+                        }
+                        addins.Add(addin);
+                    }
+                }
+            }
+
+            return addins.ToArray();
         }
     }
 }

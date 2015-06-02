@@ -14,11 +14,9 @@ namespace SlimRay.Runner
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            SlimRay.Simulator.Application.Initialize();
+            AppInitializer.Init();
 
             Application.Run(new Form1());
         }
-
-
     }
 }

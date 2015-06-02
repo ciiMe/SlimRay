@@ -7,11 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlimRay.Runner", "SlimRay.R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlimRay.Designer", "SlimRay.Designer\SlimRay.Designer.csproj", "{1C007BA1-191C-4801-BCAF-158AC9B71A5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlimRay.Simulator", "SlimRay.Simulator\SlimRay.Simulator.csproj", "{42BA88B4-F42A-40B4-AC22-6DA52305FC96}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlimRay.Addins.Simulator", "SlimRay.Simulator\SlimRay.Addins.Simulator.csproj", "{42BA88B4-F42A-40B4-AC22-6DA52305FC96}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlimRay.View.WinForm", "SlimRay.View.WinForm\SlimRay.View.WinForm.csproj", "{5923287A-1F24-46E5-8AFE-D6A33BED2DDA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlimRay", "SlimRay\SlimRay.csproj", "{0BA9CEA4-C4C2-4D88-912D-29968165DF6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlimRay.Addins.Demo", "SlimRay.Addins.Demo\SlimRay.Addins.Demo.csproj", "{9F49F3B9-9C6D-4303-9DDC-E64B332B1F87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +79,14 @@ Global
 		{0BA9CEA4-C4C2-4D88-912D-29968165DF6B}.Release|x64.Build.0 = Release|x64
 		{0BA9CEA4-C4C2-4D88-912D-29968165DF6B}.Release|x86.ActiveCfg = Release|x86
 		{0BA9CEA4-C4C2-4D88-912D-29968165DF6B}.Release|x86.Build.0 = Release|x86
+		{9F49F3B9-9C6D-4303-9DDC-E64B332B1F87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F49F3B9-9C6D-4303-9DDC-E64B332B1F87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F49F3B9-9C6D-4303-9DDC-E64B332B1F87}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9F49F3B9-9C6D-4303-9DDC-E64B332B1F87}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9F49F3B9-9C6D-4303-9DDC-E64B332B1F87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F49F3B9-9C6D-4303-9DDC-E64B332B1F87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F49F3B9-9C6D-4303-9DDC-E64B332B1F87}.Release|x64.ActiveCfg = Release|Any CPU
+		{9F49F3B9-9C6D-4303-9DDC-E64B332B1F87}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

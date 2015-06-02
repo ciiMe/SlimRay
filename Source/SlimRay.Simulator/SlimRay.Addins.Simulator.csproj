@@ -7,8 +7,8 @@
     <ProjectGuid>{42BA88B4-F42A-40B4-AC22-6DA52305FC96}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SlimRay.Simulator</RootNamespace>
-    <AssemblyName>SlimRay.Simulator</AssemblyName>
+    <RootNamespace>SlimRay.Addins.Simulator</RootNamespace>
+    <AssemblyName>SlimRay.Addins.Simulator</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Packages\Latest\Debug\</OutputPath>
+    <OutputPath>..\..\Packages\Latest\Debug\addins\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Packages\Latest\Release\</OutputPath>
+    <OutputPath>..\..\Packages\Latest\Release\addins\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -69,15 +69,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application.cs" />
+    <Compile Include="AppSimulator.cs" />
     <Compile Include="Apps\ActionLoader.cs" />
     <Compile Include="Apps\BindingConfigLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,6 +81,7 @@
     <ProjectReference Include="..\SlimRay\SlimRay.csproj">
       <Project>{0ba9cea4-c4c2-4d88-912d-29968165df6b}</Project>
       <Name>SlimRay</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

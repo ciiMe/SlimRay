@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using SlimRay.App;
 using SlimRay.App.Loaders;
 
-namespace SlimRay.Simulator.Apps
+namespace SlimRay.Addins.Simulator.Apps
 {
     /*
      * it simulate a data loader,
      * a data loader should load data from db, 
      * but this app return virtual data directly.
      */
-    public class UserDataLoader : ISimulatorApp, IUserDataLoader
+    public class UserDataLoader : ISimulatorApp, IUserDataLoader 
     {
         private const string _name = "Virtual Userdata loader.";
         private const string _description = "Load all Userdata.";
