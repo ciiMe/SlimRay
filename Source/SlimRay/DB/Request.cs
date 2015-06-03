@@ -11,7 +11,7 @@ namespace SlimRay.DB
     {
         private Dictionary<string, object> _parameters;
 
-        private ExecutorParameters _executorParameters;
+        private DBAddress _executorParameters;
 
         private string _command;
         private int _timeout;
@@ -39,7 +39,7 @@ namespace SlimRay.DB
             }
         }
 
-        public ExecutorParameters ExecutorParameter
+        public DBAddress ExecutorParameter
         {
             get { return _executorParameters; }
             set { _executorParameters = value; }
@@ -57,7 +57,7 @@ namespace SlimRay.DB
             set { _timeout = value; }
         }
 
-        public Request(ExecutorParameters ep)
+        public Request(DBAddress ep)
         {
             _parameters = new Dictionary<string, object>();
             _command = "";

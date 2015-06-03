@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 
-namespace SlimRay.DB.Helpers.MSSQL
+namespace SlimRay.DB.Helpers
 {
     public class MSSQLHelper : IExecutor
     {
