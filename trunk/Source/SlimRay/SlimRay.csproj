@@ -109,8 +109,10 @@
     <Compile Include="App\AppPool.cs" />
     <Compile Include="Cache\ICache.cs" />
     <Compile Include="Cache\STMemoryCache.cs" />
+    <Compile Include="DB\IExecutorCreator.cs" />
     <Compile Include="Error\ErrorEntiry.cs" />
     <Compile Include="Log\IlogWriter.cs" />
+    <Compile Include="UserData\Adapter\IUserDataValueLoader.cs" />
     <Compile Include="UserData\Expression.cs" />
     <Compile Include="UserData\Container\IDataContainer.cs" />
     <Compile Include="UserData\Container\IDataContainerLoader.cs" />
@@ -150,11 +152,10 @@
     <Compile Include="UserData\IUserField.cs" />
     <Compile Include="UserData\FieldValueCollection.cs" />
     <Compile Include="Store\IDataEntityLoader.cs" />
-    <Compile Include="DB\ExecutorParameters.cs" />
-    <Compile Include="DB\Factory\ExecutorFactory.cs" />
-    <Compile Include="DB\Factory\IExecutorCreator.cs" />
-    <Compile Include="DB\Helpers\MSSQL\MSSQLExecutorCreator.cs" />
-    <Compile Include="DB\Helpers\MSSQL\MSSQLHelper.cs" />
+    <Compile Include="DB\DBAddress.cs" />
+    <Compile Include="DB\ExecutorFactory.cs" />
+    <Compile Include="DB\Helpers\MSSQLExecutorCreator.cs" />
+    <Compile Include="DB\Helpers\MSSQLHelper.cs" />
     <Compile Include="Store\IStore.cs" />
     <Compile Include="Store\Operators\IOperatorParser.cs" />
     <Compile Include="Store\Operators\OperatorService.cs" />
@@ -197,6 +198,7 @@
   <ItemGroup>
     <Content Include="App\todo.txt" />
     <Content Include="Cache\ReadMe.txt" />
+    <Content Include="UserData\Adapter\Readme.txt" />
     <Content Include="View\Binding\ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

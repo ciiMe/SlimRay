@@ -10,7 +10,7 @@ namespace SlimRay.DB
 
         KeyValuePair<string, object>[] Parameters { get; }
 
-        ExecutorParameters ExecutorParameter { get; set; }
+        DBAddress ExecutorParameter { get; set; }
 
         string Command { get; set; }
 

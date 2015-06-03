@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace SlimRay.DB.Factory
+namespace SlimRay.DB
 {
     public class ExecutorFactory
     {
@@ -11,7 +8,8 @@ namespace SlimRay.DB.Factory
         private static bool _isInitialized;
         private Dictionary<string, IExecutorCreator> _creators;
 
-        public static ExecutorFactory Instance {
+        public static ExecutorFactory Instance
+        {
             get
             {
                 if (!_isInitialized)
@@ -27,6 +25,14 @@ namespace SlimRay.DB.Factory
         private ExecutorFactory()
         {
             _creators = new Dictionary<string, IExecutorCreator>();
+
+            RegisterDefaultDBExecutor();
+        }
+
+        private void RegisterDefaultDBExecutor()
+        {
+            Helpers.MSSQLExecutorCreator mse = new Helpers.MSSQLExecutorCreator();
+            Register(mse.GetKey(), mse);
         }
 
         private string formatKey(string key)
@@ -45,14 +51,12 @@ namespace SlimRay.DB.Factory
         public void Unregister(string key)
         {
             key = formatKey(key);
-
             _creators.Remove(key);
         }
 
         public IExecutor New(string key)
         {
             key = formatKey(key);
-
 
             //todo:throw not exist exception.
             IExecutorCreator ec = _creators[key];

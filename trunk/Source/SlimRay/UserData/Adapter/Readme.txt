@@ -1,0 +1,1 @@
+﻿this adapter links to DB, userdata's value can be loaded by adapter under this namespace.

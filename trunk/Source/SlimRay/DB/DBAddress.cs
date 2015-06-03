@@ -1,10 +1,11 @@
 ﻿
 namespace SlimRay.DB
 {
-    public struct ExecutorParameters
+    public struct DBAddress
     {
         /* 
          * the key of executor which will handle the request.
+         * it should be the value of IExecutorCreator.GetKey().
          */
         public string Key { get; set; }
 
