@@ -1,5 +1,4 @@
 ﻿
-using SlimRay.DB;
 namespace SlimRay.UserData
 {
     /*
@@ -23,8 +22,6 @@ namespace SlimRay.UserData
         /// the description may be shown in INPUT form, help user to input or select.
         /// </summary>
         string Description { get; set; }
-
-        DBAddress StorageAddress { get; set; }
 
         IUserField[] Fields { get; }
         LinkedUserField[] LinkedFields { get; }

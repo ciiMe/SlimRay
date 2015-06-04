@@ -112,7 +112,9 @@
     <Compile Include="DB\IExecutorCreator.cs" />
     <Compile Include="Error\ErrorEntiry.cs" />
     <Compile Include="Log\IlogWriter.cs" />
+    <Compile Include="UserData\Adapter\InnerData.cs" />
     <Compile Include="UserData\Adapter\IUserDataValueLoader.cs" />
+    <Compile Include="UserData\Adapter\UserDataStorage.cs" />
     <Compile Include="UserData\Expression.cs" />
     <Compile Include="UserData\Container\IDataContainer.cs" />
     <Compile Include="UserData\Container\IDataContainerLoader.cs" />

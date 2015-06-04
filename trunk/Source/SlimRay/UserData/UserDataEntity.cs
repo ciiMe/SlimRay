@@ -8,9 +8,7 @@ namespace SlimRay.UserData
         protected int _id;
         protected string _name;
         protected string _description;
-
-        protected DBAddress _storageAddress;
-
+        
         protected List<IUserField> _fields;
         protected List<LinkedUserField> _linkedFields;
 
@@ -30,12 +28,6 @@ namespace SlimRay.UserData
         {
             get { return _description; }
             set { _description = value; }
-        }
-
-        public DBAddress StorageAddress
-        {
-            get { return _storageAddress; }
-            set { _storageAddress = value; }
         }
 
         public IUserField[] Fields
