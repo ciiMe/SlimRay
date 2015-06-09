@@ -18,10 +18,10 @@ namespace SlimRay.Addins.Simulator
             ISimulatorApp app;
 
             app = new UserDataLoader();
-            AppGate.RegisterSimulatorApp(app);
+            AppGate.Instance.RegisterSimulatorApp(app);
 
             app = new BindingConfigLoader();
-            AppGate.RegisterSimulatorApp(app);
+            AppGate.Instance.RegisterSimulatorApp(app);
         }
 
         public void Execute(string parameter)

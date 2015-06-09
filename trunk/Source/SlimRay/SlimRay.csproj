@@ -115,9 +115,9 @@
     <Compile Include="UserData\Adapter\InnerData.cs" />
     <Compile Include="UserData\Adapter\IUserDataValueLoader.cs" />
     <Compile Include="UserData\Adapter\UserDataStorage.cs" />
-    <Compile Include="UserData\Expression.cs" />
     <Compile Include="UserData\Container\IDataContainer.cs" />
     <Compile Include="UserData\Container\IDataContainerLoader.cs" />
+    <Compile Include="UserData\Expression.cs" />
     <Compile Include="App\Loaders\IUserDataLoader.cs" />
     <Compile Include="UserData\LinkedUserField.cs" />
     <Compile Include="View\AViewer.cs" />
@@ -155,15 +155,12 @@
     <Compile Include="UserData\FieldValueCollection.cs" />
     <Compile Include="Store\IDataEntityLoader.cs" />
     <Compile Include="DB\DBAddress.cs" />
-    <Compile Include="DB\ExecutorFactory.cs" />
-    <Compile Include="DB\Helpers\MSSQLExecutorCreator.cs" />
     <Compile Include="DB\Helpers\MSSQLHelper.cs" />
     <Compile Include="Store\IStore.cs" />
     <Compile Include="Store\Operators\IOperatorParser.cs" />
     <Compile Include="Store\Operators\OperatorService.cs" />
     <Compile Include="Store\Operators\ParserMSSQL.cs" />
     <Compile Include="Store\StorageAddress.cs" />
-    <Compile Include="DB\IRequest.cs" />
     <Compile Include="DB\IExecutor.cs" />
     <Compile Include="DB\Request.cs" />
     <Compile Include="Store\StorageAddresses\MSSQLServer.cs" />

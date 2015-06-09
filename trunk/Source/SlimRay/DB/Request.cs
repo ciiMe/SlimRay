@@ -7,7 +7,7 @@ namespace SlimRay.DB
     /// this class should be create by factory, 
     /// as the ExecutorParameter must be set by another object.
     /// </summary>
-    public class Request : IRequest
+    public class DBRequest
     {
         private Dictionary<string, object> _parameters;
 
@@ -57,7 +57,7 @@ namespace SlimRay.DB
             set { _timeout = value; }
         }
 
-        public Request(DBAddress ep)
+        public DBRequest(DBAddress ep)
         {
             _parameters = new Dictionary<string, object>();
             _command = "";
@@ -80,6 +80,5 @@ namespace SlimRay.DB
         {
             _parameters.Clear();
         }
-
     }
 }

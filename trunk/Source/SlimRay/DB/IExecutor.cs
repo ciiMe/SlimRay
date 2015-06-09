@@ -1,11 +1,12 @@
-﻿using System.Data;
+﻿using SlimRay.App;
+using System.Data;
 
 namespace SlimRay.DB
 {
-    public interface IExecutor
+    public interface IExecutor : IAddinApp
     {
-        object GetResult(Request plan);
-        DataTable GetDataTable(Request plan);
-        int Execute(Request plan);
+        object GetResult(DBRequest request);
+        DataTable GetDataTable(DBRequest request);
+        int Execute(DBRequest request);
     }
 }

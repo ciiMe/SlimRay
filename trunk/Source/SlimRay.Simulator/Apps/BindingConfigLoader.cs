@@ -59,7 +59,7 @@ namespace SlimRay.Addins.Simulator.Apps
             data.AddField(new UserFieldEntiry("Status", UserFieldType.Int32));             
              */
 
-            data = AppGate.GetUserDataLoader().Get("user");
+            data = AppGate.Instance.GetUserDataLoader().Get("user");
 
             binding = new BoundShapeEntiry
             {

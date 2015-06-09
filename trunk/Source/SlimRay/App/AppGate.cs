@@ -9,32 +9,53 @@ namespace SlimRay.App
      */
     public class AppGate : IGate
     {
-        public static IUserDataLoader GetUserDataLoader()
+        private static AppGate _instance = new AppGate();
+        public static AppGate Instance
         {
-            return AppPool.Instance.Get(AppKeys.UserDataLoader) as IUserDataLoader;
+            get { return _instance; }
         }
 
-        public static IBindConfigLoader GetUIBindingLoader()
+        public IApp Get(string key)
         {
-            return AppPool.Instance.Get(AppKeys.BindConfigLoader) as IBindConfigLoader;
+            return AppPool.Instance.Get(key);
         }
 
-        public static void RegisterAddinApp(IAddinApp app)
+        public void Unload(string key)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IApp CreateNew(string key)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IUserDataLoader GetUserDataLoader()
+        {
+            return Get(AppKeys.UserDataLoader) as IUserDataLoader;
+        }
+
+        public IBindConfigLoader GetUIBindingLoader()
+        {
+            return Get(AppKeys.BindConfigLoader) as IBindConfigLoader;
+        }
+
+        public void RegisterAddinApp(IAddinApp app)
         {
             AppPool.Instance.Register(app);
         }
 
-        public static void UnregisterAddinApp(IAddinApp app)
+        public void UnregisterAddinApp(IAddinApp app)
         {
             AppPool.Instance.Unregister(app.GetKey());
         }
 
-        public static void RegisterSimulatorApp(ISimulatorApp app)
+        public void RegisterSimulatorApp(ISimulatorApp app)
         {
             AppPool.Instance.Register(app);
         }
 
-        public static void UnregisterSimulaterApp(ISimulatorApp app)
+        public void UnregisterSimulaterApp(ISimulatorApp app)
         {
             AppPool.Instance.Unregister(app.GetKey());
         }
