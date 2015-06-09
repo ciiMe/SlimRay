@@ -16,7 +16,7 @@ namespace HtmlAnalyser.HtmlAnalysis
         }
     }
 
-    public struct ProcessTaskDataLine
+    public class ProcessTaskDataLine
     {
         public string Name { get; set; }
         public string XPath { get; set; }

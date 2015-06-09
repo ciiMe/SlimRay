@@ -46,7 +46,7 @@
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.richTextBox1.Location = new System.Drawing.Point(0, 24);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(872, 635);
+            this.richTextBox1.Size = new System.Drawing.Size(641, 635);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
@@ -128,7 +128,7 @@
             // 
             // splitter1
             // 
-            this.splitter1.Location = new System.Drawing.Point(872, 24);
+            this.splitter1.Location = new System.Drawing.Point(641, 24);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(4, 635);
             this.splitter1.TabIndex = 2;
@@ -137,10 +137,10 @@
             // treeView1
             // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Location = new System.Drawing.Point(876, 24);
+            this.treeView1.Location = new System.Drawing.Point(645, 24);
             this.treeView1.Name = "treeView1";
             this.treeView1.ShowNodeToolTips = true;
-            this.treeView1.Size = new System.Drawing.Size(273, 635);
+            this.treeView1.Size = new System.Drawing.Size(504, 635);
             this.treeView1.TabIndex = 3;
             // 
             // frmDemo
