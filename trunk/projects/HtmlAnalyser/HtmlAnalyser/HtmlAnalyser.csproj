@@ -39,6 +39,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>external\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
+    <Reference Include="SlimRay, Version=1.15.5638.30519, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>External\SlimRay.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
@@ -97,9 +101,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="addins\DBHelpers.MSSQL.dll" />
+    <Content Include="addins\DBHelpers.MSSQL.pdb" />
     <Content Include="External\Net45\HtmlAgilityPack.dll" />
     <Content Include="External\Net45\HtmlAgilityPack.pdb" />
     <Content Include="External\Net45\HtmlAgilityPack.XML" />
+    <Content Include="External\SlimRay.dll" />
+    <Content Include="External\SlimRay.pdb" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

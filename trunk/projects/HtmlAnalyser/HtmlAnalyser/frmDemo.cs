@@ -3,6 +3,9 @@ using System.Windows.Forms;
 using HtmlAgilityPack;
 using HtmlAnalyser.HtmlAnalysis;
 
+using SlimRay.App;
+using SlimRay.DB;
+
 namespace HtmlAnalyser
 {
     public partial class frmDemo : Form
@@ -14,7 +17,14 @@ namespace HtmlAnalyser
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            IExecutor dbhelper = AppGate.Instance.Get("SlimRay.DB.Helpers.MSSQLHelper") as IExecutor;
 
+            if (dbhelper == null)
+            {
+                return;
+            }
+
+            string name = dbhelper.GetName();
         }
 
         private void button1_Click(object sender, EventArgs e)
