@@ -50,7 +50,6 @@ namespace SlimRay.App
             throw new System.NotImplementedException();
         }
 
-
         public IAddinApp[] Load(string addinFileName)
         {
             FileInfo file = new FileInfo(addinFileName);

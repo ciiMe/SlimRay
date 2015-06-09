@@ -16,8 +16,7 @@ namespace SlimRay.Designer
 
         private void loadAllData()
         {
-            var loader = AppGate.GetUserDataLoader();
-
+            var loader = AppGate.Instance.GetUserDataLoader();
 
             var dataList = loader.Get();
             this.listBox1.DataSource = dataList;
@@ -26,7 +25,7 @@ namespace SlimRay.Designer
 
         private void showDataColumns(string dataName)
         {
-            var loader = AppGate.GetUserDataLoader();
+            var loader = AppGate.Instance.GetUserDataLoader();
 
             var data = loader.Get(dataName);
             this.dataGridView1.DataSource = data.Fields;

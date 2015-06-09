@@ -15,8 +15,17 @@ namespace SlimRay.Designer
 
             foreach (IAddinApp app in apps)
             {
+                //call execute to init simulator
                 app.Execute("init..");
+
+                if (!(app is IAddinApp))
+                {
+                    continue;
+                }
+
+                IAddinApp addin = app as IAddinApp;
+                AppGate.Instance.RegisterAddinApp(addin);
             }
-        }
+        }         
     }
 }

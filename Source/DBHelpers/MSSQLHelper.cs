@@ -1,7 +1,8 @@
-﻿using System.Data;
+﻿using SlimRay.DB;
+using System.Data;
 using System.Data.SqlClient;
 
-namespace SlimRay.DB.Helpers
+namespace DBHelpers.MSSQL
 {
     public class MSSQLHelper : IExecutor
     {
@@ -63,7 +64,7 @@ namespace SlimRay.DB.Helpers
 
         public void Execute(string parameter)
         {
-           
+
         }
     }
 }

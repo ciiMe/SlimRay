@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SlimRay.App;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,7 +19,7 @@ namespace SlimRay.Runner.Users
 
         private object loadBindingUI()
         {
-            var loader = SlimRay.App.AppGate.GetUIBindingLoader();
+            var loader = AppGate.Instance.GetUIBindingLoader();
 
             var uiItems = loader.Get();
 
