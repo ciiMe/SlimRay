@@ -23,6 +23,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -44,6 +45,7 @@
       <HintPath>External\SlimRay.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -57,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DB\DBHelper.cs" />
     <Compile Include="DB\IDBWriter.cs" />
     <Compile Include="frmDemo.cs">
       <SubType>Form</SubType>
@@ -89,7 +92,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -101,13 +106,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="addins\DBHelpers.MSSQL.dll" />
-    <Content Include="addins\DBHelpers.MSSQL.pdb" />
+    <Content Include="addins\DBHelpers.MSSQL.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="External\Net45\HtmlAgilityPack.dll" />
-    <Content Include="External\Net45\HtmlAgilityPack.pdb" />
     <Content Include="External\Net45\HtmlAgilityPack.XML" />
     <Content Include="External\SlimRay.dll" />
-    <Content Include="External\SlimRay.pdb" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
