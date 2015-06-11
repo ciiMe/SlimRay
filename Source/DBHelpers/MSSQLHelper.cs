@@ -1,4 +1,5 @@
 ﻿using SlimRay.DB;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -29,14 +30,29 @@ namespace DBHelpers.MSSQL
         {
             SqlConnection conn = new SqlConnection(request.ExecutorParameter.HostAddress);
 
-            conn.Open();
+            try
+            {
+                conn.Open();
+            }
+            catch (Exception ex)
+            {
+                //todo:log this error.
+                return null;
+            }
 
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandTimeout = request.Timeout;
 
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            return reader.GetString(0);
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                return reader.GetString(0);
+            }
+            catch (Exception ex)
+            {
+                //todo:log this error.
+                return null;
+            }
         }
 
         public DataTable GetDataTable(DBRequest request)
@@ -46,7 +62,15 @@ namespace DBHelpers.MSSQL
 
             DataTable table = new DataTable();
 
-            adpter.Fill(table);
+            try
+            {
+                adpter.Fill(table);
+            }
+            catch (Exception ex)
+            {
+                //todo:log this error.
+                return null;
+            }
 
             return table;
         }
@@ -54,12 +78,28 @@ namespace DBHelpers.MSSQL
         public int Execute(DBRequest request)
         {
             SqlConnection conn = new SqlConnection(request.ExecutorParameter.HostAddress);
-            conn.Open();
+            try
+            {
+                conn.Open();
+            }
+            catch (Exception ex)
+            {
+                //todo:log this error.
+                return -1;
+            }
 
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandTimeout = request.Timeout;
 
-            return cmd.ExecuteNonQuery();
+            try
+            {
+                return cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                //todo:log this error.
+                return -1;
+            }
         }
 
         public void Execute(string parameter)
