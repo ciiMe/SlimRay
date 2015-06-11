@@ -1,0 +1,1 @@
+﻿all kinds of cache, a base component of the frame, the cache provide the management port to the object in memory.

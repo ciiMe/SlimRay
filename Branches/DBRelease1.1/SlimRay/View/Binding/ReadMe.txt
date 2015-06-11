@@ -1,0 +1,2 @@
+﻿the binding namespace defines how a component bind to userdata, all classes under this namespace only provide bind description data for ui, 
+and ui will call loader to load data and show it as binding defined.
