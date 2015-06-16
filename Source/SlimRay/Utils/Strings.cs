@@ -14,13 +14,7 @@ namespace SlimRay.Utils
         public static string Before(string str, string subStr)
         {
             int d = str.IndexOf(subStr);
-
-            if (d < 0)
-            {
-                return "";
-            }
-
-            return str.Substring(0, d);
+            return d < 0 ? "" : str.Substring(0, d);
         }
 
         /// <summary>
@@ -32,13 +26,7 @@ namespace SlimRay.Utils
         public static string After(string str, string subStr)
         {
             int d = str.IndexOf(subStr);
-
-            if (d < 0)
-            {
-                return "";
-            }
-
-            return str.Substring(d + 1, str.Length - d - subStr.Length);
+            return d < 0 ? "" : str.Substring(d + subStr.Length);
         }
 
         /// <summary>
@@ -226,7 +214,7 @@ namespace SlimRay.Utils
 
             public static string RemoveStart(string data, string start)
             {
-                if (start == null || start == "" || data == null || start.Length > data.Length)
+                if (string.IsNullOrEmpty(start) || data == null || start.Length > data.Length)
                 {
                     return data;
                 }
@@ -236,7 +224,7 @@ namespace SlimRay.Utils
 
             public static string RemoveEnd(string data, string end)
             {
-                if (end == null || end == "" || data == null || end.Length > data.Length)
+                if (string.IsNullOrEmpty(end) || data == null || end.Length > data.Length)
                 {
                     return data;
                 }
@@ -244,41 +232,9 @@ namespace SlimRay.Utils
                 return data.Substring(data.Length - end.Length).ToUpper() == end.ToUpper() ? data.Substring(0, data.Length - end.Length) : data;
             }
 
-            public static bool IsStartWith(string data, string start)
-            {
-                if (string.IsNullOrEmpty(data) || string.IsNullOrEmpty(start) || start.Length > data.Length)
-                {
-                    return false;
-                }
-
-                return data.Substring(0, start.Length).ToUpper() == start.ToUpper();
-            }
-
             public static bool BoolFromYN(string data)
             {
                 return data == "Y" || data == "y";
-            }
-
-            public static string FormatDate(string date, string format)
-            {
-                try
-                {
-                    return string.IsNullOrEmpty(date) ? "" : Convert.ToDateTime(date).ToString(format);
-                }
-                catch
-                {
-                    return date;
-                }
-            }
-
-            public static string ToCATSDate(string date)
-            {
-                return FormatDate(date, "yyyy-MM-dd");
-            }
-
-            public static string ToMercuryDate(string date)
-            {
-                return FormatDate(date, "dd-MMM-yy");
             }
         }
     }
