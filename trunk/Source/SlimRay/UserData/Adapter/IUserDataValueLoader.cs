@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using SlimRay.DB;
+using System.Data;
 
 namespace SlimRay.UserData.Adapter
 {
@@ -7,9 +8,7 @@ namespace SlimRay.UserData.Adapter
         string Load(IUserField field);
         DataTable Load(IUserData data);
         //todo: load by expression??
-
-        //todo: where is User data saved?
-
+        
         bool Save(IUserField field, string value);
         bool Save(FieldValueCollection data);
     }
