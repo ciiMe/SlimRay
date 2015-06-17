@@ -12,6 +12,6 @@ namespace SlimRay.Data
 
         DataTable LoadData(string tableName);
         string LoadFieldData(string tableName, string fieldName);
-        bool UpdateFieldData(string tableName, string fieldName, string value);
+        bool UpdateFieldData(string tableName, int id, string fieldName, string value);
     }
 }
