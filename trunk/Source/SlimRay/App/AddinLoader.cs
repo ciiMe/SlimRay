@@ -29,7 +29,7 @@ namespace SlimRay.App
                     {
                         if (t.GetInterfaces().Contains(tAddin))
                         {
-                            var addin = System.Activator.CreateInstance(t) as IAddinApp;
+                            var addin = Activator.CreateInstance(t) as IAddinApp;
 
                             if (addin == null)
                             {
