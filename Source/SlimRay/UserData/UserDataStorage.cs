@@ -1,7 +1,6 @@
 ﻿using SlimRay.DB;
-using SlimRay.UserData;
 
-namespace SlimRay.Data
+namespace SlimRay.UserData
 {
     public struct  UserDataStorage
     {

@@ -81,7 +81,7 @@ namespace SlimRay.UserData.Adapter
             string tableName = "";
 
             //todo: where is it from?
-            TableUserDataFIelds udf = new TableUserDataFIelds();
+            TableUserDataFields udf = new TableUserDataFields();
 
             IUserField field = data.Field(fieldName);
 

@@ -110,6 +110,7 @@
     <Compile Include="Cache\ICache.cs" />
     <Compile Include="Cache\STMemoryCache.cs" />
     <Compile Include="Data\TableManager.cs" />
+    <Compile Include="Data\DataTableNameEntity.cs" />
     <Compile Include="UserData\Adapter\IUserDataHelper.cs" />
     <Compile Include="Data\ITableManager.cs" />
     <Compile Include="DB\IExecutorCreator.cs" />
@@ -117,8 +118,8 @@
     <Compile Include="Log\IlogWriter.cs" />
     <Compile Include="UserData\Adapter\InnerData.cs" />
     <Compile Include="UserData\Adapter\IUserDataValueLoader.cs" />
-    <Compile Include="Data\UserDataStorage.cs" />
-    <Compile Include="UserData\Adapter\SystemData.cs" />
+    <Compile Include="UserData\UserDataStorage.cs" />
+    <Compile Include="UserData\Adapter\SystemTables.cs" />
     <Compile Include="UserData\Adapter\SystemDataInitializer.cs" />
     <Compile Include="UserData\Adapter\UserDataHelper.cs" />
     <Compile Include="UserData\Container\IDataContainer.cs" />
