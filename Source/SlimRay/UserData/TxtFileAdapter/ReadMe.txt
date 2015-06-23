@@ -1,0 +1,1 @@
+﻿this namespace includes an adapter connect to text file, the userdata can be saved in text file, the file does not have concepts like table and columns.

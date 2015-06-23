@@ -1,7 +1,7 @@
 ﻿using SlimRay.DB;
 using System.Collections.Generic;
 
-namespace SlimRay.UserData.Adapter
+namespace SlimRay.UserData
 {
     public interface IUserDataHelper
     {

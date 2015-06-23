@@ -3,7 +3,7 @@ using SlimRay.UserData;
 
 namespace SlimRay.App.Loaders
 {
-    public interface IUserDataLoader : ILoaderApp<IUserData>
+    public interface IUserDataHelperApp : ILoaderApp<IUserData>, IUserDataHelper
     {
         IUserData Get(string name);
     }

@@ -16,18 +16,18 @@ namespace SlimRay.Designer
 
         private void loadAllData()
         {
-            var loader = AppGate.Instance.GetUserDataLoader();
+            var helper = SystemApps.GetUserDataHelper();
 
-            var dataList = loader.Get();
+            var dataList = helper.Get();
             this.listBox1.DataSource = dataList;
             this.listBox1.DisplayMember = "Name";
         }
 
         private void showDataColumns(string dataName)
         {
-            var loader = AppGate.Instance.GetUserDataLoader();
+            var helper = SystemApps.GetUserDataHelper();
 
-            var data = loader.Get(dataName);
+            var data = helper.Get(dataName);
             this.dataGridView1.DataSource = data.Fields;
         }
 
@@ -35,6 +35,24 @@ namespace SlimRay.Designer
         {
             UserData.IUserData data = this.listBox1.SelectedItem as UserData.IUserData;
             showDataColumns(data.Name);
+        }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDataAdd frm = new frmDataAdd();
+
+            if (frm.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            string name = frm.DataName;
+
+            var helper = SystemApps.GetUserDataHelper();
+
+            UserDataEntity data = new UserDataEntity(name);
+
+            helper.AddUserData(data);
         }
     }
 }

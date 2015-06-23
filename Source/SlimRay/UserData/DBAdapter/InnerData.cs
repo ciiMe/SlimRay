@@ -1,5 +1,5 @@
 ﻿
-namespace SlimRay.UserData.Adapter
+namespace SlimRay.UserData.DBAdapter
 {
     public class InnerData
     {

@@ -9,9 +9,9 @@ namespace SlimRay.App
     public struct AppKeys
     {
         /// <summary>
-        /// data loader app in AppPool.
+        /// app that access the userdata.
         /// </summary>
-        public const string UserDataLoader = "AppUserDataLoader";
+        public const string UserDataAdapter = "Sys_UserDataAdapter";
 
         /// <summary>
         /// app that load userdata's data to container.

@@ -1,7 +1,6 @@
-﻿using SlimRay.DB;
-using System.Data;
+﻿using System.Data;
 
-namespace SlimRay.UserData.Adapter
+namespace SlimRay.UserData
 {
     public interface IUserDataValueLoader
     {

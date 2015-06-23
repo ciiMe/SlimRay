@@ -1,7 +1,9 @@
 ﻿using SlimRay.Data;
 
-namespace SlimRay.UserData.Adapter
+namespace SlimRay.UserData.DBAdapter
 {
+    //todo: who initialize it?
+
     /// <summary>
     /// system datatable list data will be keeped here after loading from config file.
     /// </summary>
@@ -12,6 +14,15 @@ namespace SlimRay.UserData.Adapter
         public static TableUserData UserData { get; set; }
         public static TableUserDataFields UserDataFields { get; set; }
         public static TableUserDataLink UserDataLink { get; set; }
+
+        /// <summary>
+        /// get the table name where the data saved.
+        /// </summary>
+        public static DataTableNameEntity GetMappedTable(IUserData data)
+        {
+            //todo: need to complete it.
+            return new DataTableNameEntity();
+        }
     }
 
     /// <summary>

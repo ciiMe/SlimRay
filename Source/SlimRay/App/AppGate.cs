@@ -30,11 +30,6 @@ namespace SlimRay.App
             throw new System.NotImplementedException();
         }
 
-        public IUserDataLoader GetUserDataLoader()
-        {
-            return Get(AppKeys.UserDataLoader) as IUserDataLoader;
-        }
-
         public IBindConfigLoader GetUIBindingLoader()
         {
             return Get(AppKeys.BindConfigLoader) as IBindConfigLoader;
