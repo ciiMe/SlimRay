@@ -89,6 +89,12 @@
     <Compile Include="DataDefinition\ISystemData.cs" />
     <Compile Include="DataDefinition\IUser.cs" />
     <Compile Include="DataDefinition\SystemTable.cs" />
+    <Compile Include="frmDataAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDataAdd.Designer.cs">
+      <DependentUpon>frmDataAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDataList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmDataAdd.resx">
+      <DependentUpon>frmDataAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDataList.resx">
       <DependentUpon>frmDataList.cs</DependentUpon>
     </EmbeddedResource>

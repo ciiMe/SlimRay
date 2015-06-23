@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using SlimRay.Data;
 using System.Data;
+using SlimRay.DB;
 
-namespace SlimRay.UserData.Adapter
+namespace SlimRay.UserData.DBAdapter
 {
     public class UserDataHelper : IUserDataHelper
     {
@@ -15,10 +16,7 @@ namespace SlimRay.UserData.Adapter
         public List<IUserData> GetAllUserData()
         {
             TableManager tm = new TableManager();
-
-            //todo: where is it from?
-            TableUserData table = new TableUserData();
-
+            TableUserData table = SystemTables.UserData;
             DataTable dt = tm.LoadData(table.TableName);
 
             List<IUserData> result = new List<IUserData>();
@@ -31,18 +29,14 @@ namespace SlimRay.UserData.Adapter
             return result;
         }
 
-        public void SetStorage(IUserData data, DB.DBAddress address)
+        public void SetStorage(IUserData data, DBAddress address)
         {
             TableManager tm = new TableManager();
+            var table = SystemTables.GetMappedTable(data);
+            var uds = new TableUserDataStorage();
 
-            //todo: get table name of this data.
-            string tableName = "";
-
-            //todo: where is it from?
-            TableUserDataStorage uds = new TableUserDataStorage();
-
-            tm.UpdateFieldData(tableName, data.ID, uds.AddressKeyFieldName, address.Key);
-            tm.UpdateFieldData(tableName, data.ID, uds.AddressFieldName, address.HostAddress);
+            tm.UpdateFieldData(table.TableName, data.ID, uds.AddressKeyFieldName, address.Key);
+            tm.UpdateFieldData(table.TableName, data.ID, uds.AddressFieldName, address.HostAddress);
         }
 
         public bool AddUserData(IUserData data)

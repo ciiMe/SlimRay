@@ -10,7 +10,7 @@ namespace SlimRay.Addins.Simulator.Apps
      * a data loader should load data from db, 
      * but this app return virtual data directly.
      */
-    public class UserDataLoader : ISimulatorApp, IUserDataLoader 
+    public class UserDataLoader : ISimulatorApp, IUserDataHelperApp
     {
         private const string _name = "Virtual Userdata loader.";
         private const string _description = "Load all Userdata.";
@@ -127,6 +127,41 @@ namespace SlimRay.Addins.Simulator.Apps
             }
 
             return null;
+        }
+
+        public List<IUserData> GetAllUserData()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void SetStorage(IUserData data, DB.DBAddress address)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool AddUserData(IUserData data)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool RemoveUserData(string name)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool AddField(IUserData data, string fieldName)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool RemoveField(IUserData data, string fieldName)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool RenameField(IUserData data, string fieldName, string newName)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

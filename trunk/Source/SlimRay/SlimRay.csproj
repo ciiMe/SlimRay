@@ -103,6 +103,7 @@
     <Compile Include="App\Loaders\IBindConfigLoader.cs" />
     <Compile Include="App\ILoaderApp.cs" />
     <Compile Include="App\ISimulatorApp.cs" />
+    <Compile Include="App\SystemApps.cs" />
     <Compile Include="Cache\CachedItem.cs" />
     <Compile Include="Cache\MemoryCache.cs" />
     <Compile Include="Common\Action.cs" />
@@ -111,21 +112,21 @@
     <Compile Include="Cache\STMemoryCache.cs" />
     <Compile Include="Data\TableManager.cs" />
     <Compile Include="Data\DataTableNameEntity.cs" />
-    <Compile Include="UserData\Adapter\IUserDataHelper.cs" />
+    <Compile Include="UserData\IUserDataHelper.cs" />
     <Compile Include="Data\ITableManager.cs" />
     <Compile Include="DB\IExecutorCreator.cs" />
     <Compile Include="Error\ErrorEntiry.cs" />
     <Compile Include="Log\IlogWriter.cs" />
-    <Compile Include="UserData\Adapter\InnerData.cs" />
-    <Compile Include="UserData\Adapter\IUserDataValueLoader.cs" />
+    <Compile Include="UserData\DBAdapter\InnerData.cs" />
+    <Compile Include="UserData\IUserDataValueLoader.cs" />
     <Compile Include="UserData\UserDataStorage.cs" />
-    <Compile Include="UserData\Adapter\SystemTables.cs" />
-    <Compile Include="UserData\Adapter\SystemDataInitializer.cs" />
-    <Compile Include="UserData\Adapter\UserDataHelper.cs" />
+    <Compile Include="UserData\DBAdapter\SystemTables.cs" />
+    <Compile Include="UserData\DBAdapter\SystemDataInitializer.cs" />
+    <Compile Include="UserData\DBAdapter\UserDataHelper.cs" />
     <Compile Include="UserData\Container\IDataContainer.cs" />
     <Compile Include="UserData\Container\IDataContainerLoader.cs" />
     <Compile Include="UserData\Expression.cs" />
-    <Compile Include="App\Loaders\IUserDataLoader.cs" />
+    <Compile Include="App\Loaders\IUserDataHelperApp.cs" />
     <Compile Include="UserData\LinkedUserField.cs" />
     <Compile Include="View\AViewer.cs" />
     <Compile Include="Action\IAction.cs" />
@@ -203,7 +204,8 @@
   <ItemGroup>
     <Content Include="App\todo.txt" />
     <Content Include="Cache\ReadMe.txt" />
-    <Content Include="UserData\Adapter\Readme.txt" />
+    <Content Include="UserData\DBAdapter\Readme.txt" />
+    <Content Include="UserData\TxtFileAdapter\ReadMe.txt" />
     <Content Include="View\Binding\ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
