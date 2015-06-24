@@ -46,6 +46,7 @@ namespace SlimRay.Addins.Simulator.Apps
             data.AddField(new UserFieldEntiry("ID", UserFieldType.Int64));
             data.AddField(new UserFieldEntiry("Name", UserFieldType.String));
             data.AddField(new UserFieldEntiry("Description", UserFieldType.String));
+            data.ID = dList.Count;
             resetFieldID(data);
             dList.Add(data);
 
@@ -55,6 +56,7 @@ namespace SlimRay.Addins.Simulator.Apps
             data.AddField(new UserFieldEntiry("Name", UserFieldType.String));
             data.AddField(new UserFieldEntiry("Description", UserFieldType.String));
             data.AddField(new UserFieldEntiry("Type", UserFieldType.UnInt32));
+            data.ID = dList.Count;
             resetFieldID(data);
             dList.Add(data);
 
@@ -65,6 +67,7 @@ namespace SlimRay.Addins.Simulator.Apps
             data.AddField(new UserFieldEntiry("ID", UserFieldType.Int64));
             data.AddField(new UserFieldEntiry("Name", UserFieldType.String));
             data.AddField(new UserFieldEntiry("Description", UserFieldType.String));
+            data.ID = dList.Count;
             resetFieldID(data);
             dList.Add(data);
 
@@ -76,25 +79,30 @@ namespace SlimRay.Addins.Simulator.Apps
             data.AddField(new UserFieldEntiry("Description", UserFieldType.String));
             data.AddField(new UserFieldEntiry("Type", UserFieldType.UnInt32));
             data.AddField(new UserFieldEntiry("Status", UserFieldType.Int32));
+            data.ID = dList.Count;
             resetFieldID(data);
             dList.Add(data);
 
             data = new UserDataEntity("UserGroup", "Links between user and group.");
             data.AddField(new UserFieldEntiry("UserID", UserFieldType.Int64));
             data.AddField(new UserFieldEntiry("GroupID", UserFieldType.Int64));
+            data.ID = dList.Count;
             resetFieldID(data);
             dList.Add(data);
 
             data = new UserDataEntity("User Status", "Status of user.");
             data.AddField(new UserFieldEntiry("ID", UserFieldType.Int32));
             data.AddField(new UserFieldEntiry("Name", UserFieldType.String));
+            data.ID = dList.Count;
             resetFieldID(data);
             dList.Add(data);
 
             //User group setting should be able to load all detail data of user and group.
             dList[4].Link(dList[2].Fields[0], UserFieldLinkRelation.AnotherPartofData);
             dList[4].Link(dList[3].Fields[0], UserFieldLinkRelation.AnotherPartofData);
-            dList[4].Link(dList[5].Fields[0], UserFieldLinkRelation.DataSource);
+
+            //link user and user status.
+            dList[3].Link(dList[5].Fields[0], UserFieldLinkRelation.DataSource);
 
             return dList;
         }
@@ -170,9 +178,12 @@ namespace SlimRay.Addins.Simulator.Apps
             throw new System.NotImplementedException();
         }
 
-        public bool AddField(string dataName, string fieldName)
+        public bool AddField(string dataName, string fieldName, UserFieldType t, string description)
         {
-            throw new System.NotImplementedException();
+            var data = Get(dataName);
+            data.AddField(new UserFieldEntiry(fieldName, description, t));
+
+            return true;
         }
 
         public bool RemoveField(string dataName, string fieldName)
@@ -181,6 +192,25 @@ namespace SlimRay.Addins.Simulator.Apps
         }
 
         public bool RenameField(string dataName, string fieldName, string newName)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IUserData[] GetLinkedData(string dataName)
+        {
+            IUserData data = Get(dataName);
+
+            List<IUserData> ld = new List<IUserData>();
+
+            foreach (LinkedUserField field in data.LinkedFields)
+            {
+                ld.Add(field.Field.Data);
+            }
+
+            return ld.ToArray();
+        }
+
+        public bool SetFieldType(string dataName, string fieldName, UserFieldType t)
         {
             throw new System.NotImplementedException();
         }

@@ -16,6 +16,12 @@ namespace SlimRay.UserData
         IUserData Get(string dataName);
 
         /// <summary>
+        /// get the data links to.
+        /// </summary>
+        /// <returns></returns>
+        IUserData[] GetLinkedData(string dataName);
+
+        /// <summary>
         /// create new userdata
         /// </summary>
         bool AddData(string name, string description);
@@ -58,7 +64,7 @@ namespace SlimRay.UserData
         /// <summary>
         /// add field to a userdata.
         /// </summary>
-        bool AddField(string dataName, string fieldName);
+        bool AddField(string dataName, string fieldName, UserFieldType t, string description);
 
         /// <summary>
         /// remove the field from userdata.
@@ -69,5 +75,10 @@ namespace SlimRay.UserData
         /// update field name.
         /// </summary>
         bool RenameField(string dataName, string fieldName, string newName);
+
+        /// <summary>
+        /// set type to field.
+        /// </summary>
+        bool SetFieldType(string dataName, string fieldName, UserFieldType t);
     }
 }
