@@ -5,6 +5,6 @@ namespace SlimRay.App.Loaders
 {
     public interface IUserDataHelperApp : ILoaderApp<IUserData>, IUserDataHelper
     {
-        IUserData Get(string name);
+
     }
 }

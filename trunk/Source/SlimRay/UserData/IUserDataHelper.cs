@@ -1,43 +1,73 @@
 ﻿using SlimRay.DB;
-using System.Collections.Generic;
+using SlimRay.App;
 
 namespace SlimRay.UserData
 {
-    public interface IUserDataHelper
+    public interface IUserDataHelper : ILoaderApp<IUserData>
     {
         /// <summary>
         /// get the list of all userdata.
         /// </summary>
-        List<IUserData> GetAllUserData();
+        //IUserData[] Get();
 
         /// <summary>
-        /// set the storage address of a userdata.
+        /// get data by name.
         /// </summary>
-        void SetStorage(IUserData data, DBAddress address);
+        IUserData Get(string dataName);
 
         /// <summary>
-        /// register userdata to system.
+        /// create new userdata
         /// </summary>
-        bool AddUserData(IUserData data);
+        bool AddData(string name, string description);
+
+        /// <summary>
+        /// set a new name for userdata.
+        /// </summary>
+        bool SetNewName(string dataName, string newName);
+
+        /// <summary>
+        /// set description for userdata.
+        /// </summary>
+        bool SetDescription(string name, string description);
+
+        /// <summary>
+        /// get storage place of userdata.
+        /// </summary>
+        DBAddress GetStorage(string dataName);
+
+        /// <summary>
+        /// set the storage address of userdata.
+        /// </summary>
+        void SetStorage(string dataName, DBAddress address);
 
         /// <summary>
         /// remove the userdata from system.
         /// </summary>
-        bool RemoveUserData(string name);
+        bool Remove(string name);
+
+        /// <summary>
+        /// get all fields of userdata.
+        /// </summary>
+        IUserField[] GetFields(string dataName);
+
+        /// <summary>
+        /// get field of userdata.
+        /// </summary>
+        IUserField GetField(string dataName, string fieldName);
 
         /// <summary>
         /// add field to a userdata.
         /// </summary>
-        bool AddField(IUserData data, string fieldName);
+        bool AddField(string dataName, string fieldName);
 
         /// <summary>
         /// remove the field from userdata.
         /// </summary>
-        bool RemoveField(IUserData data, string fieldName);
+        bool RemoveField(string dataName, string fieldName);
 
         /// <summary>
         /// update field name.
         /// </summary>
-        bool RenameField(IUserData data, string fieldName, string newName);
+        bool RenameField(string dataName, string fieldName, string newName);
     }
 }
