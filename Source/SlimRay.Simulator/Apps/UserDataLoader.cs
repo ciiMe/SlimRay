@@ -14,7 +14,7 @@ namespace SlimRay.Addins.Simulator.Apps
     {
         private const string _name = "Virtual Userdata loader.";
         private const string _description = "Load all Userdata.";
-        private string _key = AppKeys.UserDataLoader;
+        private string _key = AppKeys.UserDataAdapter;
 
         public string GetName()
         {
@@ -129,37 +129,58 @@ namespace SlimRay.Addins.Simulator.Apps
             return null;
         }
 
-        public List<IUserData> GetAllUserData()
+
+        public bool AddData(string name, string description)
         {
             throw new System.NotImplementedException();
         }
 
-        public void SetStorage(IUserData data, DB.DBAddress address)
+        public bool SetNewName(string dataName, string newName)
         {
             throw new System.NotImplementedException();
         }
 
-        public bool AddUserData(IUserData data)
+        public bool SetDescription(string name, string description)
         {
             throw new System.NotImplementedException();
         }
 
-        public bool RemoveUserData(string name)
+        public DB.DBAddress GetStorage(string dataName)
         {
             throw new System.NotImplementedException();
         }
 
-        public bool AddField(IUserData data, string fieldName)
+        public void SetStorage(string dataName, DB.DBAddress address)
         {
             throw new System.NotImplementedException();
         }
 
-        public bool RemoveField(IUserData data, string fieldName)
+        public bool Remove(string name)
         {
             throw new System.NotImplementedException();
         }
 
-        public bool RenameField(IUserData data, string fieldName, string newName)
+        public IUserField[] GetFields(string dataName)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IUserField GetField(string dataName, string fieldName)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool AddField(string dataName, string fieldName)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool RemoveField(string dataName, string fieldName)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool RenameField(string dataName, string fieldName, string newName)
         {
             throw new System.NotImplementedException();
         }

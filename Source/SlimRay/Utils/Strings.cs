@@ -159,83 +159,102 @@ namespace SlimRay.Utils
             s1.Replace(" ", "").ToUpper() == s2.Replace(" ", "").ToUpper();
         }
 
-        public class StringHelper
+        /// <summary>
+        /// replace the first found part of data between left and right by new-data.
+        /// original data will be returned as default.
+        /// </summary>
+        public static string ReplaceBetween(string data, string left, string right, string newData)
         {
-            public static string[] SplitToArray(string data)
+            if (string.IsNullOrEmpty(data))
             {
-                return SplitToArray(data, ',');
+                return data;
+            }
+            int lp = data.IndexOf(left);
+            int rp = data.IndexOf(right);
+
+            if (rp <= lp)
+            {
+                return data;
             }
 
-            public static string[] SplitToArray(string data, char spltor)
-            {
-                if (data == null || data == "")
-                {
-                    return new string[] { };
-                }
-
-                return data.IndexOf(spltor) > 0 ? data.Split(spltor) : new string[] { data };
-            }
-
-            public static string ArrayToString(string[] data)
-            {
-                if (data == null)
-                {
-                    return "";
-                }
-
-                string result = "";
-
-                for (int i = 0; i < data.Length; i++)
-                {
-                    if (i == 0)
-                    {
-                        result += data[i];
-                    }
-                    else
-                    {
-                        result += ("," + data[i]);
-                    }
-                }
-
-                return result;
-            }
-
-            public static string Left(string data, string splitor)
-            {
-                if (data == null)
-                {
-                    return "";
-                }
-
-                int i = data.IndexOf(splitor);
-
-                return i >= 0 ? data.Substring(0, i) : data;
-            }
-
-            public static string RemoveStart(string data, string start)
-            {
-                if (string.IsNullOrEmpty(start) || data == null || start.Length > data.Length)
-                {
-                    return data;
-                }
-
-                return data.Substring(0, start.Length).ToUpper() == start.ToUpper() ? data.Substring(start.Length) : data;
-            }
-
-            public static string RemoveEnd(string data, string end)
-            {
-                if (string.IsNullOrEmpty(end) || data == null || end.Length > data.Length)
-                {
-                    return data;
-                }
-
-                return data.Substring(data.Length - end.Length).ToUpper() == end.ToUpper() ? data.Substring(0, data.Length - end.Length) : data;
-            }
-
-            public static bool BoolFromYN(string data)
-            {
-                return data == "Y" || data == "y";
-            }
+            return data.Substring(0, lp) + newData + data.Substring(rp + right.Length);
         }
+
+        public static string[] SplitToArray(string data)
+        {
+            return SplitToArray(data, ',');
+        }
+
+        public static string[] SplitToArray(string data, char spltor)
+        {
+            if (data == null || data == "")
+            {
+                return new string[] { };
+            }
+
+            return data.IndexOf(spltor) > 0 ? data.Split(spltor) : new string[] { data };
+        }
+
+        public static string ArrayToString(string[] data)
+        {
+            if (data == null)
+            {
+                return "";
+            }
+
+            string result = "";
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                if (i == 0)
+                {
+                    result += data[i];
+                }
+                else
+                {
+                    result += ("," + data[i]);
+                }
+            }
+
+            return result;
+        }
+
+        public static string Left(string data, string splitor)
+        {
+            if (data == null)
+            {
+                return "";
+            }
+
+            int i = data.IndexOf(splitor);
+
+            return i >= 0 ? data.Substring(0, i) : data;
+        }
+
+        public static string RemoveStart(string data, string start)
+        {
+            if (string.IsNullOrEmpty(start) || data == null || start.Length > data.Length)
+            {
+                return data;
+            }
+
+            return data.Substring(0, start.Length).ToUpper() == start.ToUpper() ? data.Substring(start.Length) : data;
+        }
+
+        public static string RemoveEnd(string data, string end)
+        {
+            if (string.IsNullOrEmpty(end) || data == null || end.Length > data.Length)
+            {
+                return data;
+            }
+
+            return data.Substring(data.Length - end.Length).ToUpper() == end.ToUpper() ? data.Substring(0, data.Length - end.Length) : data;
+        }
+
+        public static bool BoolFromYN(string data)
+        {
+            return data == "Y" || data == "y";
+        }
+
     }
 }

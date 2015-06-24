@@ -18,7 +18,7 @@ namespace SlimRay.UserData.DBAdapter
         /// <summary>
         /// get the table name where the data saved.
         /// </summary>
-        public static DataTableNameEntity GetMappedTable(IUserData data)
+        public static DataTableNameEntity GetMappedTable(string dataName)
         {
             //todo: need to complete it.
             return new DataTableNameEntity();

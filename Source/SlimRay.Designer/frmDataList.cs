@@ -47,12 +47,10 @@ namespace SlimRay.Designer
             }
 
             string name = frm.DataName;
+            string desc = frm.DataDescription;
 
             var helper = SystemApps.GetUserDataHelper();
-
-            UserDataEntity data = new UserDataEntity(name);
-
-            helper.AddUserData(data);
+            helper.AddData(name, desc);
         }
     }
 }

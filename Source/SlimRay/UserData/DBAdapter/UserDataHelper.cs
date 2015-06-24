@@ -13,7 +13,7 @@ namespace SlimRay.UserData.DBAdapter
             return null;
         }
 
-        public List<IUserData> GetAllUserData()
+        public IUserData[] Get()
         {
             TableManager tm = new TableManager();
             TableUserData table = SystemTables.UserData;
@@ -26,20 +26,16 @@ namespace SlimRay.UserData.DBAdapter
                 result.Add(fromDataRow(row));
             }
 
-            return result;
+            return result.ToArray();
         }
 
-        public void SetStorage(IUserData data, DBAddress address)
+        public IUserData Get(string dataName)
         {
-            TableManager tm = new TableManager();
-            var table = SystemTables.GetMappedTable(data);
-            var uds = new TableUserDataStorage();
-
-            tm.UpdateFieldData(table.TableName, data.ID, uds.AddressKeyFieldName, address.Key);
-            tm.UpdateFieldData(table.TableName, data.ID, uds.AddressFieldName, address.HostAddress);
+            //todo: fix it!
+            return new UserDataEntity(dataName);
         }
 
-        public bool AddUserData(IUserData data)
+        public bool AddData(string name, string description)
         {
             TableManager tm = new TableManager();
 
@@ -48,7 +44,34 @@ namespace SlimRay.UserData.DBAdapter
             return true;
         }
 
-        public bool RemoveUserData(string name)
+        public bool SetNewName(string dataName, string newName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SetDescription(string name, string description)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DBAddress GetStorage(string dataName)
+        {
+            //todo: fix it!
+            return new DBAddress();
+        }
+
+        public void SetStorage(string dataName, DBAddress address)
+        {
+            IUserData data = Get(dataName);
+            var table = SystemTables.GetMappedTable(dataName);
+
+            TableManager tm = new TableManager();
+            var uds = SystemTables.UserDataStorage;
+            tm.UpdateFieldData(table.TableName, data.ID, uds.AddressKeyFieldName, address.Key);
+            tm.UpdateFieldData(table.TableName, data.ID, uds.AddressFieldName, address.HostAddress);
+        }
+
+        public bool Remove(string name)
         {
             TableManager tm = new TableManager();
 
@@ -57,31 +80,36 @@ namespace SlimRay.UserData.DBAdapter
             return true;
         }
 
-        public bool AddField(IUserData data, string fieldName)
+        public IUserField[] GetFields(string dataName)
         {
             throw new NotImplementedException();
         }
 
-        public bool RemoveField(IUserData data, string fieldName)
+        public IUserField GetField(string dataName, string fieldName)
         {
             throw new NotImplementedException();
         }
 
-        public bool RenameField(IUserData data, string fieldName, string newName)
+        public bool AddField(string dataName, string fieldName)
         {
+            throw new NotImplementedException();
+        }
+
+        public bool RenameField(string dataName, string fieldName, string newName)
+        {
+            string tableName = SystemTables.GetMappedTable(dataName).TableName;
+            IUserField field = GetField(dataName, fieldName);
+
             TableManager tm = new TableManager();
-
-            //todo: get table name of this data.
-            string tableName = "";
-
-            //todo: where is it from?
-            TableUserDataFields udf = new TableUserDataFields();
-
-            IUserField field = data.Field(fieldName);
-
+            TableUserDataFields udf = SystemTables.UserDataFields;
             tm.UpdateFieldData(tableName, field.ID, udf.NameFieldName, newName);
 
             return true;
+        }
+
+        public bool RemoveField(string dataName, string fieldName)
+        {
+            throw new NotImplementedException();
         }
     }
 }
