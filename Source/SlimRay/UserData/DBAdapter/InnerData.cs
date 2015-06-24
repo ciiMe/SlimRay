@@ -3,8 +3,6 @@ namespace SlimRay.UserData.DBAdapter
 {
     public class InnerData
     {
-
-
         private IUserData _userDataStorageAddress;
         private IUserData _userData;
 

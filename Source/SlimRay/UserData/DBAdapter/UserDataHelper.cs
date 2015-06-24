@@ -32,7 +32,12 @@ namespace SlimRay.UserData.DBAdapter
         public IUserData Get(string dataName)
         {
             //todo: fix it!
-            return new UserDataEntity(dataName);
+            throw new NotImplementedException();
+        }
+
+        public IUserData[] GetLinkedData(string dataName)
+        {
+            throw new NotImplementedException();
         }
 
         public bool AddData(string name, string description)
@@ -90,7 +95,7 @@ namespace SlimRay.UserData.DBAdapter
             throw new NotImplementedException();
         }
 
-        public bool AddField(string dataName, string fieldName)
+        public bool AddField(string dataName, string fieldName, UserFieldType t, string description)
         {
             throw new NotImplementedException();
         }
@@ -108,6 +113,11 @@ namespace SlimRay.UserData.DBAdapter
         }
 
         public bool RemoveField(string dataName, string fieldName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SetFieldType(string dataName, string fieldName, UserFieldType t)
         {
             throw new NotImplementedException();
         }
