@@ -74,7 +74,11 @@ namespace SlimRay.UserData
         /// <summary>
         /// update field name.
         /// </summary>
-        bool RenameField(string dataName, string fieldName, string newName);
+        bool SetFieldName(string dataName, string fieldName, string newName);
+
+        /// update field description.
+        /// </summary>
+        bool SetFieldDescription(string dataName, string fieldName, string description);
 
         /// <summary>
         /// set type to field.
