@@ -100,7 +100,7 @@ namespace SlimRay.UserData.DBAdapter
             throw new NotImplementedException();
         }
 
-        public bool RenameField(string dataName, string fieldName, string newName)
+        public bool SetFieldName(string dataName, string fieldName, string newName)
         {
             string tableName = SystemTables.GetMappedTable(dataName).TableName;
             IUserField field = GetField(dataName, fieldName);
@@ -112,12 +112,17 @@ namespace SlimRay.UserData.DBAdapter
             return true;
         }
 
-        public bool RemoveField(string dataName, string fieldName)
+        public bool SetFieldDescription(string dataName, string fieldName, string description)
         {
             throw new NotImplementedException();
         }
 
         public bool SetFieldType(string dataName, string fieldName, UserFieldType t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool RemoveField(string dataName, string fieldName)
         {
             throw new NotImplementedException();
         }

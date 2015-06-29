@@ -134,5 +134,36 @@ namespace SlimRay.Designer
             helper.AddField(data.Name, name, t, desc);
             showDataColumns(data.Name);
         }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.listBox1.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            frmFieldAdd frm = new frmFieldAdd();
+
+            IUserField field = this.dataGridView1.CurrentRow.DataBoundItem as IUserField;
+
+            frm.FieldName = field.Name;
+            frm.FieldDescription = field.Description;
+            frm.FieldType = field.Type;
+
+            if (frm.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            string name = frm.FieldName;
+            string desc = frm.FieldDescription;
+            UserFieldType t = frm.FieldType;
+
+            var helper = SystemApps.GetUserDataHelper();
+            helper.SetFieldName(field.Data.Name, field.Name, name);
+            helper.SetFieldType(field.Data.Name, name, t);
+
+            showDataColumns(field.Data.Name);
+        }
     }
 }

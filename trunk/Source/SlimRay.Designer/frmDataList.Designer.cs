@@ -36,10 +36,12 @@
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.renameSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.splitter2 = new System.Windows.Forms.Splitter();
             this.fieldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.splitter2 = new System.Windows.Forms.Splitter();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -49,10 +51,9 @@
             // 
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(0, 25);
+            this.listBox1.Location = new System.Drawing.Point(0, 24);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(156, 449);
+            this.listBox1.Size = new System.Drawing.Size(156, 490);
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -60,17 +61,17 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(156, 25);
+            this.dataGridView1.Location = new System.Drawing.Point(156, 24);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(546, 449);
+            this.dataGridView1.Size = new System.Drawing.Size(546, 490);
             this.dataGridView1.TabIndex = 1;
             // 
             // splitter1
             // 
-            this.splitter1.Location = new System.Drawing.Point(156, 25);
+            this.splitter1.Location = new System.Drawing.Point(156, 24);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 449);
+            this.splitter1.Size = new System.Drawing.Size(3, 490);
             this.splitter1.TabIndex = 2;
             this.splitter1.TabStop = false;
             // 
@@ -81,7 +82,7 @@
             this.fieldToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(702, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(702, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -92,54 +93,38 @@
             this.renameSelectedToolStripMenuItem,
             this.deleteSelectedToolStripMenuItem});
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
-            this.dataToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
+            this.dataToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.dataToolStripMenuItem.Text = "&Data";
             // 
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.addToolStripMenuItem.Text = "&Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // renameSelectedToolStripMenuItem
             // 
             this.renameSelectedToolStripMenuItem.Name = "renameSelectedToolStripMenuItem";
-            this.renameSelectedToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.renameSelectedToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.renameSelectedToolStripMenuItem.Text = "&Rename selected";
             this.renameSelectedToolStripMenuItem.Click += new System.EventHandler(this.renameSelectedToolStripMenuItem_Click);
             // 
             // deleteSelectedToolStripMenuItem
             // 
             this.deleteSelectedToolStripMenuItem.Name = "deleteSelectedToolStripMenuItem";
-            this.deleteSelectedToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.deleteSelectedToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.deleteSelectedToolStripMenuItem.Text = "&Delete selected";
             this.deleteSelectedToolStripMenuItem.Click += new System.EventHandler(this.deleteSelectedToolStripMenuItem_Click);
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView2.Location = new System.Drawing.Point(159, 336);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(543, 138);
-            this.dataGridView2.TabIndex = 5;
-            // 
-            // splitter2
-            // 
-            this.splitter2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitter2.Location = new System.Drawing.Point(159, 333);
-            this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(543, 3);
-            this.splitter2.TabIndex = 6;
-            this.splitter2.TabStop = false;
             // 
             // fieldToolStripMenuItem
             // 
             this.fieldToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripMenuItem1});
+            this.addToolStripMenuItem1,
+            this.editToolStripMenuItem,
+            this.removeToolStripMenuItem});
             this.fieldToolStripMenuItem.Name = "fieldToolStripMenuItem";
-            this.fieldToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
+            this.fieldToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.fieldToolStripMenuItem.Text = "&Field";
             // 
             // addToolStripMenuItem1
@@ -149,11 +134,42 @@
             this.addToolStripMenuItem1.Text = "&Add";
             this.addToolStripMenuItem1.Click += new System.EventHandler(this.addToolStripMenuItem1_Click);
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridView2.Location = new System.Drawing.Point(159, 364);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(543, 150);
+            this.dataGridView2.TabIndex = 5;
+            // 
+            // splitter2
+            // 
+            this.splitter2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.splitter2.Location = new System.Drawing.Point(159, 361);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(543, 3);
+            this.splitter2.TabIndex = 6;
+            this.splitter2.TabStop = false;
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editToolStripMenuItem.Text = "&Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // removeToolStripMenuItem
+            // 
+            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.removeToolStripMenuItem.Text = "&Remove";
+            // 
             // frmDataList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(702, 474);
+            this.ClientSize = new System.Drawing.Size(702, 514);
             this.Controls.Add(this.splitter2);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.splitter1);
@@ -186,6 +202,8 @@
         private System.Windows.Forms.Splitter splitter2;
         private System.Windows.Forms.ToolStripMenuItem fieldToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
     }
 }
 

@@ -40,10 +40,11 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(160, 215);
+            this.btnOK.Location = new System.Drawing.Point(160, 233);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 21);
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
+            this.btnOK.TabStop = false;
             this.btnOK.Text = "&OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -51,42 +52,43 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(260, 215);
+            this.btnCancel.Location = new System.Drawing.Point(260, 233);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 21);
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabStop = false;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(42, 47);
+            this.textBox1.Location = new System.Drawing.Point(42, 51);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(278, 21);
-            this.textBox1.TabIndex = 2;
+            this.textBox1.Size = new System.Drawing.Size(278, 20);
+            this.textBox1.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 32);
+            this.label1.Location = new System.Drawing.Point(40, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(191, 12);
+            this.label1.Size = new System.Drawing.Size(149, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Please input the name of field.";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(42, 105);
+            this.textBox2.Location = new System.Drawing.Point(42, 114);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(278, 21);
+            this.textBox2.Size = new System.Drawing.Size(278, 20);
             this.textBox2.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 90);
+            this.label2.Location = new System.Drawing.Point(40, 98);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(233, 12);
+            this.label2.Size = new System.Drawing.Size(174, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Please input the description of field.";
             // 
@@ -94,27 +96,27 @@
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(42, 162);
+            this.comboBox1.Location = new System.Drawing.Point(42, 176);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(278, 20);
-            this.comboBox1.TabIndex = 4;
+            this.comboBox1.Size = new System.Drawing.Size(278, 21);
+            this.comboBox1.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 147);
+            this.label3.Location = new System.Drawing.Point(40, 159);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(173, 12);
+            this.label3.Size = new System.Drawing.Size(137, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Please choose type of field.";
             // 
             // frmFieldAdd
             // 
             this.AcceptButton = this.btnOK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(347, 262);
+            this.ClientSize = new System.Drawing.Size(347, 284);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

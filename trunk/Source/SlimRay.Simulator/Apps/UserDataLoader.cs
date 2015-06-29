@@ -263,7 +263,7 @@ namespace SlimRay.Addins.Simulator.Apps
             return true;
         }
 
-        public bool RenameField(string dataName, string fieldName, string newName)
+        public bool SetFieldName(string dataName, string fieldName, string newName)
         {
             for (int i = 0; i < _allUserData.Count; i++)
             {
@@ -276,6 +276,28 @@ namespace SlimRay.Addins.Simulator.Apps
                         if (data.Fields[i].Name == fieldName)
                         {
                             data.Fields[i].Name = newName;
+                            _allUserData[i] = data;
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        public bool SetFieldDescription(string dataName, string fieldName, string description)
+        {
+            for (int i = 0; i < _allUserData.Count; i++)
+            {
+                if (_allUserData[i].Name == dataName)
+                {
+                    var data = _allUserData[i];
+
+                    for (int j = 0; j < data.Fields.Length; j++)
+                    {
+                        if (data.Fields[i].Name == fieldName)
+                        {
+                            data.Fields[i].Description = description;
                             _allUserData[i] = data;
                             return true;
                         }
