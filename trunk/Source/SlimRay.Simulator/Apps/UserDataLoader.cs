@@ -137,20 +137,44 @@ namespace SlimRay.Addins.Simulator.Apps
             return null;
         }
 
-
         public bool AddData(string name, string description)
         {
-            throw new System.NotImplementedException();
+            IUserData data = new UserDataEntity("User", "User who can access and read/write data.");
+            data.ID = _allUserData.Count;
+            resetFieldID(data);
+            _allUserData.Add(data);
+
+            return true;
         }
 
         public bool SetNewName(string dataName, string newName)
         {
-            throw new System.NotImplementedException();
+            for (int i = 0; i < _allUserData.Count; i++)
+            {
+                if (_allUserData[i].Name == dataName)
+                {
+                    IUserData data = _allUserData[i];
+                    data.Name = newName;
+                    _allUserData[i] = data;
+                    return true;
+                }
+            }
+            return false;
         }
 
         public bool SetDescription(string name, string description)
         {
-            throw new System.NotImplementedException();
+            for (int i = 0; i < _allUserData.Count; i++)
+            {
+                if (_allUserData[i].Name == name)
+                {
+                    IUserData data = _allUserData[i];
+                    data.Description = description;
+                    _allUserData[i] = data;
+                    return true;
+                }
+            }
+            return false;
         }
 
         public DB.DBAddress GetStorage(string dataName)
@@ -165,17 +189,49 @@ namespace SlimRay.Addins.Simulator.Apps
 
         public bool Remove(string name)
         {
-            throw new System.NotImplementedException();
+            for (int i = 0; i < _allUserData.Count; i++)
+            {
+                if (_allUserData[i].Name == name)
+                {
+                    _allUserData.RemoveAt(i);
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public IUserField[] GetFields(string dataName)
         {
-            throw new System.NotImplementedException();
+            for (int i = 0; i < _allUserData.Count; i++)
+            {
+                if (_allUserData[i].Name == dataName)
+                {
+                    IUserField[] result = new IUserField[_allUserData[i].Fields.Length];
+                    _allUserData[i].Fields.CopyTo(result, 0);
+                    return result;
+                }
+            }
+            return new IUserField[] { };
         }
 
         public IUserField GetField(string dataName, string fieldName)
         {
-            throw new System.NotImplementedException();
+            foreach (IUserData data in _allUserData)
+            {
+                if (data.Name == dataName)
+                {
+                    foreach (IUserField field in data.Fields)
+                    {
+                        if (field.Name == fieldName)
+                        {
+                            return field;
+                        }
+                    }
+                }
+            }
+
+            return null;
         }
 
         public bool AddField(string dataName, string fieldName, UserFieldType t, string description)
@@ -188,12 +244,45 @@ namespace SlimRay.Addins.Simulator.Apps
 
         public bool RemoveField(string dataName, string fieldName)
         {
-            throw new System.NotImplementedException();
+            for (int i = 0; i < _allUserData.Count; i++)
+            {
+                if (_allUserData[i].Name == dataName)
+                {
+                    var data = _allUserData[i];
+
+                    for (int j = 0; j < data.Fields.Length; j++)
+                    {
+                        if (data.Fields[j].Name == fieldName)
+                        {
+                            data.RemoveFiled(j);
+                        }
+                    }
+                }
+            }
+
+            return true;
         }
 
         public bool RenameField(string dataName, string fieldName, string newName)
         {
-            throw new System.NotImplementedException();
+            for (int i = 0; i < _allUserData.Count; i++)
+            {
+                if (_allUserData[i].Name == dataName)
+                {
+                    var data = _allUserData[i];
+
+                    for (int j = 0; j < data.Fields.Length; j++)
+                    {
+                        if (data.Fields[i].Name == fieldName)
+                        {
+                            data.Fields[i].Name = newName;
+                            _allUserData[i] = data;
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
         }
 
         public IUserData[] GetLinkedData(string dataName)
@@ -212,7 +301,24 @@ namespace SlimRay.Addins.Simulator.Apps
 
         public bool SetFieldType(string dataName, string fieldName, UserFieldType t)
         {
-            throw new System.NotImplementedException();
+            for (int i = 0; i < _allUserData.Count; i++)
+            {
+                if (_allUserData[i].Name == dataName)
+                {
+                    var data = _allUserData[i];
+
+                    for (int j = 0; j < data.Fields.Length; j++)
+                    {
+                        if (data.Fields[i].Name == fieldName)
+                        {
+                            data.Fields[i].Type = t;
+                            _allUserData[i] = data;
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
         }
     }
 }

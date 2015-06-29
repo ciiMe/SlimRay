@@ -64,25 +64,22 @@ namespace SlimRay.Utils
         }
 
         /// <summary>
-        /// 获取字符串str中leftStr和rightStr号之内的内容。比如Between("123456","12","56")返回"34"。
+        /// 获取字符串str中leftStr和rightStr号之内的内容。比如Between("1212123456","12","56")返回"34"。
         /// </summary>
-        /// <param name="str"></param>
-        /// <param name="leftStr"></param>
-        /// <param name="rightStr"></param>
-        /// <returns></returns>
-        public static string Between(string str, string leftStr, string rightStr)
+        public static string Between(string data, string left, string right)
         {
-            if (null == str || str.Length <= leftStr.Length || str.Length <= rightStr.Length) return "";
+            if (null == data || data.Length <= left.Length || data.Length <= right.Length) return "";
 
-            int start = str.IndexOf(leftStr);
-            if (start < 0) return "";
+            if (data.IndexOf(right) < 0)
+            {
+                return "";
+            }
 
-            int end = str.LastIndexOf(rightStr);
-            if (end < 0) return "";
+            data = Before(data, right);
 
-            if (start > end) return "";
+            int start = data.LastIndexOf(left);
 
-            return str.Substring(start + leftStr.Length, end - start - leftStr.Length);
+            return start < 0 ? "" : data.Substring(start + left.Length);
         }
 
         /// <summary>
