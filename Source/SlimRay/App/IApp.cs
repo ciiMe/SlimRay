@@ -1,17 +1,18 @@
 ﻿
 namespace SlimRay.App
 {
-    public interface IApp
+    public interface IAPP
     {
         string GetName();
+        string GetVersion();
         string GetDescription();
         string GetKey();
+        AddinDependence[] GetDependencies();
 
-        /* I am not sure when should I add these methods, so I still keep the procedures here.
-         * 
-         void Initialize(string parameter);
-         void Start(string parameter);
-         void Exit();
-         */
+        bool IsInitialized();
+
+        bool IsVersionHigherThan(string previousVersion);
+        void Initialize(string parameter);
+        void Terminate();
     }
 }

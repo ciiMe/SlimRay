@@ -15,7 +15,7 @@ namespace SlimRay.App
             get { return _instance; }
         }
 
-        public IApp Get(string key)
+        public IAPP Get(string key)
         {
             return AppPool.Instance.Get(key);
         }
@@ -25,7 +25,7 @@ namespace SlimRay.App
             throw new System.NotImplementedException();
         }
 
-        public IApp CreateNew(string key)
+        public IAPP CreateNew(string key)
         {
             throw new System.NotImplementedException();
         }
@@ -35,12 +35,12 @@ namespace SlimRay.App
             return Get(AppKeys.BindConfigLoader) as IBindConfigLoader;
         }
 
-        public void RegisterAddinApp(IAddinApp app)
+        public void RegisterAddinApp(IAPP app)
         {
             AppPool.Instance.Register(app);
         }
 
-        public void UnregisterAddinApp(IAddinApp app)
+        public void UnregisterAddinApp(IAPP app)
         {
             AppPool.Instance.Unregister(app.GetKey());
         }

@@ -3,8 +3,7 @@ namespace SlimRay.App
 {
     internal interface IAddinLoader
     {
-        IAddinApp[] LoadAll();
-        IAddinApp[] Load(string addinFileName);
-        void Unload(IAddinApp app);
+        IAPP[] Load(bool includeDependence);
+        IAPP[] Load(string addinFileName, bool includeDependence);
     }
 }

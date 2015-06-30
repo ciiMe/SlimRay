@@ -1,41 +1,49 @@
-﻿using System.Data;
+﻿using SlimRay.App;
+using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace SlimRay.DB.Helpers
 {
-    public class MSSQLHelper : IExecutor
+    public class MSSQLHelper : BaseApp, IExecutor
     {
-        private const string _name = "MSSQL";
-        private const string _description = "DB helper in MSSQL server.";
-        private const string _key = "SlimRay.DB.Helpers.MSSQLHelper";
-
-        public string GetName()
+        public override void Initialize(string parameter)
         {
-            return _name;
+            throw new NotImplementedException();
         }
 
-        public string GetDescription()
+        public override void Terminate()
         {
-            return _description;
-        }
-
-        public string GetKey()
-        {
-            return _key;
+            throw new NotImplementedException();
         }
 
         public object GetResult(DBRequest request)
         {
             SqlConnection conn = new SqlConnection(request.ExecutorParameter.HostAddress);
 
-            conn.Open();
+            try
+            {
+                conn.Open();
+            }
+            catch (Exception ex)
+            {
+                //todo:log this error.
+                return null;
+            }
 
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandTimeout = request.Timeout;
 
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            return reader.GetString(0);
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader();
+                return reader.GetString(0);
+            }
+            catch (Exception ex)
+            {
+                //todo:log this error.
+                return null;
+            }
         }
 
         public DataTable GetDataTable(DBRequest request)
@@ -45,7 +53,15 @@ namespace SlimRay.DB.Helpers
 
             DataTable table = new DataTable();
 
-            adpter.Fill(table);
+            try
+            {
+                adpter.Fill(table);
+            }
+            catch (Exception ex)
+            {
+                //todo:log this error.
+                return null;
+            }
 
             return table;
         }
@@ -53,17 +69,28 @@ namespace SlimRay.DB.Helpers
         public int Execute(DBRequest request)
         {
             SqlConnection conn = new SqlConnection(request.ExecutorParameter.HostAddress);
-            conn.Open();
+            try
+            {
+                conn.Open();
+            }
+            catch (Exception ex)
+            {
+                //todo:log this error.
+                return -1;
+            }
 
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandTimeout = request.Timeout;
 
-            return cmd.ExecuteNonQuery();
-        }
-
-        public void Execute(string parameter)
-        {
-           
+            try
+            {
+                return cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                //todo:log this error.
+                return -1;
+            }
         }
     }
 }

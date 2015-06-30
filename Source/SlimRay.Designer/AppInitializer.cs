@@ -11,21 +11,21 @@ namespace SlimRay.Designer
         public static void Init()
         {
             AddinLoader aloader = new AddinLoader();
-            IAddinApp[] apps = aloader.LoadAll();
+            IAPP[] apps = aloader.Load();
 
-            foreach (IAddinApp app in apps)
+            foreach (IAPP app in apps)
             {
                 //call execute to init simulator
-                app.Execute("init..");
+                app.Initialize("");
 
-                if (!(app is IAddinApp))
+                if (!(app is IAPP))
                 {
                     continue;
                 }
 
-                IAddinApp addin = app as IAddinApp;
+                IAPP addin = app as IAPP;
                 AppGate.Instance.RegisterAddinApp(addin);
             }
-        }         
+        }
     }
 }

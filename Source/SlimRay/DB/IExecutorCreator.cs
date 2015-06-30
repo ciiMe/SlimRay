@@ -2,7 +2,7 @@
 
 namespace SlimRay.DB
 {
-    public interface IExecutorCreator : IApp
+    public interface IExecutorCreator : IAPP
     {
         IExecutor New();
     }

@@ -3,17 +3,22 @@ using SlimRay.Addins.Simulator.Apps;
 
 namespace SlimRay.Addins.Simulator
 {
-    public class AppSimulator : IAddinApp
+    public class AppSimulator : BaseApp
     {
-        private const string _name = "SlimRay simulator";
-        private const string _description = "Set up a virtual environment to load data.";
-        private const string _key = "_SlimRay_Addin_Simulator";
+        public AppSimulator()
+        {
+            _name = "SlimRay simulator";
+            _description = "Set up a virtual environment to load data.";
+            _key = "_SlimRay_Addin_Simulator";
+
+            _version = "1.0.0";
+        }
 
         /// <summary>
         /// install all system apps, config SlimRay by simulate apps 
         /// which do not really load real data but also return data with same format.
         /// </summary>
-        public static void Initialize()
+        public override void Initialize(string parameter)
         {
             ISimulatorApp app;
 
@@ -22,26 +27,12 @@ namespace SlimRay.Addins.Simulator
 
             app = new BindingConfigLoader();
             AppGate.Instance.RegisterSimulatorApp(app);
+
+            _isInitialized = true;
         }
 
-        public void Execute(string parameter)
+        public override void Terminate()
         {
-            Initialize();
-        }
-
-        public string GetName()
-        {
-            return _name;
-        }
-
-        public string GetDescription()
-        {
-            return _description;
-        }
-
-        public string GetKey()
-        {
-            return _key;
         }
     }
 }

@@ -8,12 +8,12 @@ namespace SlimRay.App
 {
     public class AddinLoader : IAddinLoader
     {
-        public IAddinApp[] LoadAll()
+        public IAPP[] Load(bool includeDependence = false)
         {
-            List<IAddinApp> addins = new List<IAddinApp>();
+            List<IAPP> addins = new List<IAPP>();
 
             var dir = new DirectoryInfo(".\\Addins");
-            Type tAddin = typeof(IAddinApp);
+            Type tAddin = typeof(IAPP);
 
             foreach (var file in dir.GetFiles())
             {
@@ -29,33 +29,29 @@ namespace SlimRay.App
                     {
                         if (t.GetInterfaces().Contains(tAddin))
                         {
-                            var addin = Activator.CreateInstance(t) as IAddinApp;
+                            var addin = Activator.CreateInstance(t) as IAPP;
 
                             if (addin == null)
                             {
                                 //todo: log load fail..
                                 continue;
                             }
+                            addin.Initialize("");
                             addins.Add(addin);
                         }
                     }
                 }
             }
 
-            return addins.ToArray();
+            return includeDependence ? withDependenceApps(addins.ToArray()) : addins.ToArray();
         }
 
-        public void Unload(IAddinApp app)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IAddinApp[] Load(string addinFileName)
+        public IAPP[] Load(string addinFileName, bool includeDependence = false)
         {
             FileInfo file = new FileInfo(addinFileName);
-            Type tAddin = typeof(IAddinApp);
+            Type tAddin = typeof(IAPP);
 
-            List<IAddinApp> addins = new List<IAddinApp>();
+            List<IAPP> addins = new List<IAPP>();
 
             if (!file.Exists)
             {
@@ -74,19 +70,26 @@ namespace SlimRay.App
                 {
                     if (t.GetInterfaces().Contains(tAddin))
                     {
-                        var addin = System.Activator.CreateInstance(t) as IAddinApp;
+                        var addin = System.Activator.CreateInstance(t) as IAPP;
 
                         if (addin == null)
                         {
                             //todo: log load fail..
                             continue;
                         }
+                        addin.Initialize("");
                         addins.Add(addin);
                     }
                 }
             }
 
-            return addins.ToArray();
+            return includeDependence ? withDependenceApps(addins.ToArray()) : addins.ToArray();
+        }
+
+        private IAPP[] withDependenceApps(IAPP[] apps)
+        {
+            AddinDependenceHelper helper = new AddinDependenceHelper();
+            return helper.GetRegisterableApps(apps);
         }
     }
 }
