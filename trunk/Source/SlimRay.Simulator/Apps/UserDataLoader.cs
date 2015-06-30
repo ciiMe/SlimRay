@@ -10,31 +10,17 @@ namespace SlimRay.Addins.Simulator.Apps
      * a data loader should load data from db, 
      * but this app return virtual data directly.
      */
-    public class UserDataLoader : ISimulatorApp, IUserDataHelperApp
+    public class UserDataLoader : BaseApp, ISimulatorApp, IUserDataHelperApp
     {
-        private const string _name = "Virtual Userdata loader.";
-        private const string _description = "Load all Userdata.";
-        private string _key = AppKeys.UserDataAdapter;
-
-        public string GetName()
-        {
-            return _name;
-        }
-
-        public string GetDescription()
-        {
-            return _description;
-        }
-
-        public string GetKey()
-        {
-            return _key;
-        }
-
         private List<IUserData> _allUserData;
 
         public UserDataLoader()
         {
+            _name = "Virtual Userdata loader.";
+            _description = "Load all Userdata.";
+            _key = AppKeys.UserDataAdapter;
+            _version = "0.1";
+
             _allUserData = initAllData();
         }
 

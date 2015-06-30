@@ -1,29 +1,19 @@
-﻿using SlimRay.DB;
+﻿using SlimRay.App;
+using SlimRay.DB;
 using System;
 using System.Data;
 using System.Data.SqlClient;
 
 namespace DBHelpers.MSSQL
 {
-    public class MSSQLHelper : IExecutor
+    public class MSSQLHelper : BaseApp, IExecutor
     {
-        private const string _name = "MSSQL";
-        private const string _description = "DB helper in MSSQL server.";
-        private const string _key = "SlimRay.DB.Helpers.MSSQLHelper";
-
-        public string GetName()
+        public MSSQLHelper()
         {
-            return _name;
-        }
-
-        public string GetDescription()
-        {
-            return _description;
-        }
-
-        public string GetKey()
-        {
-            return _key;
+            _name = "MSSQL";
+            _description = "DB helper in MSSQL server.";
+            _key = "SlimRay.DB.Helpers.MSSQLHelper";
+            _version = "0.1";
         }
 
         public object GetResult(DBRequest request)
@@ -100,11 +90,6 @@ namespace DBHelpers.MSSQL
                 //todo:log this error.
                 return -1;
             }
-        }
-
-        public void Execute(string parameter)
-        {
-
         }
     }
 }

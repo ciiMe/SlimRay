@@ -5,12 +5,29 @@ using System.Collections.Generic;
 
 namespace SlimRay.Addins.Simulator.Apps
 {
-    public class ActionLoader : ISimulatorApp, IActionLoader
+    public class ActionLoader : BaseApp, ISimulatorApp, IActionLoader
     {
-        private const string _name = "Action Loader.";
-        private const string _description = "Load all actions.";
-
         private List<IAction> _actions;
+
+        public ActionLoader()
+        {
+            _name = "Action Loader.";
+            _description = "Load all actions.";
+            _version = "0.1";
+
+            _actions = new List<IAction>();
+            initActions();
+        }
+
+        public void Initialize(string parameter)
+        {
+            _isInitialized = true;
+        }
+
+        public void Terminate()
+        {
+            throw new System.NotImplementedException();
+        }
 
         public string GetName()
         {
@@ -25,13 +42,6 @@ namespace SlimRay.Addins.Simulator.Apps
         public string GetKey()
         {
             return AppKeys.ActionLoader;
-        }
-
-        public ActionLoader()
-        {
-            _actions = new List<IAction>();
-
-            initActions();
         }
 
         private void initActions()

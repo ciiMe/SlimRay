@@ -17,7 +17,7 @@ namespace SlimRay.App
             get { return AppPool._instance; }
         }
 
-        private MemoryCache<IApp> _apps;
+        private MemoryCache<IAPP> _apps;
         private int _validSeconds;
 
         public int ValidSeconds
@@ -29,10 +29,10 @@ namespace SlimRay.App
         public AppPool()
         {
             _validSeconds = 600;
-            _apps = new MemoryCache<IApp>();
+            _apps = new MemoryCache<IAPP>();
         }
 
-        public IApp Get(string key)
+        public IAPP Get(string key)
         {
             return _apps.Get(key);
         }
@@ -42,7 +42,7 @@ namespace SlimRay.App
             return _apps.Exists(key);
         }
 
-        public bool Register(IApp app)
+        public bool Register(IAPP app)
         {
             return _apps.Add(app.GetKey(), app);
         }

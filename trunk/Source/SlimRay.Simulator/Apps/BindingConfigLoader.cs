@@ -7,29 +7,17 @@ using System.Collections.Generic;
 
 namespace SlimRay.Addins.Simulator.Apps
 {
-    class BindingConfigLoader : ISimulatorApp, IBindConfigLoader
+    class BindingConfigLoader : BaseApp, ISimulatorApp, IBindConfigLoader
     {
-        private const string _name = "View data binding config loader.";
-        private const string _description = "Load all binding config.";
         private List<IBoundUI> _allBindingConfigData;
-
-        public string GetName()
-        {
-            return _name;
-        }
-
-        public string GetDescription()
-        {
-            return _description;
-        }
-
-        public string GetKey()
-        {
-            return AppKeys.BindConfigLoader;
-        }
 
         public BindingConfigLoader()
         {
+            _name = "View data binding config loader.";
+            _key = "Simulator.Apps.BindingConfigLoader";
+            _description = "Load all binding config.";
+            _version = "0.1";
+
             _allBindingConfigData = new List<IBoundUI>();
         }
 

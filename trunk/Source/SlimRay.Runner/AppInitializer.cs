@@ -11,11 +11,11 @@ namespace SlimRay.Runner
         public static void Init()
         {
             AddinLoader aloader = new AddinLoader();
-            IAddinApp[] apps = aloader.LoadAll();
+            IAPP[] apps = aloader.Load();
 
-            foreach (IAddinApp app in apps)
+            foreach (IAPP app in apps)
             {
-                app.Execute("init..");
+                app.Initialize("init..");
             }
         }
     }

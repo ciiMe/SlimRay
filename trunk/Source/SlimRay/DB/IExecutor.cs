@@ -3,7 +3,7 @@ using System.Data;
 
 namespace SlimRay.DB
 {
-    public interface IExecutor : IAddinApp
+    public interface IExecutor : IAPP
     {
         object GetResult(DBRequest request);
         DataTable GetDataTable(DBRequest request);
