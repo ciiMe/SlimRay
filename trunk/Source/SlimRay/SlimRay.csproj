@@ -113,6 +113,10 @@
     <Compile Include="App\AppPool.cs" />
     <Compile Include="Cache\ICache.cs" />
     <Compile Include="Cache\STMemoryCache.cs" />
+    <Compile Include="Data\IColumn.cs" />
+    <Compile Include="Data\IData.cs" />
+    <Compile Include="Data\IMappable.cs" />
+    <Compile Include="Data\ITable.cs" />
     <Compile Include="Data\UpdateRequest.cs" />
     <Compile Include="Data\TableManager.cs" />
     <Compile Include="Data\DataTableNameEntity.cs" />
