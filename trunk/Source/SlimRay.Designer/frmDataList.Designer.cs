@@ -38,10 +38,10 @@
             this.deleteSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fieldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.splitter2 = new System.Windows.Forms.Splitter();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.splitter2 = new System.Windows.Forms.Splitter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -134,6 +134,20 @@
             this.addToolStripMenuItem1.Text = "&Add";
             this.addToolStripMenuItem1.Click += new System.EventHandler(this.addToolStripMenuItem1_Click);
             // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editToolStripMenuItem.Text = "&Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // removeToolStripMenuItem
+            // 
+            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.removeToolStripMenuItem.Text = "&Remove";
+            this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
+            // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -151,19 +165,6 @@
             this.splitter2.Size = new System.Drawing.Size(543, 3);
             this.splitter2.TabIndex = 6;
             this.splitter2.TabStop = false;
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.editToolStripMenuItem.Text = "&Edit";
-            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
-            // 
-            // removeToolStripMenuItem
-            // 
-            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.removeToolStripMenuItem.Text = "&Remove";
             // 
             // frmDataList
             // 

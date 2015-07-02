@@ -143,7 +143,6 @@ namespace SlimRay.Designer
             }
 
             frmFieldAdd frm = new frmFieldAdd();
-
             IUserField field = this.dataGridView1.CurrentRow.DataBoundItem as IUserField;
 
             frm.FieldName = field.Name;
@@ -161,9 +160,38 @@ namespace SlimRay.Designer
 
             var helper = SystemApps.GetUserDataHelper();
             helper.SetFieldName(field.Data.Name, field.Name, name);
+            helper.SetFieldDescription(field.Data.Name, field.Name, frm.FieldDescription);
             helper.SetFieldType(field.Data.Name, name, t);
 
             showDataColumns(field.Data.Name);
+        }
+
+        private void removeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.listBox1.SelectedIndex < 0)
+            {
+                return;
+            }
+
+            IUserData data = this.listBox1.SelectedItem as IUserData;
+            IUserField field = this.dataGridView1.CurrentRow.DataBoundItem as IUserField;
+
+            frmFieldAdd frm = new frmFieldAdd();
+
+            frm.FieldName = field.Name;
+            frm.FieldDescription = field.Description;
+            frm.FieldType = field.Type;
+
+            frm.IsReadOnly = true;
+
+            if (frm.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            var helper = SystemApps.GetUserDataHelper();
+            helper.RemoveField(data.Name, field.Name);
+            showDataColumns(data.Name);
         }
     }
 }

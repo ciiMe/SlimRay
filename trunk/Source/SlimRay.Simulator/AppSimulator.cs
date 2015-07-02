@@ -22,7 +22,7 @@ namespace SlimRay.Addins.Simulator
         {
             ISimulatorApp app;
 
-            app = new UserDataLoader();
+            app = new UserDataHelper();
             AppGate.Instance.RegisterSimulatorApp(app);
 
             app = new BindingConfigLoader();

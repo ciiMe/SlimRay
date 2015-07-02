@@ -34,7 +34,7 @@ namespace SlimRay.UserData
         IUserField Field(string name);
 
         void AddField(IUserField field);
-        void RemoveFiled(int index);
+        void RemoveFiled(string name);
 
         void Link(IUserField field, UserFieldLinkRelation relation);
         void UnLink(string fieldName);

@@ -10,14 +10,14 @@ namespace SlimRay.Addins.Simulator.Apps
      * a data loader should load data from db, 
      * but this app return virtual data directly.
      */
-    public class UserDataLoader : BaseApp, ISimulatorApp, IUserDataHelperApp
+    public class UserDataHelper : BaseApp, ISimulatorApp, IUserDataHelperApp
     {
         private List<IUserData> _allUserData;
 
-        public UserDataLoader()
+        public UserDataHelper()
         {
             _name = "Virtual Userdata loader.";
-            _description = "Load all Userdata.";
+            _description = "This simulator app keep virtual data in memory, it does not call DataManager to do real actions, this app only show how UserData is used in view.";
             _key = AppKeys.UserDataAdapter;
             _version = "0.1";
 
@@ -125,9 +125,8 @@ namespace SlimRay.Addins.Simulator.Apps
 
         public bool AddData(string name, string description)
         {
-            IUserData data = new UserDataEntity("User", "User who can access and read/write data.");
+            IUserData data = new UserDataEntity(name, description);
             data.ID = _allUserData.Count;
-            resetFieldID(data);
             _allUserData.Add(data);
 
             return true;
@@ -234,15 +233,8 @@ namespace SlimRay.Addins.Simulator.Apps
             {
                 if (_allUserData[i].Name == dataName)
                 {
-                    var data = _allUserData[i];
-
-                    for (int j = 0; j < data.Fields.Length; j++)
-                    {
-                        if (data.Fields[j].Name == fieldName)
-                        {
-                            data.RemoveFiled(j);
-                        }
-                    }
+                    var data = Get(dataName);
+                    data.RemoveFiled(fieldName);
                 }
             }
 
@@ -259,9 +251,9 @@ namespace SlimRay.Addins.Simulator.Apps
 
                     for (int j = 0; j < data.Fields.Length; j++)
                     {
-                        if (data.Fields[i].Name == fieldName)
+                        if (data.Fields[j].Name == fieldName)
                         {
-                            data.Fields[i].Name = newName;
+                            data.Fields[j].Name = newName;
                             _allUserData[i] = data;
                             return true;
                         }
@@ -281,9 +273,9 @@ namespace SlimRay.Addins.Simulator.Apps
 
                     for (int j = 0; j < data.Fields.Length; j++)
                     {
-                        if (data.Fields[i].Name == fieldName)
+                        if (data.Fields[j].Name == fieldName)
                         {
-                            data.Fields[i].Description = description;
+                            data.Fields[j].Description = description;
                             _allUserData[i] = data;
                             return true;
                         }
@@ -317,9 +309,9 @@ namespace SlimRay.Addins.Simulator.Apps
 
                     for (int j = 0; j < data.Fields.Length; j++)
                     {
-                        if (data.Fields[i].Name == fieldName)
+                        if (data.Fields[j].Name == fieldName)
                         {
-                            data.Fields[i].Type = t;
+                            data.Fields[j].Type = t;
                             _allUserData[i] = data;
                             return true;
                         }

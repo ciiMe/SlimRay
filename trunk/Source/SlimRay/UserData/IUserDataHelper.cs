@@ -3,6 +3,11 @@ using SlimRay.App;
 
 namespace SlimRay.UserData
 {
+    /*
+     * this helper is not a must,
+     * it only help to understand how does UserData be loaded and written.
+     * this helper will call another to read/wirte system data.
+     */
     public interface IUserDataHelper : ILoaderApp<IUserData>
     {
         /// <summary>
@@ -35,16 +40,6 @@ namespace SlimRay.UserData
         /// set description for userdata.
         /// </summary>
         bool SetDescription(string name, string description);
-
-        /// <summary>
-        /// get storage place of userdata.
-        /// </summary>
-        DBAddress GetStorage(string dataName);
-
-        /// <summary>
-        /// set the storage address of userdata.
-        /// </summary>
-        void SetStorage(string dataName, DBAddress address);
 
         /// <summary>
         /// remove the userdata from system.

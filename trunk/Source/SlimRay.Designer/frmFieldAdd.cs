@@ -14,6 +14,20 @@ namespace SlimRay.Designer
     {
         List<UserFieldType> _allFieldTypes;
 
+        public bool IsReadOnly
+        {
+            get
+            {
+                return !(textBox1.ReadOnly && textBox2.ReadOnly && comboBox1.Enabled);
+            }
+            set
+            {
+                textBox1.ReadOnly = !value;
+                textBox2.ReadOnly = !value;
+                comboBox1.Enabled = !value;
+            }
+        }
+
         /// <summary>
         /// the name of data user typed in the dialog.
         /// </summary>

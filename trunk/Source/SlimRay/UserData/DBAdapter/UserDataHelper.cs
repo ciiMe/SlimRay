@@ -59,23 +59,6 @@ namespace SlimRay.UserData.DBAdapter
             throw new NotImplementedException();
         }
 
-        public DBAddress GetStorage(string dataName)
-        {
-            //todo: fix it!
-            return new DBAddress();
-        }
-
-        public void SetStorage(string dataName, DBAddress address)
-        {
-            IUserData data = Get(dataName);
-            var table = SystemTables.GetMappedTable(dataName);
-
-            TableManager tm = new TableManager();
-            var uds = SystemTables.UserDataStorage;
-            tm.UpdateFieldData(table.TableName, data.ID, uds.AddressKeyFieldName, address.Key);
-            tm.UpdateFieldData(table.TableName, data.ID, uds.AddressFieldName, address.HostAddress);
-        }
-
         public bool Remove(string name)
         {
             TableManager tm = new TableManager();
@@ -102,14 +85,25 @@ namespace SlimRay.UserData.DBAdapter
 
         public bool SetFieldName(string dataName, string fieldName, string newName)
         {
-            string tableName = SystemTables.GetMappedTable(dataName).TableName;
-            IUserField field = GetField(dataName, fieldName);
+            string dataNameInData = "";
+            string fieldNameInData = "";
+
+            //get id of data which field valie is :fieldNameInData from system tables(UserData table).
+            int id = 0;
+
+            UpdateRequest request = new UpdateRequest
+            {
+                Target = UpdateTarget.Field,
+                Action = UpdateAction.Update,
+
+                TableName = dataNameInData,
+                ColumnName = fieldNameInData,
+                DataValue = newName,
+                Id = id
+            };
 
             TableManager tm = new TableManager();
-            TableUserDataFields udf = SystemTables.UserDataFields;
-            tm.UpdateFieldData(tableName, field.ID, udf.NameFieldName, newName);
-
-            return true;
+            return tm.ExecuteDataRequest(new UpdateRequest[] { request });
         }
 
         public bool SetFieldDescription(string dataName, string fieldName, string description)
