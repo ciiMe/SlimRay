@@ -12,12 +12,19 @@ namespace SlimRay.UserData.Mapping
             string fieldNameField = "MappedFieldName";
             string realFieldNameField = "RealFieldName";
 
+            TableManager tm = new TableManager();
+
+            //load data from db, and get id from table's data.
+            //todo: data can be cached.
+            tm.LoadData(mappedDataTableName);
             int id = 0;
 
-            TableManager tm = new TableManager();
             tm.LoadData(mappedDataTableName, new int[] { id });
 
-            return  ;
+            //convert result to entity
+            IMappedUserField[] result = new IMappedUserField[] { };
+
+            return result;
         }
     }
 }
