@@ -8,7 +8,7 @@ namespace SlimRay.UserData
         protected int _id;
         protected string _name;
         protected string _description;
-        
+
         protected List<IUserField> _fields;
         protected List<LinkedUserField> _linkedFields;
 
@@ -74,8 +74,18 @@ namespace SlimRay.UserData
             _fields.Add(field);
         }
 
-        public void RemoveFiled(int index)
+        public void RemoveFiled(string name)
         {
+            int index = -1;
+            foreach (IUserField field in _fields)
+            {
+                index++;
+                if (field.Name == name)
+                {
+                    break;
+                }
+            }
+
             if (index >= 0 && index < _fields.Count)
             {
                 _fields[index].Data = null;

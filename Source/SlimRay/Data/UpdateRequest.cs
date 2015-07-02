@@ -3,14 +3,16 @@ namespace SlimRay.Data
 {
     public struct UpdateRequest
     {
-        UpdateAction Action { get; set; }
-        UpdateTarget Target { get; set; }
+        public UpdateAction Action { get; set; }
+        public UpdateTarget Target { get; set; }
 
         public string TableName { get; set; }
         public string ColumnName { get; set; }
         public string DataValue { get; set; }
 
-        //todo:how to locate this data?
-        public string Expression { get; set; }
+        /// <summary>
+        /// id of data which will be updated.
+        /// </summary>
+        public int Id { get; set; }
     }
 }

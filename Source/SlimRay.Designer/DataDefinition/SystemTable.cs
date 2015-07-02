@@ -84,7 +84,7 @@ namespace SlimRay.Designer.DataDefinition
             throw new NotImplementedException();
         }
 
-        public void RemoveFiled(int index)
+        public void RemoveFiled(string name)
         {
             throw new NotImplementedException();
         }
