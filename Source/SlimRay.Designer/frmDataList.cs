@@ -18,7 +18,7 @@ namespace SlimRay.Designer
         {
             var helper = SystemApps.GetUserDataHelper();
 
-            var dataList = helper.Get();
+            var dataList = helper.GetData();
             this.listBox1.DataSource = dataList;
             this.listBox1.DisplayMember = "Name";
         }
@@ -27,7 +27,7 @@ namespace SlimRay.Designer
         {
             var helper = SystemApps.GetUserDataHelper();
 
-            var data = helper.Get(dataName);
+            var data = helper.GetData(dataName);
             this.dataGridView1.DataSource = data.Fields;
 
             var linkedData = helper.GetLinkedData(dataName);
@@ -76,12 +76,13 @@ namespace SlimRay.Designer
                 return;
             }
 
-            string name = frm.DataName;
-            string desc = frm.DataDescription;
+            data.Name = frm.DataName;
+            data.Description = frm.DataDescription;
+
 
             var helper = SystemApps.GetUserDataHelper();
-            helper.SetNewName(data.Name, name);
-            helper.SetDescription(data.Name, desc);
+            helper.UpdateData(data.Name, data);
+
             loadAllData();
         }
 
@@ -105,7 +106,7 @@ namespace SlimRay.Designer
             }
 
             var helper = SystemApps.GetUserDataHelper();
-            helper.Remove(data.Name);
+            helper.RemoveData(data.Name);
 
             loadAllData();
         }
@@ -126,12 +127,11 @@ namespace SlimRay.Designer
                 return;
             }
 
-            string name = frm.FieldName;
-            string desc = frm.FieldDescription;
-            UserFieldType t = frm.FieldType;
+            UserFieldEntiry field = new UserFieldEntiry(frm.FieldName, frm.FieldDescription, frm.FieldType);
 
             var helper = SystemApps.GetUserDataHelper();
-            helper.AddField(data.Name, name, t, desc);
+            helper.AddField(data.Name, field);
+
             showDataColumns(data.Name);
         }
 
@@ -154,14 +154,13 @@ namespace SlimRay.Designer
                 return;
             }
 
-            string name = frm.FieldName;
-            string desc = frm.FieldDescription;
-            UserFieldType t = frm.FieldType;
+            field.Name = frm.FieldName;
+            field.Description = frm.FieldDescription;
+            field.Type = frm.FieldType;
 
             var helper = SystemApps.GetUserDataHelper();
-            helper.SetFieldName(field.Data.Name, field.Name, name);
-            helper.SetFieldDescription(field.Data.Name, field.Name, frm.FieldDescription);
-            helper.SetFieldType(field.Data.Name, name, t);
+
+            helper.UpdateField(field.Data.Name, field.Name, field);
 
             showDataColumns(field.Data.Name);
         }

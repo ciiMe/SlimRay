@@ -1,22 +1,17 @@
-﻿
+﻿using SlimRay.Data;
+
 namespace SlimRay.DB
 {
-    public struct DBAddress
+    public struct DBAddress : IDataAddress
     {
-        /* 
-         * the key of executor which will handle the request.
-         * it should be the value of IExecutorCreator.GetKey().
-         */
-        public string Key { get; set; }
+        /// <summary>
+        /// the key should be unquie flag of this data.
+        /// </summary>
+        public string DataKey { get; set; }
 
-        /*
-         * the address where the command execute at.
-         * this is a virtual address, it can be any type of address such as
-         * db server
-         * ip address
-         * file name
-         * etc...
-         */
-        public string HostAddress { get; set; }
+        /// <summary>
+        /// the address should be connection string.
+        /// </summary>
+        public string Address { get; set; }
     }
 }

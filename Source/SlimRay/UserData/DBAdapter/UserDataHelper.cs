@@ -1,37 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using SlimRay.Data;
-using System.Data;
-using SlimRay.DB;
 
 namespace SlimRay.UserData.DBAdapter
 {
     public class UserDataHelper : IUserDataHelper
     {
-        private IUserData fromDataRow(DataRow row)
+        public IUserData[] GetData()
         {
-            return null;
+            throw new NotImplementedException();
         }
 
-        public IUserData[] Get()
+        public IUserData GetData(string dataName)
         {
-            TableManager tm = new TableManager();
-            TableUserData table = SystemTables.UserData;
-            DataTable dt = tm.LoadData(table.TableName);
-
-            List<IUserData> result = new List<IUserData>();
-
-            foreach (DataRow row in dt.Rows)
-            {
-                result.Add(fromDataRow(row));
-            }
-
-            return result.ToArray();
-        }
-
-        public IUserData Get(string dataName)
-        {
-            //todo: fix it!
             throw new NotImplementedException();
         }
 
@@ -42,30 +21,17 @@ namespace SlimRay.UserData.DBAdapter
 
         public bool AddData(string name, string description)
         {
-            TableManager tm = new TableManager();
-
-            //todo: add record to datatable.
-
-            return true;
+            throw new NotImplementedException();
         }
 
-        public bool SetNewName(string dataName, string newName)
+        public bool UpdateData(string dataName, IUserData data)
         {
             throw new NotImplementedException();
         }
 
-        public bool SetDescription(string name, string description)
+        public bool RemoveData(string name)
         {
             throw new NotImplementedException();
-        }
-
-        public bool Remove(string name)
-        {
-            TableManager tm = new TableManager();
-
-            //todo: remove record from datatable.
-
-            return true;
         }
 
         public IUserField[] GetFields(string dataName)
@@ -78,45 +44,17 @@ namespace SlimRay.UserData.DBAdapter
             throw new NotImplementedException();
         }
 
-        public bool AddField(string dataName, string fieldName, UserFieldType t, string description)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool SetFieldName(string dataName, string fieldName, string newName)
-        {
-            string dataNameInData = "";
-            string fieldNameInData = "";
-
-            //get id of data which field valie is :fieldNameInData from system tables(UserData table).
-            int id = 0;
-
-            UpdateRequest request = new UpdateRequest
-            {
-                Target = UpdateTarget.Field,
-                Action = UpdateAction.Update,
-
-                TableName = dataNameInData,
-                ColumnName = fieldNameInData,
-                DataValue = newName,
-                Id = id
-            };
-
-            TableManager tm = new TableManager();
-            return tm.ExecuteDataRequest(new UpdateRequest[] { request });
-        }
-
-        public bool SetFieldDescription(string dataName, string fieldName, string description)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool SetFieldType(string dataName, string fieldName, UserFieldType t)
+        public bool AddField(string dataName, IUserField fieldData)
         {
             throw new NotImplementedException();
         }
 
         public bool RemoveField(string dataName, string fieldName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateField(string dataName, string fieldName, IUserField fieldData)
         {
             throw new NotImplementedException();
         }

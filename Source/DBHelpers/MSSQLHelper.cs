@@ -18,7 +18,7 @@ namespace DBHelpers.MSSQL
 
         public object GetResult(DBRequest request)
         {
-            SqlConnection conn = new SqlConnection(request.ExecutorParameter.HostAddress);
+            SqlConnection conn = new SqlConnection(request.ExecutorParameter.Address);
 
             try
             {
@@ -47,7 +47,7 @@ namespace DBHelpers.MSSQL
 
         public DataTable GetDataTable(DBRequest request)
         {
-            SqlDataAdapter adpter = new SqlDataAdapter(request.Command, request.ExecutorParameter.HostAddress);
+            SqlDataAdapter adpter = new SqlDataAdapter(request.Command, request.ExecutorParameter.Address);
             adpter.SelectCommand.CommandTimeout = request.Timeout;
 
             DataTable table = new DataTable();
@@ -67,7 +67,7 @@ namespace DBHelpers.MSSQL
 
         public int Execute(DBRequest request)
         {
-            SqlConnection conn = new SqlConnection(request.ExecutorParameter.HostAddress);
+            SqlConnection conn = new SqlConnection(request.ExecutorParameter.Address);
             try
             {
                 conn.Open();

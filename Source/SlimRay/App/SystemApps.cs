@@ -1,12 +1,12 @@
-﻿using SlimRay.App.Loaders;
+﻿using SlimRay.UserData;
 
 namespace SlimRay.App
 {
     public static class SystemApps
     {
-        public static IUserDataHelperApp GetUserDataHelper()
+        public static IUserDataHelper GetUserDataHelper()
         {
-            return AppGate.Instance.Get(AppKeys.UserDataAdapter) as IUserDataHelperApp;
+            return AppGate.Instance.Get(AppKeys.UserDataAdapter) as IUserDataHelper;
         }
     }
 }

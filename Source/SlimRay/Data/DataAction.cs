@@ -1,8 +1,9 @@
 ﻿
 namespace SlimRay.Data
 {
-    public enum UpdateAction
+    public enum DataAction
     {
+        Get,
         Add,
         Update,
         Remove

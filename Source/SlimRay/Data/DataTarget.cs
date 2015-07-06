@@ -4,7 +4,7 @@ namespace SlimRay.Data
     /// <summary>
     /// what target will the action effect to.
     /// </summary>
-    public enum UpdateTarget
+    public enum DataTarget
     {
         /// <summary>
         /// the action will change the struct of data, such as add field, remove field.
