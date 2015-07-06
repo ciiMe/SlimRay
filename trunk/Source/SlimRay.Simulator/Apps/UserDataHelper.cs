@@ -10,7 +10,7 @@ namespace SlimRay.Addins.Simulator.Apps
      * a data loader should load data from db, 
      * but this app return virtual data directly.
      */
-    public class UserDataHelper : BaseApp, ISimulatorApp, IUserDataHelperApp
+    public class UserDataHelper : BaseApp, ISimulatorApp, IUserDataHelper
     {
         private List<IUserData> _allUserData;
 
@@ -103,12 +103,12 @@ namespace SlimRay.Addins.Simulator.Apps
             }
         }
 
-        public IUserData[] Get()
+        public IUserData[] GetData()
         {
             return _allUserData.ToArray();
         }
 
-        public IUserData Get(string name)
+        public IUserData GetData(string name)
         {
             name = name.Trim().ToUpper();
 
@@ -132,29 +132,16 @@ namespace SlimRay.Addins.Simulator.Apps
             return true;
         }
 
-        public bool SetNewName(string dataName, string newName)
+        public bool UpdateData(string dataName, IUserData newData)
         {
             for (int i = 0; i < _allUserData.Count; i++)
             {
                 if (_allUserData[i].Name == dataName)
                 {
                     IUserData data = _allUserData[i];
-                    data.Name = newName;
-                    _allUserData[i] = data;
-                    return true;
-                }
-            }
-            return false;
-        }
+                    data.Name = newData.Name;
+                    data.Description = newData.Description;
 
-        public bool SetDescription(string name, string description)
-        {
-            for (int i = 0; i < _allUserData.Count; i++)
-            {
-                if (_allUserData[i].Name == name)
-                {
-                    IUserData data = _allUserData[i];
-                    data.Description = description;
                     _allUserData[i] = data;
                     return true;
                 }
@@ -172,7 +159,7 @@ namespace SlimRay.Addins.Simulator.Apps
             throw new System.NotImplementedException();
         }
 
-        public bool Remove(string name)
+        public bool RemoveData(string name)
         {
             for (int i = 0; i < _allUserData.Count; i++)
             {
@@ -219,10 +206,10 @@ namespace SlimRay.Addins.Simulator.Apps
             return null;
         }
 
-        public bool AddField(string dataName, string fieldName, UserFieldType t, string description)
+        public bool AddField(string dataName, IUserField fieldData)
         {
-            var data = Get(dataName);
-            data.AddField(new UserFieldEntiry(fieldName, description, t));
+            var data = GetData(dataName);
+            data.AddField(fieldData);
 
             return true;
         }
@@ -233,7 +220,7 @@ namespace SlimRay.Addins.Simulator.Apps
             {
                 if (_allUserData[i].Name == dataName)
                 {
-                    var data = Get(dataName);
+                    var data = GetData(dataName);
                     data.RemoveFiled(fieldName);
                 }
             }
@@ -241,53 +228,9 @@ namespace SlimRay.Addins.Simulator.Apps
             return true;
         }
 
-        public bool SetFieldName(string dataName, string fieldName, string newName)
-        {
-            for (int i = 0; i < _allUserData.Count; i++)
-            {
-                if (_allUserData[i].Name == dataName)
-                {
-                    var data = _allUserData[i];
-
-                    for (int j = 0; j < data.Fields.Length; j++)
-                    {
-                        if (data.Fields[j].Name == fieldName)
-                        {
-                            data.Fields[j].Name = newName;
-                            _allUserData[i] = data;
-                            return true;
-                        }
-                    }
-                }
-            }
-            return false;
-        }
-
-        public bool SetFieldDescription(string dataName, string fieldName, string description)
-        {
-            for (int i = 0; i < _allUserData.Count; i++)
-            {
-                if (_allUserData[i].Name == dataName)
-                {
-                    var data = _allUserData[i];
-
-                    for (int j = 0; j < data.Fields.Length; j++)
-                    {
-                        if (data.Fields[j].Name == fieldName)
-                        {
-                            data.Fields[j].Description = description;
-                            _allUserData[i] = data;
-                            return true;
-                        }
-                    }
-                }
-            }
-            return false;
-        }
-
         public IUserData[] GetLinkedData(string dataName)
         {
-            IUserData data = Get(dataName);
+            IUserData data = GetData(dataName);
 
             List<IUserData> ld = new List<IUserData>();
 
@@ -299,7 +242,7 @@ namespace SlimRay.Addins.Simulator.Apps
             return ld.ToArray();
         }
 
-        public bool SetFieldType(string dataName, string fieldName, UserFieldType t)
+        public bool UpdateField(string dataName, string fieldName, IUserField fieldData)
         {
             for (int i = 0; i < _allUserData.Count; i++)
             {
@@ -311,7 +254,10 @@ namespace SlimRay.Addins.Simulator.Apps
                     {
                         if (data.Fields[j].Name == fieldName)
                         {
-                            data.Fields[j].Type = t;
+                            data.Fields[j].Name = fieldData.Name;
+                            data.Fields[j].Description = fieldData.Description;
+                            data.Fields[j].Type = fieldData.Type;
+
                             _allUserData[i] = data;
                             return true;
                         }
@@ -320,5 +266,6 @@ namespace SlimRay.Addins.Simulator.Apps
             }
             return false;
         }
+
     }
 }

@@ -1,0 +1,3 @@
+﻿
+
+Get Data value --> Get Data Storage --> Get Data Helper by DataStorage key --> load Data by data helper.

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using SlimRay.Data;
+using System.Collections.Generic;
 
 namespace SlimRay.DB
 {
@@ -11,7 +12,7 @@ namespace SlimRay.DB
     {
         private Dictionary<string, object> _parameters;
 
-        private DBAddress _executorParameters;
+        private IDataAddress _executorParameters;
 
         private string _command;
         private int _timeout;
@@ -39,7 +40,7 @@ namespace SlimRay.DB
             }
         }
 
-        public DBAddress ExecutorParameter
+        public IDataAddress ExecutorParameter
         {
             get { return _executorParameters; }
             set { _executorParameters = value; }
@@ -57,13 +58,13 @@ namespace SlimRay.DB
             set { _timeout = value; }
         }
 
-        public DBRequest(DBAddress ep)
+        public DBRequest(IDataAddress address)
         {
             _parameters = new Dictionary<string, object>();
             _command = "";
             _timeout = 20;
 
-            _executorParameters = ep;
+            _executorParameters = address;
         }
 
         public void AddParameter(string key, object value)

@@ -19,7 +19,7 @@ namespace SlimRay.DB.Helpers
 
         public object GetResult(DBRequest request)
         {
-            SqlConnection conn = new SqlConnection(request.ExecutorParameter.HostAddress);
+            SqlConnection conn = new SqlConnection(request.ExecutorParameter.Address);
 
             try
             {
@@ -48,7 +48,7 @@ namespace SlimRay.DB.Helpers
 
         public DataTable GetDataTable(DBRequest request)
         {
-            SqlDataAdapter adpter = new SqlDataAdapter(request.Command, request.ExecutorParameter.HostAddress);
+            SqlDataAdapter adpter = new SqlDataAdapter(request.Command, request.ExecutorParameter.Address);
             adpter.SelectCommand.CommandTimeout = request.Timeout;
 
             DataTable table = new DataTable();
@@ -68,7 +68,7 @@ namespace SlimRay.DB.Helpers
 
         public int Execute(DBRequest request)
         {
-            SqlConnection conn = new SqlConnection(request.ExecutorParameter.HostAddress);
+            SqlConnection conn = new SqlConnection(request.ExecutorParameter.Address);
             try
             {
                 conn.Open();

@@ -12,7 +12,7 @@ namespace SlimRay.UserData.Mapping
             string fieldNameField = "MappedFieldName";
             string realFieldNameField = "RealFieldName";
 
-            TableManager tm = new TableManager();
+            DataHelper tm = new DataHelper();
 
             //load data from db, and get id from table's data.
             //todo: data can be cached.

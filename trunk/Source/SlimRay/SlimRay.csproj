@@ -113,19 +113,18 @@
     <Compile Include="App\AppPool.cs" />
     <Compile Include="Cache\ICache.cs" />
     <Compile Include="Cache\STMemoryCache.cs" />
-    <Compile Include="Data\DataStorageAddress.cs" />
-    <Compile Include="Data\DataStorageAddressDB.cs" />
-    <Compile Include="Data\IColumn.cs" />
-    <Compile Include="Data\IData.cs" />
-    <Compile Include="Data\IMappable.cs" />
-    <Compile Include="Data\ITable.cs" />
-    <Compile Include="Data\UpdateRequest.cs" />
-    <Compile Include="Data\TableManager.cs" />
+    <Compile Include="Data\DataHelper.cs" />
+    <Compile Include="Data\DataHelperGate.cs" />
     <Compile Include="Data\DataTableNameEntity.cs" />
-    <Compile Include="Data\UpdateAction.cs" />
-    <Compile Include="Data\UpdateTarget.cs" />
+    <Compile Include="Data\IDataAccessApp.cs" />
+    <Compile Include="Data\IDataAddress.cs" />
+    <Compile Include="Data\StorageAddress.cs" />
+    <Compile Include="Data\StorageHelper.cs" />
+    <Compile Include="Data\TabelData\MSSQLAccessApp.cs" />
+    <Compile Include="Data\DataRequest.cs" />
+    <Compile Include="Data\DataAction.cs" />
+    <Compile Include="Data\DataTarget.cs" />
     <Compile Include="UserData\IUserDataHelper.cs" />
-    <Compile Include="Data\ITableManager.cs" />
     <Compile Include="DB\IExecutorCreator.cs" />
     <Compile Include="Error\ErrorEntiry.cs" />
     <Compile Include="Log\IlogWriter.cs" />
@@ -145,7 +144,6 @@
     <Compile Include="UserData\Container\IDataContainer.cs" />
     <Compile Include="UserData\Container\IDataContainerLoader.cs" />
     <Compile Include="UserData\Expression.cs" />
-    <Compile Include="App\Loaders\IUserDataHelperApp.cs" />
     <Compile Include="UserData\LinkedUserField.cs" />
     <Compile Include="UserData\UserFieldValuePair.cs" />
     <Compile Include="Utils\VersionHelper.cs" />
@@ -191,7 +189,7 @@
     <Compile Include="Store\Operators\ParserMSSQL.cs" />
     <Compile Include="Store\StorageAddress.cs" />
     <Compile Include="DB\IExecutor.cs" />
-    <Compile Include="DB\Request.cs" />
+    <Compile Include="DB\DBRequest.cs" />
     <Compile Include="Store\StorageAddresses\MSSQLServer.cs" />
     <Compile Include="Store\StoreageType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -214,6 +212,7 @@
   <ItemGroup>
     <Folder Include="Coding\" />
     <Folder Include="DataSource\" />
+    <Folder Include="Data\CommonData\" />
     <Folder Include="Devices\" />
     <Folder Include="Internal\" />
     <Folder Include="Network\" />
@@ -225,6 +224,7 @@
   <ItemGroup>
     <Content Include="App\todo.txt" />
     <Content Include="Cache\ReadMe.txt" />
+    <Content Include="Data\DataLoadProcedure.txt" />
     <Content Include="UserData\DBAdapter\Readme.txt" />
     <Content Include="UserData\TxtFileAdapter\ReadMe.txt" />
     <Content Include="View\Binding\ReadMe.txt" />
