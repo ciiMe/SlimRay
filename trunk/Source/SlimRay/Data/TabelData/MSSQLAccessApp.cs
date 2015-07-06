@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using SlimRay.App;
 using SlimRay.DB;
 
 namespace SlimRay.Data.TabelData
@@ -34,17 +35,26 @@ namespace SlimRay.Data.TabelData
 
         public DataTable GetTable(DataRequest request)
         {
-            throw new System.NotImplementedException();
+            DBRequest r = translateRequest(request);
+            IExecutor ex = AppGate.Instance.Get(request.Address.DataKey) as IExecutor;
+
+            return ex.GetDataTable(r);
         }
 
         public string GetValue(DataRequest request)
         {
-            throw new System.NotImplementedException();
+            DBRequest r = translateRequest(request);
+            IExecutor ex = AppGate.Instance.Get(request.Address.DataKey) as IExecutor;
+
+            return ex.GetResult(r).ToString();
         }
 
         public bool Execute(DataRequest request)
         {
-            throw new System.NotImplementedException();
+            DBRequest r = translateRequest(request);
+            IExecutor ex = AppGate.Instance.Get(request.Address.DataKey) as IExecutor;
+
+            return ex.Execute(r) > 0;
         }
     }
 }
