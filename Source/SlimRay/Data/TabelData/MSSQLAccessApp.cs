@@ -23,12 +23,12 @@ namespace SlimRay.Data.TabelData
                 return ex;
             }
 
-            string err = string.Format("App:{0} is not installed.", request.Address.DataKey);
-            throw new NoAppRegisterExceptioin(err);
+            throw new NoAppRegisterExceptioin(getNoExecutorErrMessage(request));
         }
 
-        private void throwNoAppException(DataRequest request)
+        private string getNoExecutorErrMessage(DataRequest request)
         {
+            return string.Format("App:{0} is not installed.", request.Address.DataKey);
         }
 
         private string buildCommand(DataRequest request)
@@ -39,19 +39,46 @@ namespace SlimRay.Data.TabelData
             {
                 case DataTarget.Data:
                     {
-                    
+                        return buildDataActionSQL(request);
                     } break;
                 case DataTarget.Field:
                     {
-                    
+                        return buildFieldActionSQL(request);
                     } break;
                 case DataTarget.FieldValue:
                     {
-                    
+                        return buildValueActionSQL(request);
                     } break;
             }
 
             return sql;
+        }
+
+        private string buildDataActionSQL(DataRequest request)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private string buildFieldActionSQL(DataRequest request)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private string buildValueActionSQL(DataRequest request)
+        {
+            switch (request.Action)
+            {
+                case DataAction.Get:
+                    { } break;
+                case DataAction.Add:
+                    { } break;
+                case DataAction.Remove:
+                    { } break;
+                case DataAction.Update:
+                    { } break;
+            }
+
+            return "";
         }
 
         public DataTable GetTable(DataRequest request)
