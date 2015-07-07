@@ -98,6 +98,7 @@
     <Compile Include="App\AppGate.cs" />
     <Compile Include="App\AppKeys.cs" />
     <Compile Include="App\BaseApp.cs" />
+    <Compile Include="App\Errors.cs" />
     <Compile Include="App\IAddinDependHelper.cs" />
     <Compile Include="App\IAddinLoader.cs" />
     <Compile Include="App\IAPP.cs" />
