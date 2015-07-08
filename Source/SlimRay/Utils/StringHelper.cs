@@ -3,7 +3,7 @@ using System.Text;
 
 namespace SlimRay.Utils
 {
-    public static class Strings
+    public static class StringHelper
     {
         /// <summary>
         /// 取str中，subStr之前的字符，没有subStr返回""。

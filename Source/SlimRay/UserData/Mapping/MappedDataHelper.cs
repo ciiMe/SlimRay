@@ -19,7 +19,7 @@ namespace SlimRay.UserData.Mapping
             tm.LoadData(mappedDataTableName);
             int id = 0;
 
-            tm.LoadData(mappedDataTableName, new int[] { id });
+            tm.LoadData(mappedDataTableName, new string[] { id.ToString() });
 
             //convert result to entity
             IMappedUserField[] result = new IMappedUserField[] { };
