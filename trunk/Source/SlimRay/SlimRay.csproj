@@ -199,7 +199,7 @@
     <Compile Include="Utils\Coding\MD.cs" />
     <Compile Include="Utils\Files\FileHelper.cs" />
     <Compile Include="Utils\List\ListEnumlator.cs" />
-    <Compile Include="Utils\Strings.cs" />
+    <Compile Include="Utils\StringHelper.cs" />
     <Compile Include="Utils\XML_DT.cs" />
     <Compile Include="View\FieldFormatting.cs" />
     <Compile Include="View\IUI.cs" />

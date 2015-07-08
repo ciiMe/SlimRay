@@ -1,6 +1,8 @@
 ﻿using System.Data;
 using SlimRay.App;
 using SlimRay.DB;
+using SlimRay.Utils;
+using System.Text;
 
 namespace SlimRay.Data.TabelData
 {
@@ -69,7 +71,9 @@ namespace SlimRay.Data.TabelData
             switch (request.Action)
             {
                 case DataAction.Get:
-                    { } break;
+                    {
+                        return string.Format("select {0} from {1} where {2}", getRequestFields(request), getRequestDataName(request), getRequestParameters(request));
+                    } break;
                 case DataAction.Add:
                     { } break;
                 case DataAction.Remove:
@@ -79,6 +83,37 @@ namespace SlimRay.Data.TabelData
             }
 
             return "";
+        }
+
+        private string getRequestFields(DataRequest request)
+        {
+            return StringHelper.ArrayToString(request.RequestFields);
+        }
+
+        private string getRequestDataName(DataRequest request)
+        {
+            return request.DataName;
+        }
+
+        private string getRequestParameters(DataRequest request)
+        {
+            StringBuilder b = new StringBuilder();
+
+            int i =0;
+            foreach (var item in request.Parameters)
+            { 
+                if(item.Values.Length  <=0)
+                {
+                    continue;
+                }
+                else if(item.Values.Length ==1)
+                {
+                b.AppendFormat("{0} = {1}",
+                }
+                    else 
+                    {
+                    }
+            }
         }
 
         public DataTable GetTable(DataRequest request)
