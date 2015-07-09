@@ -9,19 +9,12 @@ namespace SlimRay.Data
         /// only data value canbe accessed.
         /// </summary>
         public DataTarget Target { get { return DataTarget.FieldValue; } }
-
         public DataAction Action { get; set; }
 
         public string DataName { get; set; }
 
         public string[] RequestFields { get; set; }
-
         public FieldValueCollection[] Parameters { get; set; }
-
-        /// <summary>
-        /// id of data which will be updated.
-        /// </summary>
-        public int DataId { get; set; }
     }
 
     public enum FieldType
