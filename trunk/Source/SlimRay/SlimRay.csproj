@@ -121,7 +121,7 @@
     <Compile Include="Data\IDataAddress.cs" />
     <Compile Include="Data\StorageAddress.cs" />
     <Compile Include="Data\StorageHelper.cs" />
-    <Compile Include="Data\TabelData\MSSQLAccessApp.cs" />
+    <Compile Include="Data\TableData\MSSQLAccessApp.cs" />
     <Compile Include="Data\DataRequest.cs" />
     <Compile Include="Data\DataAction.cs" />
     <Compile Include="Data\DataTarget.cs" />

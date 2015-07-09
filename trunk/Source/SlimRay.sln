@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlimRay.Addins.Demo", "Slim
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBHelpers.MSSQL", "DBHelpers\DBHelpers.MSSQL.csproj", "{9BE3D8A9-CCF0-4F72-BBA8-54E4EFA9E287}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlimRayUnitTest", "Tests\SlimRayUnitTest\SlimRayUnitTest.csproj", "{030C82F2-0801-4AA2-BFB4-F192A9023DC5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,14 @@ Global
 		{9BE3D8A9-CCF0-4F72-BBA8-54E4EFA9E287}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9BE3D8A9-CCF0-4F72-BBA8-54E4EFA9E287}.Release|x64.ActiveCfg = Release|Any CPU
 		{9BE3D8A9-CCF0-4F72-BBA8-54E4EFA9E287}.Release|x86.ActiveCfg = Release|Any CPU
+		{030C82F2-0801-4AA2-BFB4-F192A9023DC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{030C82F2-0801-4AA2-BFB4-F192A9023DC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{030C82F2-0801-4AA2-BFB4-F192A9023DC5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{030C82F2-0801-4AA2-BFB4-F192A9023DC5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{030C82F2-0801-4AA2-BFB4-F192A9023DC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{030C82F2-0801-4AA2-BFB4-F192A9023DC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{030C82F2-0801-4AA2-BFB4-F192A9023DC5}.Release|x64.ActiveCfg = Release|Any CPU
+		{030C82F2-0801-4AA2-BFB4-F192A9023DC5}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
