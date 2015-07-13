@@ -8,6 +8,9 @@ namespace DBHelpers.MSSQL
 {
     public class MSSQLHelper : BaseApp, IExecutor
     {
+
+        //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password=myPassword;
+
         public MSSQLHelper()
         {
             _name = "MSSQL";
@@ -31,11 +34,13 @@ namespace DBHelpers.MSSQL
             }
 
             SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = request.Command;
             cmd.CommandTimeout = request.Timeout;
 
             try
             {
                 SqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
                 return reader.GetString(0);
             }
             catch (Exception ex)

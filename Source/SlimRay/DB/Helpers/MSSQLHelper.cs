@@ -37,6 +37,7 @@ namespace SlimRay.DB.Helpers
             try
             {
                 SqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
                 return reader.GetString(0);
             }
             catch (Exception ex)
@@ -80,6 +81,7 @@ namespace SlimRay.DB.Helpers
             }
 
             SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = request.Command;
             cmd.CommandTimeout = request.Timeout;
 
             try
