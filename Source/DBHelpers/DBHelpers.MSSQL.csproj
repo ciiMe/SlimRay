@@ -37,8 +37,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SqlAction.cs" />
+    <Compile Include="ISqlRequestHandler.cs" />
     <Compile Include="MSSQLHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlCommandTranslator.cs" />
+    <Compile Include="SqlRequestHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SlimRay\SlimRay.csproj">
