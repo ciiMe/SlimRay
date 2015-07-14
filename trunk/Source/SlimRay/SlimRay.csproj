@@ -125,8 +125,9 @@
     <Compile Include="Data\DataRequest.cs" />
     <Compile Include="Data\DataAction.cs" />
     <Compile Include="Data\DataTarget.cs" />
+    <Compile Include="DB\IDataRequestTranslator.cs" />
+    <Compile Include="DB\IDBCommandTranslator.cs" />
     <Compile Include="UserData\IUserDataHelper.cs" />
-    <Compile Include="DB\IExecutorCreator.cs" />
     <Compile Include="Error\ErrorEntiry.cs" />
     <Compile Include="Log\IlogWriter.cs" />
     <Compile Include="UserData\DBAdapter\InnerData.cs" />

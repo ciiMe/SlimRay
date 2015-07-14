@@ -8,93 +8,77 @@ namespace DBHelpers.MSSQL
 {
     public class MSSQLHelper : BaseApp, IExecutor
     {
+        public const string APPKEY = "SlimRay.DB.Helpers.MSSQLHelper";
+        public const string DefaultConnectionString = "Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password=myPassword;";
 
-        //Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password=myPassword;
+        private ISqlRequestHandler _handler;
+        private IDBCommandTranslator _translator;
 
         public MSSQLHelper()
         {
             _name = "MSSQL";
             _description = "DB helper in MSSQL server.";
-            _key = "SlimRay.DB.Helpers.MSSQLHelper";
+            _key = APPKEY;
             _version = "0.1";
+
+            _handler = new SqlRequestHandler();
+            _translator = new SqlCommandTranslator();
+        }
+
+        private void translateRequestToSqlCommand(DBRequest request, ref SqlCommand cmd)
+        {
+            cmd.CommandText = _translator.ToDBCommand(request);
+
+            foreach (var p in request.Parameters)
+            {
+                cmd.Parameters.AddWithValue(p.Key, p.Value);
+            }
+
+            cmd.CommandTimeout = request.Timeout;
+        }
+
+        private T executeRequest<T>(DBRequest request, SqlAction<T> action)
+        {
+            using (SqlConnection conn = new SqlConnection(request.ExecutorParameter.Address))
+            {
+                try
+                {
+                    conn.Open();
+                }
+                catch (Exception ex)
+                {
+                    //todo:log this error.
+                    return default(T);
+                }
+
+                SqlCommand cmd = conn.CreateCommand();
+                translateRequestToSqlCommand(request, ref cmd);
+
+                try
+                {
+                    return action(cmd);
+                }
+                catch (Exception ex)
+                {
+                    //todo:log this error.
+                    return default(T);
+                }
+            }
         }
 
         public object GetResult(DBRequest request)
         {
-            SqlConnection conn = new SqlConnection(request.ExecutorParameter.Address);
-
-            try
-            {
-                conn.Open();
-            }
-            catch (Exception ex)
-            {
-                //todo:log this error.
-                return null;
-            }
-
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = request.Command;
-            cmd.CommandTimeout = request.Timeout;
-
-            try
-            {
-                SqlDataReader reader = cmd.ExecuteReader();
-                reader.Read();
-                return reader.GetString(0);
-            }
-            catch (Exception ex)
-            {
-                //todo:log this error.
-                return null;
-            }
+            return executeRequest<object>(request, _handler.GetValue);
         }
 
         public DataTable GetDataTable(DBRequest request)
         {
-            SqlDataAdapter adpter = new SqlDataAdapter(request.Command, request.ExecutorParameter.Address);
-            adpter.SelectCommand.CommandTimeout = request.Timeout;
-
-            DataTable table = new DataTable();
-
-            try
-            {
-                adpter.Fill(table);
-            }
-            catch (Exception ex)
-            {
-                //todo:log this error.
-                return null;
-            }
-
-            return table;
+            return executeRequest<DataTable>(request, _handler.GetTabel);
         }
 
         public int Execute(DBRequest request)
         {
-            SqlConnection conn = new SqlConnection(request.ExecutorParameter.Address);
-            try
-            {
-                conn.Open();
-            }
-            catch (Exception ex)
-            {
-                //todo:log this error.
-                return -1;
-            }
-
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandTimeout = request.Timeout;
-
-            try
-            {
-                return cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                //todo:log this error.
-                return -1;
-            }
+            return executeRequest<int>(request, _handler.Execute);
         }
     }
 }
