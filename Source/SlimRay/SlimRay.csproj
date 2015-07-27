@@ -138,6 +138,7 @@
     <Compile Include="Data\DataAction.cs" />
     <Compile Include="Data\DataTarget.cs" />
     <Compile Include="Data\Utils\DataTableHelper.cs" />
+    <Compile Include="Log\LogWritter.cs" />
     <Compile Include="UserData\IUserDataHelper.cs" />
     <Compile Include="Error\ErrorEntiry.cs" />
     <Compile Include="Log\IlogWriter.cs" />
