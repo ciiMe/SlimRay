@@ -7,8 +7,8 @@
     <ProjectGuid>{9BE3D8A9-CCF0-4F72-BBA8-54E4EFA9E287}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DBHelpers.MSSQL</RootNamespace>
-    <AssemblyName>DBHelpers.MSSQL</AssemblyName>
+    <RootNamespace>DBHelpers</RootNamespace>
+    <AssemblyName>DBHelpers</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -37,11 +37,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SqlAction.cs" />
-    <Compile Include="ISqlRequestHandler.cs" />
-    <Compile Include="MSSQLHelper.cs" />
+    <Compile Include="Access\IAccessRequestHandler.cs" />
+    <Compile Include="Access\AccessHelper.cs" />
+    <Compile Include="Access\AccessAction.cs" />
+    <Compile Include="Access\AccessRequestHandler.cs" />
+    <Compile Include="MSSQL\SqlAction.cs" />
+    <Compile Include="MSSQL\ISqlRequestHandler.cs" />
+    <Compile Include="MSSQL\MSSQLHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SqlRequestHandler.cs" />
+    <Compile Include="MSSQL\SqlRequestHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SlimRay\SlimRay.csproj">
@@ -50,6 +54,7 @@
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
