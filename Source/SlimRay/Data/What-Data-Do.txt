@@ -1,0 +1,5 @@
+﻿the Data layer is an adapter layer which connect to the UserData and the RealDataStoragPlace, it saves all kinds of data to variants of storage place(such as db server, text file, http server etc).
+
+it provide all necessary services for its user which is UserData.
+
+it do all real actions to the real data which saved in different storage place.
