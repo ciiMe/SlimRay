@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using SlimRay.Data.Utils;
+using System.Data;
 
 namespace SlimRay.Data
 {
@@ -50,11 +51,43 @@ namespace SlimRay.Data
             };
             //todo: attatch id and other parameters.
             IDataAccessApp app = DataHelperGate.Instance.GetDataAccessApp(request.Address.DataKey);
-
             return app.GetTable(request);
         }
 
-        public string LoadField(string dataName, string fieldName, int id)
+        public string[] LoadFieldValue(string dataName, string fieldName)
+        {
+            DataRequest r = buildRequest(dataName);
+            r.RequestFields = new string[] { fieldName };
+            IDataAccessApp app = DataHelperGate.Instance.GetDataAccessApp(r.Address.DataKey);
+
+            return DataTableHelper.GetFieldAsArray(app.GetTable(r), fieldName);
+        }
+
+
+        public string[] LoadFieldValue(string dataName, string fieldName, DataFilter filter)
+        {
+            DataRequest r = buildRequest(dataName);
+            r.RequestFields = new string[] { fieldName };
+
+            FieldValueCollection[] par = new FieldValueCollection[filter.Count];
+
+            for (int i = 0; i < filter.Count; i++)
+            {
+                par[i] = new FieldValueCollection()
+                {
+                    FieldName = filter[i].fieldName,
+                    Values = new string[] { filter[i].value }
+                };
+            }
+
+            r.Parameters = par;
+
+            IDataAccessApp app = DataHelperGate.Instance.GetDataAccessApp(r.Address.DataKey);
+
+            return DataTableHelper.GetFieldAsArray(app.GetTable(r), fieldName);
+        }
+
+        public string LoadFieldValue(string dataName, string fieldName, int id)
         {
             DataRequest request = buildRequest(dataName);
             request.RequestFields = new string[] { fieldName };
@@ -74,7 +107,6 @@ namespace SlimRay.Data
         public bool ExecuteDataRequest(DataRequest request)
         {
             IDataAccessApp app = DataHelperGate.Instance.GetDataAccessApp(request.Address.DataKey);
-
             return app.Execute(request);
         }
 
