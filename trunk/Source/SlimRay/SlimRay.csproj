@@ -119,7 +119,6 @@
     <Compile Include="Data\DataFilterItem.cs" />
     <Compile Include="Data\DataHelper.cs" />
     <Compile Include="Data\DataHelperGate.cs" />
-    <Compile Include="Data\DataTableNameEntity.cs" />
     <Compile Include="Data\IDataAccessApp.cs" />
     <Compile Include="Data\IDataAddress.cs" />
     <Compile Include="Data\Mapping\MappedData.cs" />
@@ -133,6 +132,7 @@
     <Compile Include="Data\SysData\DataList.cs" />
     <Compile Include="Data\SysData\DefaultApp\SystemDataInitializer.cs" />
     <Compile Include="Data\SysData\FieldList.cs" />
+    <Compile Include="Data\SysData\SysDataCache.cs" />
     <Compile Include="Data\TableData\MSSQLAccessApp.cs" />
     <Compile Include="Data\DataRequest.cs" />
     <Compile Include="Data\DataAction.cs" />
@@ -239,6 +239,7 @@
     <Content Include="App\todo.txt" />
     <Content Include="Cache\ReadMe.txt" />
     <Content Include="Data\DataLoadProcedure.txt" />
+    <Content Include="Data\What-Data-Do.txt" />
     <Content Include="UserData\DBAdapter\Readme.txt" />
     <Content Include="UserData\TxtFileAdapter\ReadMe.txt" />
     <Content Include="View\Binding\ReadMe.txt" />
