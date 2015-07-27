@@ -3,6 +3,10 @@
 namespace SlimRay.UserData.DBAdapter
 {
     //todo: who initialize it?
+    public class DataTableNameEntity
+    {
+        public string TableName { get; set; }
+    }
 
     /// <summary>
     /// system datatable list data will be keeped here after loading from config file.

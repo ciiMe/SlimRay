@@ -100,5 +100,10 @@ namespace SlimRay.DB.Helpers
                 return -1;
             }
         }
+
+        public DBAccessObjects GetWithTool(DBRequest request)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

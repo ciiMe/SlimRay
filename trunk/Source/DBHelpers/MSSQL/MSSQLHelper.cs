@@ -56,7 +56,7 @@ namespace DBHelpers.MSSQL
 
                 try
                 {
-                    return action(cmd);
+                    return action(cmd, request.ExecutorParameter.Address);
                 }
                 catch (Exception ex)
                 {
@@ -80,6 +80,11 @@ namespace DBHelpers.MSSQL
         public int Execute(DBRequest request)
         {
             return executeRequest<int>(request, _handler.Execute);
+        }
+
+        public DBAccessObjects GetWithTool(DBRequest request)
+        {
+            return executeRequest<DBAccessObjects>(request, _handler.GetWithTool);
         }
     }
 }

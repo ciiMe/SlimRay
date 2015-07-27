@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DBHelpers.MSSQL")]
+[assembly: AssemblyTitle("DBHelpers")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DBHelpers.MSSQL")]
+[assembly: AssemblyProduct("DBHelpers")]
 [assembly: AssemblyCopyright("Copyright © SR 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

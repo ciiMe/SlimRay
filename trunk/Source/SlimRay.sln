@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlimRay", "SlimRay\SlimRay.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlimRay.Addins.Demo", "SlimRay.Addins.Demo\SlimRay.Addins.Demo.csproj", "{9F49F3B9-9C6D-4303-9DDC-E64B332B1F87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBHelpers.MSSQL", "DBHelpers\DBHelpers.MSSQL.csproj", "{9BE3D8A9-CCF0-4F72-BBA8-54E4EFA9E287}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBHelpers", "DBHelpers\DBHelpers.csproj", "{9BE3D8A9-CCF0-4F72-BBA8-54E4EFA9E287}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlimRay.Test.DB", "Tests\SlimRay.Test.DB\SlimRay.Test.DB.csproj", "{E0A9D73D-0013-418F-9FEF-D3F757DF8946}"
 EndProject
