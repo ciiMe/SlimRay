@@ -12,5 +12,9 @@ namespace SlimRay.Log
         /// write log for special domain
         /// </summary>
         void Append(int domainId, string log);
+
+        void Error(string msg);
+        void Warn(string msg);
+        string Message(string msg);
     }
 }

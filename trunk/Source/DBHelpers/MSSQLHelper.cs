@@ -1,5 +1,6 @@
 ﻿using SlimRay.App;
 using SlimRay.DB;
+using SlimRay.Log;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -12,7 +13,6 @@ namespace DBHelpers.MSSQL
         public const string DefaultConnectionString = "Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password=myPassword;";
 
         private ISqlRequestHandler _handler;
-        private IDBCommandTranslator _translator;
 
         public MSSQLHelper()
         {
@@ -22,12 +22,11 @@ namespace DBHelpers.MSSQL
             _version = "0.1";
 
             _handler = new SqlRequestHandler();
-            _translator = new SqlCommandTranslator();
         }
 
         private void translateRequestToSqlCommand(DBRequest request, ref SqlCommand cmd)
         {
-            cmd.CommandText = _translator.ToDBCommand(request);
+            cmd.CommandText = request.Command;
 
             foreach (var p in request.Parameters)
             {
@@ -47,7 +46,8 @@ namespace DBHelpers.MSSQL
                 }
                 catch (Exception ex)
                 {
-                    //todo:log this error.
+                    LogWritter.Instance.Error(ex.Message);
+                    LogWritter.Instance.Error(ex.StackTrace);
                     return default(T);
                 }
 
@@ -60,7 +60,8 @@ namespace DBHelpers.MSSQL
                 }
                 catch (Exception ex)
                 {
-                    //todo:log this error.
+                    LogWritter.Instance.Error(ex.Message);
+                    LogWritter.Instance.Error(ex.StackTrace);
                     return default(T);
                 }
             }

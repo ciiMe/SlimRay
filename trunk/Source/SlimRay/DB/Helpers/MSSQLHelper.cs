@@ -1,4 +1,5 @@
 ﻿using SlimRay.App;
+using SlimRay.Log;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -27,7 +28,8 @@ namespace SlimRay.DB.Helpers
             }
             catch (Exception ex)
             {
-                //todo:log this error.
+                LogWritter.Instance.Error(ex.Message);
+                LogWritter.Instance.Error(ex.StackTrace);
                 return null;
             }
 
@@ -42,7 +44,8 @@ namespace SlimRay.DB.Helpers
             }
             catch (Exception ex)
             {
-                //todo:log this error.
+                LogWritter.Instance.Error(ex.Message);
+                LogWritter.Instance.Error(ex.StackTrace);
                 return null;
             }
         }
@@ -60,7 +63,8 @@ namespace SlimRay.DB.Helpers
             }
             catch (Exception ex)
             {
-                //todo:log this error.
+                LogWritter.Instance.Error(ex.Message);
+                LogWritter.Instance.Error(ex.StackTrace);
                 return null;
             }
 
@@ -76,7 +80,8 @@ namespace SlimRay.DB.Helpers
             }
             catch (Exception ex)
             {
-                //todo:log this error.
+                LogWritter.Instance.Error(ex.Message);
+                LogWritter.Instance.Error(ex.StackTrace);
                 return -1;
             }
 
@@ -90,7 +95,8 @@ namespace SlimRay.DB.Helpers
             }
             catch (Exception ex)
             {
-                //todo:log this error.
+                LogWritter.Instance.Error(ex.Message);
+                LogWritter.Instance.Error(ex.StackTrace);
                 return -1;
             }
         }

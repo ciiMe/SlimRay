@@ -59,15 +59,15 @@ namespace SlimRay.Data.TableData
             {
                 case DataTarget.Data:
                     {
-                        return buildDataActionSQL(request);
+                        sql = buildDataActionSQL(request);
                     } break;
                 case DataTarget.Field:
                     {
-                        return buildFieldActionSQL(request);
+                        sql = buildFieldActionSQL(request);
                     } break;
                 case DataTarget.FieldValue:
                     {
-                        return buildValueActionSQL(request);
+                        sql = buildValueActionSQL(request);
                     } break;
             }
 
@@ -86,11 +86,13 @@ namespace SlimRay.Data.TableData
 
         private string buildValueActionSQL(DataRequest request)
         {
+            string sql = "";
+
             switch (request.Action)
             {
                 case DataAction.Get:
                     {
-                        return string.Format("select {0} from {1} where {2}", getSQLFields(request), getSQLDataName(request), getSQLParameters(request));
+                        sql = string.Format("select {0} from {1} where {2}", getSQLFields(request), getSQLDataName(request), getSQLParameters(request));
                     } break;
                 case DataAction.Add:
                     { } break;
@@ -100,7 +102,7 @@ namespace SlimRay.Data.TableData
                     { } break;
             }
 
-            return "";
+            return sql;
         }
 
         private string getSQLFields(DataRequest request)

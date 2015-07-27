@@ -15,33 +15,20 @@ namespace SlimRay.Addins.Simulator.Apps
             _description = "Load all actions.";
             _version = "0.1";
 
+            _key = AppKeys.ActionLoader;
+
             _actions = new List<IAction>();
             initActions();
         }
 
-        public void Initialize(string parameter)
+        public override void Initialize(string parameter)
         {
             _isInitialized = true;
         }
 
-        public void Terminate()
+        public override void Terminate()
         {
             throw new System.NotImplementedException();
-        }
-
-        public string GetName()
-        {
-            return _name;
-        }
-
-        public string GetDescription()
-        {
-            return _description;
-        }
-
-        public string GetKey()
-        {
-            return AppKeys.ActionLoader;
         }
 
         private void initActions()
